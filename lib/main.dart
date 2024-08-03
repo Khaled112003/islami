@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islami/core/constant/my_color.dart';
 import 'package:islami/core/utilitis/routes.dart';
 
 void main() {
@@ -14,7 +15,7 @@ class IslamiApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routerConfig: router,
       theme: ThemeData.light().copyWith(
-        scaffoldBackgroundColor: Color(0xFFFFFFFF),
+        scaffoldBackgroundColor:Mycolors.myWhite,
         textTheme: ThemeData.light().textTheme.apply(
               bodyColor: Colors.black,   
               displayColor: Colors.black,
