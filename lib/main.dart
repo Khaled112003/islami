@@ -1,9 +1,13 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:islami/core/constant/my_color.dart';
 import 'package:islami/core/utilitis/routes.dart';
 
 void main() {
-  runApp(const IslamiApp());
+  runApp( DevicePreview(
+    
+    builder: (context) => const IslamiApp(), // 
+  ),);
 }
 
 class IslamiApp extends StatelessWidget {
@@ -12,6 +16,7 @@ class IslamiApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      builder: DevicePreview.appBuilder,
       debugShowCheckedModeBanner: false,
       routerConfig: router,
       theme: ThemeData.light().copyWith(
