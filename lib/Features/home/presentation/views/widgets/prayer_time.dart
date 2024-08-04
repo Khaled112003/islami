@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:islami/Features/home/presentation/views/widgets/prayer_time_img.dart';
 import 'package:islami/core/constant/my_color.dart';
 
 class PrayerTime extends StatelessWidget {
@@ -25,7 +26,9 @@ class PrayerTime extends StatelessWidget {
        
         width:double.infinity ,
         height: MediaQuery.of(context).size.height*0.57,
-        child: Column(children: [
+        child: Column(mainAxisAlignment: MainAxisAlignment.start
+        , children: [
+          PrayerTimeImage()
       
           
         ],),
