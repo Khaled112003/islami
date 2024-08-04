@@ -10,7 +10,7 @@ class HomeBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Column(children: [
       customAppbar(),
-      SizedBox(height: 50,),
+      SizedBox(height: 30,),
       PrayerTime(),
       
 
