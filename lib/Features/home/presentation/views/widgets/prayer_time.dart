@@ -24,7 +24,7 @@ class PrayerTime extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: Mycolors.prayertime, 
+          color: Mycolors.prayertime,
           boxShadow: [
             BoxShadow(
               color: const Color.fromARGB(255, 189, 186, 186).withOpacity(0.5),

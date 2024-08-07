@@ -7,22 +7,32 @@ class customAppbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(10)
-      , color:Mycolors.collectionColor ,
-    )
-      ,
-    height: MediaQuery.of(context).size.height*0.10, child: 
-   const Row(
-    mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-      
-      ItemImage(image: 'assets/images/sbhaa.png', text: 'Tasbih',),
-      
-      ItemImage(image: 'assets/images/doaa.png' ,text: 'accident',),
-      
-      ItemImage(image: 'assets/images/ahades.png' , text: 'Doaa',),
-      SizedBox(height: 40,)
-      
-    ],),);
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: Mycolors.collectionColor,
+      ),
+      height: MediaQuery.of(context).size.height * 0.10,
+      child: const Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          ItemImage(
+            image: 'assets/images/sbhaa.png',
+            text: 'Tasbih',
+          ),
+          ItemImage(
+            image: 'assets/images/doaa.png',
+            text: 'accident',
+          ),
+          ItemImage(
+            image: 'assets/images/ahades.png',
+            text: 'Doaa',
+          ),
+          SizedBox(
+            height: 40,
+          )
+        ],
+      ),
+    );
   }
 }

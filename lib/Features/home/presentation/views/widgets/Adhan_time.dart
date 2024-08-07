@@ -20,7 +20,9 @@ class AdhanTime extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Icon(icon, size: 30),
-          Text(adhanname, style: const TextStyle(fontSize: 18 ,fontWeight: FontWeight.w500)),
+          Text(adhanname,
+              style:
+                  const TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
           Text(adhandate,
               style:
                   const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),

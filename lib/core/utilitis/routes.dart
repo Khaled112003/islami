@@ -1,10 +1,11 @@
 import 'package:go_router/go_router.dart';
 import 'package:islami/Features/home/presentation/views/home_page.dart';
 
-final router = GoRouter(routes: [
-  GoRoute(
-    path: '/',
-    builder: (context, state) => const HomePage(),
-  ),
-],
+final router = GoRouter(
+  routes: [
+    GoRoute(
+      path: '/',
+      builder: (context, state) => const HomePage(),
+    ),
+  ],
 );

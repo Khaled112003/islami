@@ -4,10 +4,11 @@ import 'package:islami/core/constant/my_color.dart';
 import 'package:islami/core/utilitis/routes.dart';
 
 void main() {
-  runApp( DevicePreview(
-    
-    builder: (context) => const IslamiApp(), // 
-  ),);
+  runApp(
+    DevicePreview(
+      builder: (context) => const IslamiApp(), //
+    ),
+  );
 }
 
 class IslamiApp extends StatelessWidget {
@@ -20,9 +21,9 @@ class IslamiApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routerConfig: router,
       theme: ThemeData.light().copyWith(
-        scaffoldBackgroundColor:Mycolors.myWhite,
+        scaffoldBackgroundColor: Mycolors.myWhite,
         textTheme: ThemeData.light().textTheme.apply(
-              bodyColor: Colors.black,   
+              bodyColor: Colors.black,
               displayColor: Colors.black,
             ),
       ),
