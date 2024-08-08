@@ -19,7 +19,7 @@ final class PrayerTimefailure extends PrayerTimeState {
   const PrayerTimefailure(this.errorMassage);
 }
 
-final class PrayerTimesuccses extends PrayerTimeState {
+final class PrayerTimesuccsess extends PrayerTimeState {
   List<PrayerTimeModel> Adhan;
-  PrayerTimesuccses(this.Adhan);
+  PrayerTimesuccsess(this.Adhan);
 }
