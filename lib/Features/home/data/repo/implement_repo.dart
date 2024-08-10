@@ -11,7 +11,7 @@ import 'package:islami/core/utilitis/api_server.dart';
 class ImplementionPrayerTimeRepo extends PrayerTimeRepo{
   final ApiService apiService;
 
-  ImplementionPrayerTimeRepo({required this.apiService});
+  ImplementionPrayerTimeRepo( this.apiService);
   @override
   Future<Either<Failure, List<PrayerTimeModel>>> fetchPrayerTime() async{
     try {
