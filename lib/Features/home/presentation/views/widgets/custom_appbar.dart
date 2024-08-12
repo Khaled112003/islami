@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:islami/Features/home/presentation/views/widgets/item_image.dart';
 import 'package:islami/core/constant/my_color.dart';
 
-class customAppbar extends StatelessWidget {
-  const customAppbar({super.key});
+class CustomAppbar extends StatelessWidget {
+  const CustomAppbar({super.key});
 
   @override
   Widget build(BuildContext context) {

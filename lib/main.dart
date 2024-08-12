@@ -2,9 +2,12 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:islami/core/constant/my_color.dart';
 import 'package:islami/core/utilitis/routes.dart';
+import 'package:islami/core/utilitis/singleton_pattern.dart';
 
 void main() {
+  setup();
   runApp(
+    
     DevicePreview(
       builder: (context) => const IslamiApp(), //
     ),
