@@ -17,7 +17,7 @@ class PrayerTime extends StatelessWidget {
     return BlocBuilder<PrayerTimeCubit, PrayerTimeState>(
       builder: (context, state) {
         if (state is PrayerTimesuccsess) {
-          var adhanTimes = state.Adhan.items;
+          var adhanTimes = state.Adhan?.first.items;
           return Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
@@ -56,7 +56,7 @@ class PrayerTime extends StatelessWidget {
                 AdhanTime(
                   adhanname: 'العصر',
                   icon: CupertinoIcons.sunset,
-                  adhandate:  "غير متوفر",
+                  adhandate: adhanTimes?.first.asr ?? "غير متوفر",
                 ),
                 AdhanTime(
                   adhanname: 'المغرب',

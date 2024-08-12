@@ -20,6 +20,6 @@ final class PrayerTimefailure extends PrayerTimeState {
 }
 
 final class PrayerTimesuccsess extends PrayerTimeState {
-  PrayerTimeModel Adhan;
+  List<PrayerTimeModel> Adhan;
   PrayerTimesuccsess(this.Adhan);
 }
