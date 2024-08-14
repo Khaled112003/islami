@@ -6,6 +6,11 @@ class FailureErrorMessage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text( errormassage, textAlign: TextAlign.center ,style:const TextStyle(fontSize: 18, fontWeight: FontWeight.w700),));
+    return Center(
+        child: Text(
+      errormassage,
+      textAlign: TextAlign.center,
+      style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+    ));
   }
 }

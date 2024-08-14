@@ -1,41 +1,28 @@
-import 'package:equatable/equatable.dart';
+class PrayerTimeModel {
+  final String fajr;
+  final String shurooq;
+  final String dhuhr;
+  final String asr;
+  final String maghrib;
+  final String isha;
 
-import 'item.dart';
-
-
-class PrayerTimeModel extends Equatable {
-  
-  final List<Item>? items;
-  
-
-  const PrayerTimeModel({
-    
-    this.items,
-    
+  PrayerTimeModel({
+    required this.fajr,
+    required this.shurooq,
+    required this.dhuhr,
+    required this.asr,
+    required this.maghrib,
+    required this.isha,
   });
 
   factory PrayerTimeModel.fromJson(Map<String, dynamic> json) {
     return PrayerTimeModel(
-      
-      items: (json['items'] as List<dynamic>?)
-          ?.map((e) => Item.fromJson(Map<String, dynamic>.from(e)))
-          .toList(),
-     
+      fajr: json['fajr'] ?? 'غير متوفر',
+      shurooq: json['shurooq'] ?? 'غير متوفر',
+      dhuhr: json['dhuhr'] ?? 'غير متوفر',
+      asr: json['asr'] ?? 'غير متوفر',
+      maghrib: json['maghrib'] ?? 'غير متوفر',
+      isha: json['isha'] ?? 'غير متوفر',
     );
-  }
-
-  Map<String, dynamic> toJson() => {
-      
-        if (items != null) 'items': items?.map((e) => e.toJson()).toList(),
-        
-      };
-
-  @override
-  List<Object?> get props {
-    return [
-     
-      items,
-     
-    ];
   }
 }
