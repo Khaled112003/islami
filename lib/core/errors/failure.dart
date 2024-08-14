@@ -27,7 +27,7 @@ class ServerFailure extends Failure {
         }
         return ServerFailure('Unexpected Error, Please try again!');
       default:
-        return ServerFailure('Opps There was an Error, Please try again');
+        return ServerFailure('Opps There was an Error, Please try again jj');
     }
   }
 
@@ -39,7 +39,7 @@ class ServerFailure extends Failure {
     } else if (statusCode == 500) {
       return ServerFailure('Internal Server error, Please try later');
     } else {
-      return ServerFailure('Opps There was an Error, Please try again');
+      return ServerFailure('Opps There was an Error, Please try again mmmm');
     }
   }
 }

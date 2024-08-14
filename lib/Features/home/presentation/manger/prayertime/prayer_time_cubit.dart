@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:islami/Features/home/data/repo/prayer_time_repo.dart';
@@ -15,9 +13,7 @@ class PrayerTimeCubit extends Cubit<PrayerTimeState> {
     emit(PrayerTimeloading());
     var result = await prayerTimeRepo.fetchPrayerTime();
     result.fold(
-      (fail) => 
-      
-      emit(
+      (fail) => emit(
         PrayerTimefailure(fail.errorMassage),
       ),
       (Adhan) => emit(

@@ -1,13 +1,11 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:islami/Features/home/presentation/manger/prayertime/prayer_time_cubit.dart';
 import 'package:islami/Features/home/presentation/views/widgets/Adhan_time.dart';
+import 'package:islami/Features/home/presentation/views/widgets/prayer_time_img.dart';
 import 'package:islami/core/constant/my_color.dart';
 import 'package:islami/core/widgets/failure_error_massege.dart';
 import 'package:islami/core/widgets/loading.dart';
-
-import 'prayer_time_img.dart';
 
 class PrayerTime extends StatelessWidget {
   const PrayerTime({Key? key}) : super(key: key);
@@ -17,7 +15,7 @@ class PrayerTime extends StatelessWidget {
     return BlocBuilder<PrayerTimeCubit, PrayerTimeState>(
       builder: (context, state) {
         if (state is PrayerTimesuccsess) {
-          var adhanTimes = state.Adhan?.first.items;
+          var adhanTimes = state.Adhan[0];
           return Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
@@ -41,32 +39,32 @@ class PrayerTime extends StatelessWidget {
                 AdhanTime(
                   adhanname: 'الفجر',
                   icon: CupertinoIcons.cloud_moon,
-                  adhandate: adhanTimes?.first.fajr ?? "غير متوفر",
+                  adhandate:adhanTimes.fajr,
                 ),
                 AdhanTime(
                   adhanname: 'الشروق',
                   icon: CupertinoIcons.cloud_sun,
-                  adhandate: adhanTimes?.first.shurooq ?? "غير متوفر",
+                  adhandate:adhanTimes.shurooq
                 ),
                 AdhanTime(
                   adhanname: 'الظهر',
                   icon: CupertinoIcons.sun_max,
-                  adhandate: adhanTimes?.first.dhuhr ?? "غير متوفر",
+                  adhandate:  adhanTimes.dhuhr,
                 ),
                 AdhanTime(
                   adhanname: 'العصر',
                   icon: CupertinoIcons.sunset,
-                  adhandate: adhanTimes?.first.asr ?? "غير متوفر",
+                  adhandate:  adhanTimes.asr,
                 ),
                 AdhanTime(
                   adhanname: 'المغرب',
                   icon: CupertinoIcons.sun_dust,
-                  adhandate: adhanTimes?.first.maghrib ?? "غير متوفر",
+                  adhandate: adhanTimes.maghrib,
                 ),
                 AdhanTime(
                   adhanname: 'العشاء',
                   icon: CupertinoIcons.moon,
-                  adhandate: adhanTimes?.first.isha ?? "غير متوفر",
+                  adhandate: adhanTimes.isha
                 ),
                 const SizedBox(height: 0),
               ],

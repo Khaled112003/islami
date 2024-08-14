@@ -6,14 +6,14 @@ import 'package:islami/Features/home/presentation/manger/prayertime/prayer_time_
 import 'package:islami/Features/home/presentation/views/widgets/custom_appbar.dart';
 import 'package:islami/Features/home/presentation/views/widgets/prayer_time.dart';
 
-class HomeBody extends StatefulWidget {
-  const HomeBody({super.key});
+class DashboardBody extends StatefulWidget {
+  const DashboardBody({super.key});
 
   @override
-  State<HomeBody> createState() => _HomeBodyState();
+  State<DashboardBody> createState() => _DashboardBodyState();
 }
 
-class _HomeBodyState extends State<HomeBody> {
+class _DashboardBodyState extends State<DashboardBody> {
   @override
   void initState() {
     super.initState();
