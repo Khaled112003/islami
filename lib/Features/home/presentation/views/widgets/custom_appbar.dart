@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:islami/Features/home/presentation/views/widgets/item_image.dart';
 import 'package:islami/core/constant/my_color.dart';
 
@@ -13,22 +15,27 @@ class CustomAppbar extends StatelessWidget {
         color: Mycolors.collectionColor,
       ),
       height: MediaQuery.of(context).size.height * 0.10,
-      child: const Row(
+      child:  Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          ItemImage(
-            image: 'assets/images/sbhaa.png',
-            text: 'Tasbih',
+          GestureDetector( onTap:  () {
+            GoRouter.of(context).go('/Tasbih');
+            
+          }, 
+            child:const ItemImage(
+              image: 'assets/images/sbhaa.png',
+              text: 'Tasbih',
+            ),
           ),
-          ItemImage(
+       const   ItemImage(
             image: 'assets/images/doaa.png',
             text: 'accident',
           ),
-          ItemImage(
+        const  ItemImage(
             image: 'assets/images/ahades.png',
             text: 'Doaa',
           ),
-          SizedBox(
+       const   SizedBox(
             height: 40,
           )
         ],
