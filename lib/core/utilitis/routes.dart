@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:islami/Features/Tasbih/presentation/manger/Tasbih_cubit/tasbih_cubit.dart';
 import 'package:islami/Features/Tasbih/presentation/views/Tasbih.dart';
 import 'package:islami/Features/home/data/repo/implement_repo.dart';
 import 'package:islami/Features/home/presentation/manger/prayertime/prayer_time_cubit.dart';
@@ -18,7 +19,10 @@ final router = GoRouter(
     ),
     GoRoute(
       path: '/Tasbih',
-      builder: (context, state) => const Tasbih(),
+      builder: (context, state) => BlocProvider(
+        create: (context) => TasbihCubit(),
+        child: const Tasbih(),
+      ),
     )
   ],
 );

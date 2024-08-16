@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:islami/core/constant/my_color.dart';
 
 class ZakrAndNumber extends StatelessWidget {
-  const ZakrAndNumber({super.key});
+  const ZakrAndNumber({super.key, required this.text});
+  final String text;
+  
 
   @override
   Widget build(BuildContext context) {
@@ -26,20 +28,20 @@ class ZakrAndNumber extends StatelessWidget {
                 shape: BoxShape.circle,
                 color: Mycolors.green,
               ),
-              child: const Center(
+              child:  Center(
                 child: Text(
-                  '1',
-                  style: TextStyle(
+                  text,
+                  style:const TextStyle(
                       color: Colors.white,
                       fontSize: 100,
                       fontWeight: FontWeight.bold),
                 ),
               ),
             ),
-            SizedBox(
+          const  SizedBox(
               height: 30,
             ),
-            Text(
+          const  Text(
               "الحمد لله",
               style: TextStyle(
                   fontFamily: 'NotoNastaliqUrdu',

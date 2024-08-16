@@ -4,7 +4,8 @@ import 'package:flutter/widgets.dart';
 import 'package:islami/core/constant/my_color.dart';
 
 class AddingNumbers extends StatelessWidget {
-  const AddingNumbers({super.key});
+  const AddingNumbers({super.key, required this.onPressed});
+   final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +56,7 @@ class AddingNumbers extends StatelessWidget {
             ),
             Positioned(bottom: MediaQuery.of(context).size.height * 0.09,
             left: 180,
-              child: IconButton(onPressed: (){}, icon:Icon(Icons.restart_alt,size: 40,) ))
+              child: IconButton(onPressed: onPressed, icon:Icon(Icons.restart_alt,size: 40,) ))
           ],
         ),
       ),
