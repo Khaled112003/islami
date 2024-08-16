@@ -13,35 +13,39 @@ class ZakrAndNumber extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: Mycolors.prayertime,
-       
-        
       ),
-      child:  Padding(
-        padding: const EdgeInsets.only(top:20 ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-           Container(
-              width: 200,
-              height: 170,
-              decoration:const BoxDecoration(
-                shape: BoxShape.circle,
-                color: Color.fromARGB(255, 59, 111, 104),
-              ),
-              child:const Center(
-                child: Text(
-                  '1',
-                  style: TextStyle(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            width: 200,
+            height: 170,
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              color: Mycolors.green,
+            ),
+            child: const Center(
+              child: Text(
+                '1',
+                style: TextStyle(
                     color: Colors.white,
                     fontSize: 100,
-                    fontWeight: FontWeight.bold
-                  ),
-                ),
+                    fontWeight: FontWeight.bold),
               ),
-            )
-        
-          ],
-        ),
+            ),
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          Text(
+            "الحمد لله",
+            style: TextStyle(
+                fontFamily: 'NotoNastaliqUrdu',
+                fontSize: 70,
+                fontWeight: FontWeight.bold ,color:Mycolors.green ),
+          )
+        ],
       ),
     );
   }
