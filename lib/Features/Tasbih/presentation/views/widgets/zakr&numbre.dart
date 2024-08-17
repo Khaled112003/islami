@@ -8,11 +8,11 @@ import '../../manger/Tasbih_cubit/tasbih_cubit.dart';
 class ZakrAndNumber extends StatelessWidget {
   const ZakrAndNumber({super.key});
 
-  
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<TasbihCubit, int>(
       builder: (context, count) {
+        final cubit = BlocProvider.of<TasbihCubit>(context); // الوصول إلى الكوبت
         return Center(
           child: Container(
             width: 380,
@@ -34,7 +34,7 @@ class ZakrAndNumber extends StatelessWidget {
                   ),
                   child: Center(
                     child: Text(
-                      count.toString(), 
+                      count.toString(),
                       style: const TextStyle(
                           color: Colors.white,
                           fontSize: 100,
@@ -45,9 +45,9 @@ class ZakrAndNumber extends StatelessWidget {
                 const SizedBox(
                   height: 30,
                 ),
-                const Text(
-                  "الحمد لله",
-                  style: TextStyle(
+                Text(
+                  cubit.currentText, // عرض النص الحالي
+                  style: const TextStyle(
                       fontFamily: 'NotoNastaliqUrdu',
                       fontSize: 70,
                       fontWeight: FontWeight.bold,
