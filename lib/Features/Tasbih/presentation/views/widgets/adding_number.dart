@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:islami/Features/Tasbih/presentation/manger/Tasbih_cubit/tasbih_cubit.dart';
 import 'package:islami/core/constant/my_color.dart';
 
 class AddingNumbers extends StatelessWidget {
-  const AddingNumbers({super.key, required this.onPressed});
-   final VoidCallback onPressed;
+  const AddingNumbers({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,49 +16,106 @@ class AddingNumbers extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
         color: Mycolors.prayertime,
       ),
-      child: Center(
-        child: Stack(
-          clipBehavior: Clip.none,
-          alignment: Alignment.center,
-          children: [
-            Container(
-              width: 92,
-              height: 92,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Mycolors.green,
-              ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          GestureDetector(
+            onTap: () {
+              BlocProvider.of<TasbihCubit>(context).AddingNumbers();
+            },
+            child: Stack(
+              clipBehavior: Clip.none,
+              alignment: Alignment.center,
+              children: [
+                Container(
+                  width: 92,
+                  height: 92,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Mycolors.green,
+                  ),
+                ),
+                Container(
+                  width: 60,
+                  height: 60,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Color.fromARGB(255, 200, 200, 193).withOpacity(0.5),
+                  ),
+                ),
+                Container(
+                  width: 50,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Color.fromARGB(255, 200, 200, 193).withOpacity(0.5),
+                  ),
+                ),
+                Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Color.fromARGB(255, 200, 200, 193).withOpacity(0.7),
+                  ),
+                  child: Icon(
+                    CupertinoIcons.add,
+                    color: Colors.white,
+                    size: 35,
+                  ),
+                ),
+              ],
             ),
-            Container(
-              width: 60,
-              height: 60,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Color.fromARGB(255, 200, 200, 193).withOpacity(0.5),
-              ),
+          ),
+          GestureDetector(
+            onTap: () {
+              BlocProvider.of<TasbihCubit>(context).restart();
+            },
+            child: Stack(
+              clipBehavior: Clip.none,
+              alignment: Alignment.center,
+              children: [
+                Container(
+                  width: 92,
+                  height: 92,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Mycolors.green,
+                  ),
+                ),
+                Container(
+                  width: 60,
+                  height: 60,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Color.fromARGB(255, 200, 200, 193).withOpacity(0.5),
+                  ),
+                ),
+                Container(
+                  width: 50,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Color.fromARGB(255, 200, 200, 193).withOpacity(0.5),
+                  ),
+                ),
+                Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Color.fromARGB(255, 200, 200, 193).withOpacity(0.7),
+                  ),
+                  child: Icon(
+                    CupertinoIcons.restart,
+                    color: Colors.white,
+                    size: 35,
+                  ),
+                ),
+              ],
             ),
-            Container(
-              width: 50,
-              height:50,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Color.fromARGB(255, 200, 200, 193).withOpacity(0.5),
-              ),
-            ),
-            Container(
-              width: 40,
-              height: 40,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Color.fromARGB(255, 200, 200, 193).withOpacity(0.7),
-              ),
-              child: Icon(CupertinoIcons.add, color: Colors.white ,size: 35,),
-            ),
-            Positioned(bottom: MediaQuery.of(context).size.height * 0.09,
-            left: 180,
-              child: IconButton(onPressed: onPressed, icon:Icon(Icons.restart_alt,size: 40,) ))
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

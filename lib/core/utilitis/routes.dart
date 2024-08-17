@@ -19,10 +19,10 @@ final router = GoRouter(
     ),
     GoRoute(
       path: '/Tasbih',
-      builder: (context, state) => BlocProvider(
-        create: (context) => TasbihCubit(),
-        child: const Tasbih(),
+      builder: (context, state) => 
+         const Tasbih(),
       ),
-    )
-  ],
-);
+  ]
+    );
+  
+
