@@ -6,14 +6,10 @@ import 'package:islami/Features/Tasbih/presentation/views/widgets/adding_number.
 import 'package:islami/Features/Tasbih/presentation/views/widgets/tasbih_appbar.dart';
 import 'package:islami/Features/Tasbih/presentation/views/widgets/zakr&numbre.dart';
 
-class Tasbih extends StatefulWidget {
+class Tasbih extends StatelessWidget {
   const Tasbih({super.key});
 
-  @override
-  State<Tasbih> createState() => _TasbihState();
-}
-
-class _TasbihState extends State<Tasbih> {
+ 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
