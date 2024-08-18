@@ -14,7 +14,7 @@ class ImplementionPrayerTimeRepo extends PrayerTimeRepo {
   @override
   Future<Either<Failure, List<PrayerTimeModel>>> fetchPrayerTime() async {
     try {
-      var data = await apiService.get(endpoint: 'cairo/daily.json');
+      var data = await apiService.get(endpoint: 'cairo/daily/true.json');
 
       // print("API Response: $data");
 
