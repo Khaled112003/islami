@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:islami/core/constant/my_color.dart';
@@ -18,7 +19,7 @@ class TasbihAppbar extends StatelessWidget {
               
             },
             icon:const Icon(
-              Icons.close,
+              Icons.arrow_circle_left_outlined,
               size: 40,
               color: Mycolors.green,
             ),
