@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:islami/Features/Accident/presentation/views/accident.dart';
 import 'package:islami/Features/Tasbih/presentation/manger/Tasbih_cubit/tasbih_cubit.dart';
 import 'package:islami/Features/Tasbih/presentation/views/Tasbih.dart';
 import 'package:islami/Features/home/data/repo/implement_repo.dart';
@@ -21,6 +22,11 @@ final router = GoRouter(
       path: '/Tasbih',
       builder: (context, state) => 
          const Tasbih(),
+      ),
+      GoRoute(
+      path: '/Accident',
+      builder: (context, state) => 
+         const Accident(),
       ),
   ]
     );

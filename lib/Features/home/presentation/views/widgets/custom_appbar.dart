@@ -15,27 +15,32 @@ class CustomAppbar extends StatelessWidget {
         color: Mycolors.collectionColor,
       ),
       height: MediaQuery.of(context).size.height * 0.10,
-      child:  Row(
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          GestureDetector( onTap:  () {
-            GoRouter.of(context).go('/Tasbih');
-            
-          }, 
-            child:const ItemImage(
+          GestureDetector(
+            onTap: () {
+              GoRouter.of(context).go('/Tasbih');
+            },
+            child: const ItemImage(
               image: 'assets/images/sbhaa.png',
               text: 'Tasbih',
             ),
           ),
-       const   ItemImage(
-            image: 'assets/images/doaa.png',
-            text: 'accident',
+          GestureDetector(
+            onTap: () {
+              GoRouter.of(context).go('/Accident');
+            },
+            child: const ItemImage(
+              image: 'assets/images/doaa.png',
+              text: 'accident',
+            ),
           ),
-        const  ItemImage(
+          const ItemImage(
             image: 'assets/images/ahades.png',
             text: 'Doaa',
           ),
-       const   SizedBox(
+          const SizedBox(
             height: 40,
           )
         ],

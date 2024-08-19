@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:islami/core/constant/my_color.dart';
 
-class TasbihAppbar extends StatelessWidget {
-  const TasbihAppbar({super.key});
+class AppbarItem extends StatelessWidget {
+  const AppbarItem({super.key, required this.text});
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -20,18 +21,18 @@ class TasbihAppbar extends StatelessWidget {
             },
             icon:const Icon(
               Icons.arrow_circle_left_outlined,
-              size: 40,
+              size: 45,
               color: Mycolors.green,
             ),
           ),
         ),
-      const  Align(
+        Align(
           alignment: Alignment.topCenter,
           child: Padding(
-            padding:  EdgeInsets.only(top: 0), // Adjust the padding as needed
+            padding:  EdgeInsets.only(top: 0), 
             child: Text(
-              'Tasbih',
-              style: TextStyle(
+              text,
+              style:const TextStyle(
                 fontSize: 40,
                 fontWeight: FontWeight.bold,
                 color: Mycolors.green,

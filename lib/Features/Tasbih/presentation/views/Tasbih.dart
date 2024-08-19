@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:islami/Features/Tasbih/presentation/manger/Tasbih_cubit/tasbih_cubit.dart';
 import 'package:islami/Features/Tasbih/presentation/views/widgets/adding_number.dart';
-import 'package:islami/Features/Tasbih/presentation/views/widgets/tasbih_appbar.dart';
+
 import 'package:islami/Features/Tasbih/presentation/views/widgets/zakr&numbre.dart';
+import 'package:islami/core/widgets/appbar_item.dart';
 
 class Tasbih extends StatelessWidget {
   const Tasbih({super.key});
@@ -20,7 +21,7 @@ class Tasbih extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Column(
               children: [
-                 TasbihAppbar(),
+                 AppbarItem(text: 'Tasbih',),
                  SizedBox(height: 40),
                  ZakrAndNumber(),
                  SizedBox(height: 20),

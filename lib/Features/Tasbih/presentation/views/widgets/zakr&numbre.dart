@@ -12,7 +12,7 @@ class ZakrAndNumber extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<TasbihCubit, int>(
       builder: (context, count) {
-        final cubit = BlocProvider.of<TasbihCubit>(context); // الوصول إلى الكوبت
+        final cubit = BlocProvider.of<TasbihCubit>(context); 
         return Center(
           child: Container(
             width: 380,
@@ -46,7 +46,7 @@ class ZakrAndNumber extends StatelessWidget {
                   height: 30,
                 ),
                 Text(
-                  cubit.currentText, // عرض النص الحالي
+                  cubit.currentText, 
                   style: const TextStyle(
                       fontFamily: 'NotoNastaliqUrdu',
                       fontSize: 70,
