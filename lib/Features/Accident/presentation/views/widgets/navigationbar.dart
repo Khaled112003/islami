@@ -6,21 +6,65 @@ class AccidentNavigitionbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row( mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.arrow_circle_right_rounded,
-              color: Mycolors.green,size: 50,
-            )),
-             IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.arrow_circle_left_rounded,
-              color: Mycolors.green,size: 50,
-            ))
-
+          onPressed: () {},
+          icon: const Icon(
+            Icons.arrow_circle_right_rounded,
+            color: Mycolors.green,
+            size: 50,
+          ),
+        ),
+        
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color(0xFFF4F4F4), 
+                elevation: 5, 
+                shape:const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(8),
+                    bottomLeft: Radius.circular(8),
+                  ),
+                ),
+              ),
+              child: Text(
+                '50 ',
+                style: TextStyle(color: Colors.grey),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color(0xFFF4F4F4),
+                elevation: 5, 
+                shape:const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(8),
+                    bottomRight: Radius.circular(8),
+                  ),
+                ),
+              ),
+              child: const Text(
+                '1',
+                style: TextStyle(color: Mycolors.green),
+              ),
+            ),
+          ],
+        ),
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(
+            Icons.arrow_circle_left_rounded,
+            color: Mycolors.green,
+            size: 50,
+          ),
+        ),
       ],
     );
   }
