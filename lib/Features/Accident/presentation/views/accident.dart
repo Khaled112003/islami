@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:islami/Features/Accident/presentation/views/widgets/accident_item.dart';
 import 'package:islami/core/widgets/appbar_item.dart';
 
+import 'widgets/navigationbar.dart';
+
 class Accident extends StatelessWidget {
   const Accident({super.key});
 
@@ -14,6 +16,8 @@ class Accident extends StatelessWidget {
             AppbarItem(text: 'Accident'),
             SizedBox(height: 40),
             AccidentItem(),
+            SizedBox(height: 30),
+            AccidentNavigitionbar()
           ],
         ),
       ),
