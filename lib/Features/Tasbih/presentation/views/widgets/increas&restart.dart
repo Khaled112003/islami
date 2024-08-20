@@ -4,9 +4,10 @@ import 'package:islami/core/constant/my_color.dart';
 
 class IncreaseAndRestart extends StatelessWidget {
   const IncreaseAndRestart({
-    super.key, required this.icon,
+    super.key,
+    required this.icon,
   });
-   final IconData icon;
+  final IconData icon;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class IncreaseAndRestart extends StatelessWidget {
         Container(
           width: 92,
           height: 92,
-          decoration:const BoxDecoration(
+          decoration: const BoxDecoration(
             shape: BoxShape.circle,
             color: Mycolors.green,
           ),

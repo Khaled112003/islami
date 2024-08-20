@@ -24,18 +24,20 @@ class AddingNumbers extends StatelessWidget {
             onTap: () {
               BlocProvider.of<TasbihCubit>(context).AddingNumbers();
             },
-            child:const IncreaseAndRestart(icon: CupertinoIcons.add,),
+            child: const IncreaseAndRestart(
+              icon: CupertinoIcons.add,
+            ),
           ),
           GestureDetector(
             onTap: () {
               BlocProvider.of<TasbihCubit>(context).restart();
             },
-            child: const IncreaseAndRestart(icon: CupertinoIcons.refresh,),
+            child: const IncreaseAndRestart(
+              icon: CupertinoIcons.refresh,
+            ),
           ),
         ],
       ),
     );
   }
 }
-
-

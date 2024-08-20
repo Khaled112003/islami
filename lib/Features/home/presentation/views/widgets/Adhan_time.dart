@@ -1,14 +1,12 @@
 import 'package:flutter/widgets.dart';
 
-
 class AdhanTime extends StatelessWidget {
-  const AdhanTime(
-      {Key? key,
-      required this.adhanname,
-      required this.icon,
-      required this.adhandate,})
-      : super(key: key);
-
+  const AdhanTime({
+    Key? key,
+    required this.adhanname,
+    required this.icon,
+    required this.adhandate,
+  }) : super(key: key);
 
   final String adhanname;
   final IconData icon;
@@ -21,11 +19,9 @@ class AdhanTime extends StatelessWidget {
       children: [
         Icon(icon, size: 30),
         Text(adhanname,
-            style:
-                const TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500)),
         Text(adhandate,
-            style:
-                const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
       ],
     );
   }

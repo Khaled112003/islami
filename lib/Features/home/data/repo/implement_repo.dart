@@ -20,12 +20,11 @@ class ImplementionPrayerTimeRepo extends PrayerTimeRepo {
 
       if (data['items'] != null) {
         print(' dljndlkjdl  ${data['items'][0]}');
-        List <PrayerTimeModel> adhan=[];
-        for (var element in data['items'] ) {
+        List<PrayerTimeModel> adhan = [];
+        for (var element in data['items']) {
           adhan.add(PrayerTimeModel.fromJson(element));
-          
         }
-        
+
         print(adhan[0].asr);
         return right(adhan);
       } else {

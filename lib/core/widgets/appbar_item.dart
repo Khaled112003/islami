@@ -17,9 +17,8 @@ class AppbarItem extends StatelessWidget {
           child: IconButton(
             onPressed: () {
               GoRouter.of(context).go('/');
-              
             },
-            icon:const Icon(
+            icon: const Icon(
               Icons.arrow_circle_left_outlined,
               size: 45,
               color: Mycolors.green,
@@ -29,10 +28,10 @@ class AppbarItem extends StatelessWidget {
         Align(
           alignment: Alignment.topCenter,
           child: Padding(
-            padding:  EdgeInsets.only(top: 0), 
+            padding: EdgeInsets.only(top: 0),
             child: Text(
               text,
-              style:const TextStyle(
+              style: const TextStyle(
                 fontSize: 40,
                 fontWeight: FontWeight.bold,
                 color: Mycolors.green,

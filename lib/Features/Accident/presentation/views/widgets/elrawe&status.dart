@@ -13,9 +13,9 @@ class ElraweAndstatus extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
         color: Mycolors.myWhite.withOpacity(0.3),
       ),
-      child:const Padding(
-        padding:  EdgeInsets.only(right: 12.0,top: 5),
-        child:  Column(
+      child: const Padding(
+        padding: EdgeInsets.only(right: 12.0, top: 5),
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [

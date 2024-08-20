@@ -8,27 +8,21 @@ import 'package:islami/Features/home/presentation/manger/prayertime/prayer_time_
 import 'package:islami/Features/home/presentation/views/dashboard_page.dart';
 import 'package:islami/core/utilitis/singleton_pattern.dart';
 
-final router = GoRouter(
-  routes: [
-    GoRoute(
-      path: '/',
-      builder: (context, state) => BlocProvider(
-        create: (context) =>
-            PrayerTimeCubit(getIt.get<ImplementionPrayerTimeRepo>()),
-        child: const DashoardPage(),
-      ),
+final router = GoRouter(routes: [
+  GoRoute(
+    path: '/',
+    builder: (context, state) => BlocProvider(
+      create: (context) =>
+          PrayerTimeCubit(getIt.get<ImplementionPrayerTimeRepo>()),
+      child: const DashoardPage(),
     ),
-    GoRoute(
-      path: '/Tasbih',
-      builder: (context, state) => 
-         const Tasbih(),
-      ),
-      GoRoute(
-      path: '/Accident',
-      builder: (context, state) => 
-         const Accident(),
-      ),
-  ]
-    );
-  
-
+  ),
+  GoRoute(
+    path: '/Tasbih',
+    builder: (context, state) => const Tasbih(),
+  ),
+  GoRoute(
+    path: '/Accident',
+    builder: (context, state) => const Accident(),
+  ),
+]);

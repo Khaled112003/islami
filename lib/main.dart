@@ -7,7 +7,6 @@ import 'package:islami/core/utilitis/singleton_pattern.dart';
 void main() {
   setup();
   runApp(
-    
     DevicePreview(
       builder: (context) => const IslamiApp(), //
     ),

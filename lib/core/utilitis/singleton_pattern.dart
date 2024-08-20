@@ -6,9 +6,7 @@ import '../../Features/home/data/repo/implement_repo.dart';
 final getIt = GetIt.instance;
 
 void setup() {
- 
   getIt.registerSingleton<ApiService>(ApiService(Dio()));
-
 
   getIt.registerSingleton<ImplementionPrayerTimeRepo>(
       ImplementionPrayerTimeRepo(getIt.get<ApiService>()));

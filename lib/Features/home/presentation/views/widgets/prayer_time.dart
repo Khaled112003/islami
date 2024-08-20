@@ -22,8 +22,8 @@ class PrayerTime extends StatelessWidget {
               color: Mycolors.prayertime,
               boxShadow: [
                 BoxShadow(
-                  color: const Color.fromARGB(255, 189, 186, 186)
-                      .withOpacity(0.5),
+                  color:
+                      const Color.fromARGB(255, 189, 186, 186).withOpacity(0.5),
                   spreadRadius: 2,
                   blurRadius: 7,
                   offset: Offset(0, 3),
@@ -39,22 +39,21 @@ class PrayerTime extends StatelessWidget {
                 AdhanTime(
                   adhanname: 'الفجر',
                   icon: CupertinoIcons.cloud_moon,
-                  adhandate:adhanTimes.fajr,
+                  adhandate: adhanTimes.fajr,
                 ),
                 AdhanTime(
-                  adhanname: 'الشروق',
-                  icon: CupertinoIcons.cloud_sun,
-                  adhandate:adhanTimes.shurooq
-                ),
+                    adhanname: 'الشروق',
+                    icon: CupertinoIcons.cloud_sun,
+                    adhandate: adhanTimes.shurooq),
                 AdhanTime(
                   adhanname: 'الظهر',
                   icon: CupertinoIcons.sun_max,
-                  adhandate:  adhanTimes.dhuhr,
+                  adhandate: adhanTimes.dhuhr,
                 ),
                 AdhanTime(
                   adhanname: 'العصر',
                   icon: CupertinoIcons.sunset,
-                  adhandate:  adhanTimes.asr,
+                  adhandate: adhanTimes.asr,
                 ),
                 AdhanTime(
                   adhanname: 'المغرب',
@@ -62,10 +61,9 @@ class PrayerTime extends StatelessWidget {
                   adhandate: adhanTimes.maghrib,
                 ),
                 AdhanTime(
-                  adhanname: 'العشاء',
-                  icon: CupertinoIcons.moon,
-                  adhandate: adhanTimes.isha
-                ),
+                    adhanname: 'العشاء',
+                    icon: CupertinoIcons.moon,
+                    adhandate: adhanTimes.isha),
                 const SizedBox(height: 0),
               ],
             ),

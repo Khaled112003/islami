@@ -17,16 +17,15 @@ class AccidentNavigitionbar extends StatelessWidget {
             size: 50,
           ),
         ),
-        
         Row(
           mainAxisSize: MainAxisSize.min,
           children: [
             ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                backgroundColor: Color(0xFFF4F4F4), 
-                elevation: 5, 
-                shape:const RoundedRectangleBorder(
+                backgroundColor: Color(0xFFF4F4F4),
+                elevation: 5,
+                shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(8),
                     bottomLeft: Radius.circular(8),
@@ -42,8 +41,8 @@ class AccidentNavigitionbar extends StatelessWidget {
               onPressed: () {},
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color(0xFFF4F4F4),
-                elevation: 5, 
-                shape:const RoundedRectangleBorder(
+                elevation: 5,
+                shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
                     topRight: Radius.circular(8),
                     bottomRight: Radius.circular(8),

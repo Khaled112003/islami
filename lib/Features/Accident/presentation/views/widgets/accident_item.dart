@@ -16,11 +16,12 @@ class AccidentItem extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
             color: Mycolors.prayertime,
           ),
-          child:const Padding(
-            padding:  EdgeInsets.only(left: 8, top: 5,right: 8,bottom: 25),
-            child:  Column(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: const Padding(
+            padding: EdgeInsets.only(left: 8, top: 5, right: 8, bottom: 25),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                 Text(
+                Text(
                   'سُئِلَ عمرُ بنُ الخطابِ رضيَ اللهُ عنه عن طعامِ العُرسِ فقيل : يا أميرَ المؤمنين : ما [ بالُ ] طعامِ العُرسِ أطيبُ من ريحِ طعامِنا ؟ فقال سمعتُ رسولَ اللهِ صلَّى اللهُ عليهِ وسلَّمَ يقول : في طعامِ العُرسِ مثقالٌ من ريحِ الجنَّةِ ، قال عمرُ رضيَ اللهُ عنه : دعا له إبراهيمُ الخليلُ عليه الصلاةُ والسلامُ ، ومحمدٌ صلَّى اللهُ عليهِ وسلَّم أن يُبارِكَ فيه ويُطَيِّبَه',
                   textDirection: TextDirection.rtl,
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -29,7 +30,6 @@ class AccidentItem extends StatelessWidget {
               ],
             ),
           ),
-          
         )
       ],
     );

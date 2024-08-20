@@ -10,7 +10,6 @@ import 'package:islami/core/widgets/appbar_item.dart';
 class Tasbih extends StatelessWidget {
   const Tasbih({super.key});
 
- 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
@@ -21,13 +20,13 @@ class Tasbih extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Column(
               children: [
-                 AppbarItem(text: 'Tasbih',),
-                 SizedBox(height: 40),
-                 ZakrAndNumber(),
-                 SizedBox(height: 20),
-                AddingNumbers(
-                  
+                AppbarItem(
+                  text: 'Tasbih',
                 ),
+                SizedBox(height: 40),
+                ZakrAndNumber(),
+                SizedBox(height: 20),
+                AddingNumbers(),
               ],
             ),
           ),

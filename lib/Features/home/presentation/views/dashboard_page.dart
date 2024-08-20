@@ -18,12 +18,9 @@ class DashoardPage extends StatelessWidget {
             body: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: PageView(
-                controller: state.pageController, 
+                controller: state.pageController,
                 onPageChanged: context.read<DashboardCubit>().changepage,
-                children: const [
-                  DashboardBody(),
-                  Text('data')
-                ],
+                children: const [DashboardBody(), Text('data')],
               ),
             ),
             bottomNavigationBar: BottomNavigationBar(
@@ -34,9 +31,8 @@ class DashoardPage extends StatelessWidget {
                 BottomNavigationBarItem(
                     icon: Icon(CupertinoIcons.home), label: 'home'),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.library_books_outlined),
-                    label: 'library'),
-                    BottomNavigationBarItem(
+                    icon: Icon(Icons.library_books_outlined), label: 'library'),
+                BottomNavigationBarItem(
                     icon: Icon(CupertinoIcons.profile_circled),
                     label: 'profile'),
               ],
@@ -47,4 +43,3 @@ class DashoardPage extends StatelessWidget {
     );
   }
 }
-

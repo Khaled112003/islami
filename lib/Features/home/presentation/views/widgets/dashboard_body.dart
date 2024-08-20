@@ -17,7 +17,7 @@ class _DashboardBodyState extends State<DashboardBody> {
   @override
   void initState() {
     super.initState();
-   
+
     BlocProvider.of<PrayerTimeCubit>(context).fetchPrayerData();
   }
 
