@@ -8,15 +8,15 @@ sealed class AccidentState extends Equatable {
 }
 
 final class AccidentInitial extends AccidentState {}
-final class Accidentloaing extends AccidentState {}
-final class Accidentfailure extends AccidentState {
+final class AccidentLoading extends AccidentState {}
+final class AccidentFailure extends AccidentState {
   final String errorMassage;
 
-  Accidentfailure({required this.errorMassage});
+  AccidentFailure({required this.errorMassage});
 }
 // ignore: must_be_immutable
-final class Accidentsuccsec extends AccidentState {
-  List<AccidentModel> hades;
-  Accidentsuccsec(this.hades);
+final class AccidentSuccess extends AccidentState {
+  List<AccidentModel> hadith;
+  AccidentSuccess(this.hadith);
 
 }

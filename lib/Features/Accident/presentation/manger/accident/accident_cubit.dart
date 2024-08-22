@@ -7,15 +7,30 @@ part 'accident_state.dart';
 
 class AccidentCubit extends Cubit<AccidentState> {
   AccidentCubit(this.accidentRepo) : super(AccidentInitial());
-  AccidentRepo accidentRepo;
-  Future<void> fetchPrayerData() async {
-    emit(Accidentloaing());
-    var result = await accidentRepo.fetchAccidents();
+
+  final AccidentRepo accidentRepo;
+  int currentHadithIndex = 1;
+
+  Future<void> fetchHadithData() async {
+    emit(AccidentLoading());
+    var result = await accidentRepo.fetchHadithByIndex(currentHadithIndex);
     result.fold(
-      (fail) => emit(Accidentfailure(errorMassage: fail.errorMassage)),
-      (hades) => emit(
-        Accidentsuccsec(hades),
-      ),
+      (fail) => emit(AccidentFailure(errorMassage: fail.errorMassage)),
+      (hadith) => emit(AccidentSuccess(hadith as List<AccidentModel>)),
     );
   }
+
+  void getNextHadith() {
+    
+    currentHadithIndex++;
+    fetchHadithData();
+  }
+
+  void getPreviousHadith() {
+    if (currentHadithIndex > 1) {
+      currentHadithIndex--;
+      fetchHadithData();
+    }
+  }
 }
+

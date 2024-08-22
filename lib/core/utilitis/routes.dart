@@ -1,5 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:islami/Features/Accident/data/repo/accident_repo.dart';
+import 'package:islami/Features/Accident/presentation/manger/accident/accident_cubit.dart';
 import 'package:islami/Features/Accident/presentation/views/accident.dart';
 import 'package:islami/Features/Tasbih/presentation/manger/Tasbih_cubit/tasbih_cubit.dart';
 import 'package:islami/Features/Tasbih/presentation/views/Tasbih.dart';
@@ -23,6 +25,9 @@ final router = GoRouter(routes: [
   ),
   GoRoute(
     path: '/Accident',
-    builder: (context, state) => const Accident(),
+    builder: (context, state) => BlocProvider(
+      create: (context) => AccidentCubit(getIt.get<AccidentRepo>()),
+      child: const Accident(),
+    ),
   ),
 ]);
