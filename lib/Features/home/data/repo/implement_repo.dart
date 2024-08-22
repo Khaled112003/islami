@@ -14,12 +14,13 @@ class ImplementionPrayerTimeRepo extends PrayerTimeRepo {
   @override
   Future<Either<Failure, List<PrayerTimeModel>>> fetchPrayerTime() async {
     try {
-      var data = await apiService.get(endpoint: 'cairo/daily/true.json');
+     var data = await apiService.get( url:'https://muslimsalat.com/cairo/daily/true.json');
 
-      // print("API Response: $data");
+
+      
 
       if (data['items'] != null) {
-        print(' dljndlkjdl  ${data['items'][0]}');
+        print('   ${data['items'][0]}');
         List<PrayerTimeModel> adhan = [];
         for (var element in data['items']) {
           adhan.add(PrayerTimeModel.fromJson(element));
