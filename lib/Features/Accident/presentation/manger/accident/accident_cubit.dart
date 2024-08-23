@@ -16,12 +16,11 @@ class AccidentCubit extends Cubit<AccidentState> {
     var result = await accidentRepo.fetchHadithByIndex(currentHadithIndex);
     result.fold(
       (fail) => emit(AccidentFailure(errorMassage: fail.errorMassage)),
-      (hadith) => emit(AccidentSuccess(hadith as List<AccidentModel>)),
+      (hadith) => emit(AccidentSuccess(hadith, currentHadithIndex)), 
     );
   }
 
   void getNextHadith() {
-    
     currentHadithIndex++;
     fetchHadithData();
   }
@@ -33,4 +32,3 @@ class AccidentCubit extends Cubit<AccidentState> {
     }
   }
 }
-

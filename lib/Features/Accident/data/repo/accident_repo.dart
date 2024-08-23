@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:islami/Features/Accident/data/models/accident_model/accident_model.dart';
@@ -8,16 +10,24 @@ class AccidentRepo {
   final ApiService apiService;
 
   AccidentRepo(this.apiService);
-
-  Future<Either<Failure, List<AccidentModel>>> fetchHadithByIndex(int index) async {
+  Future<Either<Failure, List<AccidentModel>>> fetchHadithByIndex(
+      int index) async {
     try {
       var data = await apiService.get(
           url:
               'https://hadithapi.com/public/api/hadiths?page=$index&apiKey=\$2y\$10\$7B0n20A1CApXVyJuIuhruRi7XOvB7iArjApOzKQkzTwrN7BxrFmq');
 
-      if (data['data'] != null) {
+      // طباعة البيانات المستجيبة
+      print('Response Data: $data');
+
+      // التأكد من وجود المفتاح 'hadiths' والمفتاح 'data' داخله
+      if (data['hadiths'] != null && data['hadiths']['data'] != null) {
         List<AccidentModel> hadiths = [];
-        for (var element in data['items']) {
+
+        // طباعة محتويات 'data' داخل 'hadiths'
+        print('Hadiths Data: ${data['hadiths']['data']}');
+
+        for (var element in data['hadiths']['data']) {
           hadiths.add(AccidentModel.fromJson(element));
         }
 
@@ -32,6 +42,4 @@ class AccidentRepo {
       return left(ServerFailure(e.toString()));
     }
   }
-
-  
 }

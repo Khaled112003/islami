@@ -1,22 +1,31 @@
 part of 'accident_cubit.dart';
 
-sealed class AccidentState extends Equatable {
+abstract class AccidentState extends Equatable {
   const AccidentState();
 
   @override
   List<Object> get props => [];
 }
 
-final class AccidentInitial extends AccidentState {}
-final class AccidentLoading extends AccidentState {}
-final class AccidentFailure extends AccidentState {
+class AccidentInitial extends AccidentState {}
+
+class AccidentLoading extends AccidentState {}
+
+class AccidentFailure extends AccidentState {
   final String errorMassage;
 
-  AccidentFailure({required this.errorMassage});
-}
-// ignore: must_be_immutable
-final class AccidentSuccess extends AccidentState {
-  List<AccidentModel> hadith;
-  AccidentSuccess(this.hadith);
+  const AccidentFailure({required this.errorMassage});
 
+  @override
+  List<Object> get props => [errorMassage];
+}
+
+class AccidentSuccess extends AccidentState {
+  final List<AccidentModel> hadith;
+  final int currentHadithIndex;
+
+  const AccidentSuccess(this.hadith, this.currentHadithIndex);
+
+  @override
+  List<Object> get props => [hadith, currentHadithIndex];
 }
