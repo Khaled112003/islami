@@ -40,7 +40,7 @@ class AccidentItem extends StatelessWidget {
                   Container(
                     color: Mycolors.prayertime,
                     child: ElraweAndstatus(
-                      text: currentHadith.status ?? '',
+                      text: currentHadith.bookSlug ?? '',
                     ),
                   ),
                 ],

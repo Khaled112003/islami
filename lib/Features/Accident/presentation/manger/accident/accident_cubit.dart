@@ -6,14 +6,16 @@ import 'package:islami/Features/Accident/data/repo/accident_repo.dart';
 part 'accident_state.dart';
 
 class AccidentCubit extends Cubit<AccidentState> {
-  AccidentCubit(this.accidentRepo) : super(AccidentInitial());
+  AccidentCubit(this.accidentRepo) : super(AccidentInitial()) {
+    currentHadithIndex = 1; // التعيين للبداية من 1
+  }
 
   final AccidentRepo accidentRepo;
-  int currentHadithIndex = 1; 
+  int currentHadithIndex = 1; // التعيين للبداية من 1
 
   Future<void> fetchHadithData() async {
     emit(AccidentLoading());
-    var result = await accidentRepo.fetchHadithByIndex(currentHadithIndex);
+    var result = await accidentRepo.fetchHadithByIndex(currentHadithIndex - 1); // تحويل الفهرس ليتناسب مع التعديل
     result.fold(
       (fail) => emit(AccidentFailure(errorMassage: fail.errorMassage)),
       (hadith) => emit(AccidentSuccess(hadith as List<AccidentModel>, currentHadithIndex)),
@@ -21,9 +23,8 @@ class AccidentCubit extends Cubit<AccidentState> {
   }
 
   void getNextHadith() {
-    
     if (state is AccidentSuccess) {
-      var maxIndex = (state as AccidentSuccess).hadith.length ;
+      var maxIndex = (state as AccidentSuccess).hadith.length;
       if (currentHadithIndex < maxIndex) {
         currentHadithIndex++;
         fetchHadithData();
@@ -32,7 +33,7 @@ class AccidentCubit extends Cubit<AccidentState> {
   }
 
   void getPreviousHadith() {
-    if (currentHadithIndex > 0) {
+    if (currentHadithIndex > 1) { // التحقق من أن الفهرس أكبر من 1
       currentHadithIndex--;
       fetchHadithData();
     }
