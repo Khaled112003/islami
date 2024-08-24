@@ -1,4 +1,4 @@
-import 'dart:developer';
+
 
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
@@ -15,16 +15,15 @@ class AccidentRepo {
     try {
       var data = await apiService.get(
           url:
-              'https://hadithapi.com/public/api/hadiths?page=$index&apiKey=\$2y\$10\$7B0n20A1CApXVyJuIuhruRi7XOvB7iArjApOzKQkzTwrN7BxrFmq');
+              'https://hadithapi.com/public/api/hadiths?page=$index&apiKey=\$2y\$10\$7B0n20A1CApXVyJuIuhruRi7XOvB7iArjApOzKQkzTwrN7BxrFmq&paginate=50');
 
-      // طباعة البيانات المستجيبة
+      
       print('Response Data: $data');
 
-      // التأكد من وجود المفتاح 'hadiths' والمفتاح 'data' داخله
       if (data['hadiths'] != null && data['hadiths']['data'] != null) {
         List<AccidentModel> hadiths = [];
 
-        // طباعة محتويات 'data' داخل 'hadiths'
+        
         print('Hadiths Data: ${data['hadiths']['data']}');
 
         for (var element in data['hadiths']['data']) {
