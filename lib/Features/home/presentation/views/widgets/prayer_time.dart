@@ -71,7 +71,7 @@ class PrayerTime extends StatelessWidget {
         } else if (state is PrayerTimefailure) {
           return FailureErrorMessage(errormassage: state.errorMassage);
         } else {
-          return const LoadingIndicator();
+          return const ShimmerLoading();
         }
       },
     );

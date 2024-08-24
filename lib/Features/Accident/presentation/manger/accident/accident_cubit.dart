@@ -9,24 +9,30 @@ class AccidentCubit extends Cubit<AccidentState> {
   AccidentCubit(this.accidentRepo) : super(AccidentInitial());
 
   final AccidentRepo accidentRepo;
-  int currentHadithIndex = 1;
+  int currentHadithIndex = 1; 
 
   Future<void> fetchHadithData() async {
     emit(AccidentLoading());
     var result = await accidentRepo.fetchHadithByIndex(currentHadithIndex);
     result.fold(
       (fail) => emit(AccidentFailure(errorMassage: fail.errorMassage)),
-      (hadith) => emit(AccidentSuccess(hadith, currentHadithIndex)), 
+      (hadith) => emit(AccidentSuccess(hadith as List<AccidentModel>, currentHadithIndex)),
     );
   }
 
   void getNextHadith() {
-    currentHadithIndex++;
-    fetchHadithData();
+    
+    if (state is AccidentSuccess) {
+      var maxIndex = (state as AccidentSuccess).hadith.length ;
+      if (currentHadithIndex < maxIndex) {
+        currentHadithIndex++;
+        fetchHadithData();
+      }
+    }
   }
 
   void getPreviousHadith() {
-    if (currentHadithIndex > 1) {
+    if (currentHadithIndex > 0) {
       currentHadithIndex--;
       fetchHadithData();
     }

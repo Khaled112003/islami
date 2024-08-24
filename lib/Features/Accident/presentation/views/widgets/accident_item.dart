@@ -14,7 +14,7 @@ class AccidentItem extends StatelessWidget {
     return BlocBuilder<AccidentCubit, AccidentState>(
       builder: (context, state) {
         if (state is AccidentSuccess) {
-          final currentHadith = state.hadith[state.currentHadithIndex];
+          final currentHadith = state.hadith[state.currentHadithIndex-1];
 
           return Container(
             width: 380,
@@ -50,7 +50,7 @@ class AccidentItem extends StatelessWidget {
         } else if (state is AccidentFailure) {
           return FailureErrorMessage(errormassage: state.errorMassage);
         } else {
-          return const LoadingIndicator();
+          return const ShimmerLoading();
         }
       },
     );
