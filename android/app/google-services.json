@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "255379998805",
+    "project_id": "islami-31dfd",
+    "storage_bucket": "islami-31dfd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:255379998805:android:a4b55d8b14e7af87242cdc",
+        "android_client_info": {
+          "package_name": "com.example.islami"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAv3Itbsiwl8cKw8ufuW2zKFwgQ2VeI9_E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

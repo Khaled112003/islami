@@ -1,0 +1,4 @@
+#Tue Sep 03 17:52:47 EET 2024
+base.0=C\:\\Users\\Khaled Mohaseb\\Desktop\\IslamiApp\\islami\\android\\app\\build\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

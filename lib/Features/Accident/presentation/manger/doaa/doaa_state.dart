@@ -1,10 +1,19 @@
-part of 'doaa_cubit.dart';
+import 'package:islami/Features/Accident/data/models/doaa/doaa_model.dart';
 
-sealed class DoaaState extends Equatable {
-  const DoaaState();
+abstract class DoaaState {}
 
-  @override
-  List<Object> get props => [];
+class DoaaInitial extends DoaaState {}
+
+class DoaaLoading extends DoaaState {}
+
+class DoaaSuccess extends DoaaState {
+  final List<DoaaModel> doaaList;
+ final int currentHadithIndex;
+  DoaaSuccess(this.doaaList, this.currentHadithIndex);
 }
 
-final class DoaaInitial extends DoaaState {}
+class DoaaFailure extends DoaaState {
+  final String errorMessage;
+
+  DoaaFailure({required this.errorMessage});
+}

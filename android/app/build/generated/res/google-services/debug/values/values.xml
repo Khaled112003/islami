@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gcm_defaultSenderId" translatable="false">255379998805</string>
+    <string name="google_api_key" translatable="false">AIzaSyAv3Itbsiwl8cKw8ufuW2zKFwgQ2VeI9_E</string>
+    <string name="google_app_id" translatable="false">1:255379998805:android:a4b55d8b14e7af87242cdc</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAv3Itbsiwl8cKw8ufuW2zKFwgQ2VeI9_E</string>
+    <string name="google_storage_bucket" translatable="false">islami-31dfd.appspot.com</string>
+    <string name="project_id" translatable="false">islami-31dfd</string>
+</resources>
