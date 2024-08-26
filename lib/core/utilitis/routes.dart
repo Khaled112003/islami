@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:islami/Features/Accident/data/repo/accident_repo.dart';
 import 'package:islami/Features/Accident/presentation/manger/accident/accident_cubit.dart';
 import 'package:islami/Features/Accident/presentation/views/accident.dart';
+import 'package:islami/Features/Accident/presentation/views/doaa.dart';
 
 import 'package:islami/Features/Tasbih/presentation/views/Tasbih.dart';
 import 'package:islami/Features/home/data/repo/implement_repo.dart';
@@ -29,5 +30,9 @@ final router = GoRouter(routes: [
       create: (context) => AccidentCubit(getIt.get<AccidentRepo>()),
       child: const Accident(),
     ),
+  ),
+  GoRoute(
+    path: '/Doaa',
+    builder: (context, state) => const Doaa(),
   ),
 ]);

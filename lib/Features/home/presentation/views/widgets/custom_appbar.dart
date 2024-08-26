@@ -36,9 +36,13 @@ class CustomAppbar extends StatelessWidget {
               text: 'accident',
             ),
           ),
-          const ItemImage(
-            image: 'assets/images/ahades.png',
-            text: 'Doaa',
+          GestureDetector(onTap: () {
+              GoRouter.of(context).go('/Doaa');
+            },
+            child: const ItemImage(
+              image: 'assets/images/ahades.png',
+              text: 'Doaa',
+            ),
           ),
           const SizedBox(
             height: 40,
