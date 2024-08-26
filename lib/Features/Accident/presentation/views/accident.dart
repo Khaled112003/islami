@@ -4,14 +4,13 @@ import 'package:islami/Features/Accident/presentation/manger/accident/accident_c
 import 'package:islami/Features/Accident/presentation/views/widgets/accident_item.dart';
 import 'package:islami/core/widgets/appbar_item.dart';
 
-import 'widgets/navigationbar.dart';
+import 'widgets/accident_navigationbar.dart';
 
 class Accident extends StatefulWidget {
   const Accident({super.key});
 
   @override
   State<Accident> createState() => _AccidentState();
-  
 }
 
 class _AccidentState extends State<Accident> {
@@ -20,7 +19,7 @@ class _AccidentState extends State<Accident> {
 
     BlocProvider.of<AccidentCubit>(context).fetchHadithData();
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return const SafeArea(

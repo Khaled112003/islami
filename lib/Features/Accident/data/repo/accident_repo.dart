@@ -1,5 +1,3 @@
-
-
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:islami/Features/Accident/data/models/accident_model/accident_model.dart';
@@ -17,13 +15,11 @@ class AccidentRepo {
           url:
               'https://hadithapi.com/public/api/hadiths?page=$index&apiKey=\$2y\$10\$7B0n20A1CApXVyJuIuhruRi7XOvB7iArjApOzKQkzTwrN7BxrFmq&paginate=50');
 
-      
       print('Response Data: $data');
 
       if (data['hadiths'] != null && data['hadiths']['data'] != null) {
         List<AccidentModel> hadiths = [];
 
-        
         print('Hadiths Data: ${data['hadiths']['data']}');
 
         for (var element in data['hadiths']['data']) {

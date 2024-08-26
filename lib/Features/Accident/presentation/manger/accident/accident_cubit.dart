@@ -15,10 +15,12 @@ class AccidentCubit extends Cubit<AccidentState> {
 
   Future<void> fetchHadithData() async {
     emit(AccidentLoading());
-    var result = await accidentRepo.fetchHadithByIndex(currentHadithIndex - 1); // تحويل الفهرس ليتناسب مع التعديل
+    var result = await accidentRepo.fetchHadithByIndex(
+        currentHadithIndex - 1); // تحويل الفهرس ليتناسب مع التعديل
     result.fold(
       (fail) => emit(AccidentFailure(errorMassage: fail.errorMassage)),
-      (hadith) => emit(AccidentSuccess(hadith as List<AccidentModel>, currentHadithIndex)),
+      (hadith) => emit(
+          AccidentSuccess(hadith as List<AccidentModel>, currentHadithIndex)),
     );
   }
 
@@ -33,7 +35,8 @@ class AccidentCubit extends Cubit<AccidentState> {
   }
 
   void getPreviousHadith() {
-    if (currentHadithIndex > 1) { // التحقق من أن الفهرس أكبر من 1
+    if (currentHadithIndex > 1) {
+      // التحقق من أن الفهرس أكبر من 1
       currentHadithIndex--;
       fetchHadithData();
     }

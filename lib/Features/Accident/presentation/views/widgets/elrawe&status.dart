@@ -20,9 +20,10 @@ class ElraweAndstatus extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Row( mainAxisAlignment: MainAxisAlignment.center,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-               Text(
+                Text(
                   '${text}',
                   style: const TextStyle(
                       fontWeight: FontWeight.w500, fontSize: 18),

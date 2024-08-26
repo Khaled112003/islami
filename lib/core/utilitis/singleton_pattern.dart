@@ -11,6 +11,6 @@ void setup() {
 
   getIt.registerSingleton<ImplementionPrayerTimeRepo>(
       ImplementionPrayerTimeRepo(getIt.get<ApiService>()));
-      
+
   getIt.registerSingleton<AccidentRepo>(AccidentRepo(getIt.get<ApiService>()));
 }

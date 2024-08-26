@@ -36,7 +36,8 @@ class CustomAppbar extends StatelessWidget {
               text: 'accident',
             ),
           ),
-          GestureDetector(onTap: () {
+          GestureDetector(
+            onTap: () {
               GoRouter.of(context).go('/Doaa');
             },
             child: const ItemImage(

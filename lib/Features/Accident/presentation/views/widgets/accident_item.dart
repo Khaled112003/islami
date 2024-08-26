@@ -14,7 +14,7 @@ class AccidentItem extends StatelessWidget {
     return BlocBuilder<AccidentCubit, AccidentState>(
       builder: (context, state) {
         if (state is AccidentSuccess) {
-          final currentHadith = state.hadith[state.currentHadithIndex-1];
+          final currentHadith = state.hadith[state.currentHadithIndex - 1];
 
           return Container(
             width: 380,
@@ -24,7 +24,8 @@ class AccidentItem extends StatelessWidget {
               color: Mycolors.prayertime,
             ),
             child: Padding(
-              padding:  const EdgeInsets.only(left: 8, top: 30, right: 8, bottom: 25),
+              padding:
+                  const EdgeInsets.only(left: 8, top: 30, right: 8, bottom: 25),
               child: Column(
                 children: [
                   Expanded(
@@ -33,7 +34,8 @@ class AccidentItem extends StatelessWidget {
                       child: Text(
                         currentHadith.hadithArabic ?? '',
                         textDirection: TextDirection.rtl,
-                        style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                        style: const TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                     ),
                   ),
