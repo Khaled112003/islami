@@ -7,4 +7,25 @@ sealed class DoaaState extends Equatable {
   List<Object> get props => [];
 }
 
-final class DoaaInitial extends DoaaState {}
+class DoaaInitial extends DoaaState {}
+
+class DoaaLoading extends DoaaState {}
+
+class DoaaFailure extends DoaaState {
+  final String errorMassage;
+
+  const DoaaFailure({required this.errorMassage});
+
+  @override
+  List<Object> get props => [errorMassage];
+}
+
+class DoaaSuccess extends DoaaState {
+  final List<DoaaModel> hadith;
+  final int currentHadithIndex;
+
+  const DoaaSuccess(this.hadith, this.currentHadithIndex);
+
+  @override
+  List<Object> get props => [hadith, currentHadithIndex];
+}
