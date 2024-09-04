@@ -5,6 +5,7 @@ import 'package:islami/Features/Accident/presentation/manger/doaa/doaa_state.dar
 import 'package:islami/Features/Accident/presentation/views/widgets/wid_navigation.dart';
 
 class DoaaNavigitionbar extends StatelessWidget {
+  
   const DoaaNavigitionbar({super.key});
 
   @override
