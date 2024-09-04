@@ -19,7 +19,7 @@ class DoaaItem extends StatelessWidget {
       state.currentHadithIndex <= state.doaaList.length) {
     final currentDoaa = state.doaaList[state.currentHadithIndex - 1];
     
-    // طباعة المحتوى للتأكد من أنه ليس فارغًا
+    
     print('Current Doaa Content: ${currentDoaa.content}');
     
     return Container(
@@ -37,7 +37,7 @@ class DoaaItem extends StatelessWidget {
               child: SingleChildScrollView(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  currentDoaa.content ?? 'محتوى غير متوفر', // عرض رسالة إذا كانت القيمة فارغة
+                  currentDoaa.content , 
                   textDirection: TextDirection.rtl,
                   style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),

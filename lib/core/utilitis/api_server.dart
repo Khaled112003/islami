@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 
 class ApiService {
-  final _baseurl = "https://muslimsalat.com/";
+ 
   final Dio _dio;
   ApiService(this._dio);
 

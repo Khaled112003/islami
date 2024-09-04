@@ -19,7 +19,7 @@ class DoaaCubit extends Cubit<DoaaState> {
     result.fold(
       (failure) => emit(DoaaFailure(errorMessage: failure.errorMassage)),
       (doaaList) {
-        totalDoaaCount = doaaList.length; // تحديث عدد العناصر
+        totalDoaaCount = doaaList.length; 
         emit(DoaaSuccess(doaaList, currentDoaaIndex));
       },
     );
@@ -27,6 +27,7 @@ class DoaaCubit extends Cubit<DoaaState> {
 
   void getNextDoaa() {
     if (state is DoaaSuccess) {
+      // ignore: unused_local_variable
       final currentState = state as DoaaSuccess;
       if (currentDoaaIndex < totalDoaaCount) {
         currentDoaaIndex++;
