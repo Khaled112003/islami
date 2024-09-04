@@ -12,7 +12,7 @@ class AccidentNavigitionbar extends StatelessWidget {
       builder: (context, state) {
         final accidentCubit = context.read<AccidentCubit>();
         return WidgetNanigationBar(
-          firstNum: accidentCubit.currentHadithIndex.toString(),
+          currentNum: accidentCubit.currentHadithIndex.toString(),
           nextFun: accidentCubit.getNextHadith,
           previousFun: accidentCubit.getPreviousHadith,
         );

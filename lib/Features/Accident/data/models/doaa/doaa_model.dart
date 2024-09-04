@@ -14,7 +14,7 @@ class DoaaModel {
     return DoaaModel(
       id: data['id'] ?? '',        
      
-      content: data['content'] ?? '',
+      content: data['doaa'] ?? '',
     );
   }
 }

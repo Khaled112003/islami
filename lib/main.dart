@@ -6,19 +6,30 @@ import 'package:islami/core/utilitis/singleton_pattern.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-  options: FirebaseOptions(
-    apiKey: 'key',
-    appId: 'id',
-    messagingSenderId: 'sendid',
-    projectId: 'myapp',
-    storageBucket: 'myapp-b9yt18.appspot.com',
-  )
-);
+  await _initializeFirebase(); // استدعاء تهيئة Firebase بطريقة آمنة
   setup();
-  runApp(IslamiApp());
-
+  runApp(const IslamiApp());
 }
+
+Future<void> _initializeFirebase() async {
+  try {
+    // تحقق إذا كان هناك تطبيق Firebase موجود مسبقًا
+    if (Firebase.apps.isEmpty) {
+      await Firebase.initializeApp(
+        options: const FirebaseOptions(
+          apiKey: 'AIzaSyAv3Itbsiwl8cKw8ufuW2zKFwgQ2VeI9_E',
+          appId: '1:255379998805:android:a4b55d8b14e7af87242cdc',
+          messagingSenderId: '255379998805',
+          projectId: 'islami-31dfd',
+          storageBucket: 'islami-31dfd.appspot.com',
+        ),
+      );
+    }
+  } catch (e) {
+    print('Error initializing Firebase: $e');
+  }
+}
+
 
 
 class IslamiApp extends StatelessWidget {

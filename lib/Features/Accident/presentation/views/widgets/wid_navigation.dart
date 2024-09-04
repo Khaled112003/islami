@@ -1,32 +1,33 @@
 import 'package:flutter/material.dart';
-
 import 'package:islami/core/constant/my_color.dart';
 
-// ignore: must_be_immutable
 class WidgetNanigationBar extends StatelessWidget {
-  WidgetNanigationBar(
-      {super.key,
-      required this.nextFun,
-      required this.firstNum,
-      required this.previousFun});
+  WidgetNanigationBar({
+    super.key,
+    required this.nextFun,
+    required this.previousFun,
+    required this.currentNum,
+     this.lastItemNumber,
+  });
 
-  void Function() nextFun;
-  void Function() previousFun;
-  final String firstNum;
+  final void Function() nextFun;
+  final void Function() previousFun;
+  final String currentNum;
+  final String? lastItemNumber;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        IconButton(
+      children: [IconButton(
           onPressed: nextFun,
           icon: const Icon(
             Icons.arrow_circle_right_rounded,
-            color: Mycolors.green,
+             color:Mycolors.green,
             size: 50,
           ),
         ),
+        
         Flexible(
           child: Row(
             mainAxisSize: MainAxisSize.min,
@@ -45,7 +46,7 @@ class WidgetNanigationBar extends StatelessWidget {
                     ),
                   ),
                   child: Text(
-                    '50 ',
+                    lastItemNumber??'50', // Show the last item number
                     style: TextStyle(color: Colors.grey),
                   ),
                 ),
@@ -64,8 +65,8 @@ class WidgetNanigationBar extends StatelessWidget {
                     ),
                   ),
                   child: Text(
-                    firstNum,
-                    style: TextStyle(color: Mycolors.green),
+                    currentNum,
+                    style: TextStyle( color:Mycolors.green,),
                   ),
                 ),
               ),
@@ -76,7 +77,7 @@ class WidgetNanigationBar extends StatelessWidget {
           onPressed: previousFun,
           icon: const Icon(
             Icons.arrow_circle_left_rounded,
-            color: Mycolors.green,
+            color:Mycolors.green,
             size: 50,
           ),
         ),
@@ -84,5 +85,3 @@ class WidgetNanigationBar extends StatelessWidget {
     );
   }
 }
-
-

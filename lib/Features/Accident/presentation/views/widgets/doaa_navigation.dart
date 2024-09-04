@@ -12,8 +12,14 @@ class DoaaNavigitionbar extends StatelessWidget {
     return BlocBuilder<DoaaCubit, DoaaState>(
       builder: (context, state) {
         final doaaCubit = context.read<DoaaCubit>();
+        String lastItemNumber = '0';
+        if (state is DoaaSuccess && state.doaaList.isNotEmpty) {
+          lastItemNumber = state.doaaList.length.toString(); // Update to show last item number
+        }
+
         return WidgetNanigationBar(
-          firstNum: doaaCubit.currentDoaaIndex.toString(),
+          currentNum: doaaCubit.currentDoaaIndex.toString(),
+          lastItemNumber: lastItemNumber,
           nextFun: doaaCubit.getNextDoaa,
           previousFun: doaaCubit.getPreviousDoaa,
         );

@@ -10,20 +10,27 @@ class DoaaRepository {
 
   Future<Either<Failure, List<DoaaModel>>> fetchDoaaCollection(int i) async {
     try {
-      CollectionReference doaaCollection = _firestore.collection('doaa');
+  CollectionReference doaaCollection = _firestore.collection('doaa');
+  QuerySnapshot querySnapshot = await doaaCollection.get();
 
-      // جلب البيانات من مجموعة الأدعية
-      QuerySnapshot querySnapshot = await doaaCollection.get();
+  // طباعة البيانات للتأكد من جلبها
+  print(querySnapshot.docs.map((doc) => doc.data()).toList());
 
-      // تحويل البيانات إلى قائمة من نماذج الأدعية
-      List<DoaaModel> doaaList = querySnapshot.docs.map((doc) {
-        return DoaaModel.fromFirestore(doc.data() as Map<String, dynamic>);
-      }).toList();
+  List<DoaaModel> doaaList = querySnapshot.docs.map((doc) {
+    return DoaaModel.fromFirestore(doc.data() as Map<String, dynamic>);
+  }).toList();
 
-      return Right(doaaList); // إرجاع البيانات بنجاح
-    } catch (e) {
-      print('Error fetching doaa collection: $e');
-      return Left(ServerFailure(e.toString())); // إرجاع الفشل
-    }
+  // التحقق من أن القائمة ليست فارغة
+  if (doaaList.isNotEmpty) {
+    print('Data fetched successfully: ${doaaList.length} items');
+  } else {
+    print('Fetched data is empty.');
+  }
+
+  return Right(doaaList);
+} catch (e) {
+  print('Error fetching doaa collection: $e');
+  return Left(ServerFailure('Failed to fetch doaa collection'));
+}
   }
 }
