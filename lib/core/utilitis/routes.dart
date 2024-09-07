@@ -11,6 +11,8 @@ import 'package:islami/Features/Tasbih/presentation/views/Tasbih.dart';
 import 'package:islami/Features/home/data/repo/implement_repo.dart';
 import 'package:islami/Features/home/presentation/manger/prayertime/prayer_time_cubit.dart';
 import 'package:islami/Features/home/presentation/views/dashboard_page.dart';
+import 'package:islami/Features/libarary/presentation/views/quran-page.dart';
+
 import 'package:islami/core/utilitis/singleton_pattern.dart';
 
 final router = GoRouter(routes: [
@@ -40,4 +42,8 @@ final router = GoRouter(routes: [
       child: const Doaa(),
     ),
   ),
+   GoRoute(
+      path: '/QuranPage', // Adjusted path to match '/QuranPge' in your navigation
+      builder: (context, state) =>const QuranPage(),
+    ),
 ]);

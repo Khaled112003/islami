@@ -20,7 +20,7 @@ class AppbarItem extends StatelessWidget {
             },
             icon: const Icon(
               Icons.arrow_circle_left_outlined,
-              size: 45,
+              size: 60,
               color: Mycolors.green,
             ),
           ),
