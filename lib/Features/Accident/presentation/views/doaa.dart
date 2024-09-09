@@ -24,7 +24,7 @@ class _DoaaState extends State<Doaa> {
       child: Scaffold(
         body: Column(
           children: [
-            AppbarItem(text: 'Doaa'),
+            AppbarItem(text: 'Doaa', pagename: '/',),
             SizedBox(height: 40),
             DoaaItem(),
             SizedBox(height: 30),

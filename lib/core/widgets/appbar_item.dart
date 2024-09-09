@@ -4,8 +4,9 @@ import 'package:go_router/go_router.dart';
 import 'package:islami/core/constant/my_color.dart';
 
 class AppbarItem extends StatelessWidget {
-  const AppbarItem({super.key, required this.text});
+  const AppbarItem({super.key, required this.text, required this.pagename});
   final String text;
+  final String pagename;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class AppbarItem extends StatelessWidget {
           alignment: Alignment.topLeft,
           child: IconButton(
             onPressed: () {
-              GoRouter.of(context).go('/');
+              GoRouter.of(context).go(pagename);
             },
             icon: const Icon(
               Icons.arrow_circle_left_outlined,

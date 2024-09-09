@@ -26,7 +26,7 @@ class _AccidentState extends State<Accident> {
       child: Scaffold(
         body: Column(
           children: [
-            AppbarItem(text: 'Accident'),
+            AppbarItem(text: 'Accident', pagename: '/',),
             SizedBox(height: 40),
             AccidentItem(),
             SizedBox(height: 30),
