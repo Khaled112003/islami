@@ -6,12 +6,13 @@ import 'package:islami/Features/Accident/presentation/manger/accident/accident_c
 import 'package:islami/Features/Accident/presentation/manger/doaa/doaa_cubit.dart';
 import 'package:islami/Features/Accident/presentation/views/accident.dart';
 import 'package:islami/Features/Accident/presentation/views/doaa.dart';
+import 'package:islami/Features/Quran/presentation/views/quran-page.dart';
 
 import 'package:islami/Features/Tasbih/presentation/views/Tasbih.dart';
 import 'package:islami/Features/home/data/repo/implement_repo.dart';
 import 'package:islami/Features/home/presentation/manger/prayertime/prayer_time_cubit.dart';
 import 'package:islami/Features/home/presentation/views/dashboard_page.dart';
-import 'package:islami/Features/libarary/presentation/views/quran-page.dart';
+
 
 import 'package:islami/core/utilitis/singleton_pattern.dart';
 
