@@ -19,14 +19,13 @@ class PrayerTimeCubit extends Cubit<PrayerTimeState> {
         (adhan) => emit(PrayerTimesuccsess(adhan)),
       );
     } catch (e) {
-      // التعامل مع الأخطاء الأخرى
+      
       emit(PrayerTimefailure('حدث خطأ غير متوقع.'));
     }
   }
 
   @override
   Future<void> close() {
-    // هنا يمكن إضافة عمليات التنظيف إذا لزم الأمر
     return super.close();
   }
 }
