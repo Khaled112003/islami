@@ -15,7 +15,6 @@ import 'package:islami/Features/home/presentation/manger/prayertime/prayer_time_
 import 'package:islami/Features/home/presentation/views/dashboard_page.dart';
 import 'package:islami/Features/libarary/presentation/views/libarary.dart';
 
-
 import 'package:islami/core/utilitis/singleton_pattern.dart';
 
 final router = GoRouter(routes: [
@@ -45,16 +44,16 @@ final router = GoRouter(routes: [
       child: const Doaa(),
     ),
   ),
-   GoRoute(
-      path: '/QuranPage', 
-      builder: (context, state) =>const QuranPage(),
-    ),
-    GoRoute(
-      path: '/LibararyPage', 
-      builder: (context, state) =>const LibararyPage(),
-    ),
-    GoRoute(
-      path: '/SurahContent', 
-      builder: (context, state) =>const SurahContent(),
-    ),
+  GoRoute(
+    path: '/QuranPage',
+    builder: (context, state) => const QuranPage(),
+  ),
+  GoRoute(
+    path: '/LibararyPage',
+    builder: (context, state) => const LibararyPage(),
+  ),
+  GoRoute(
+    path: '/SurahContent',
+    builder: (context, state) => const SurahContent(),
+  ),
 ]);

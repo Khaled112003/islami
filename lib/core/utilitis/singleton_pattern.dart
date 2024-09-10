@@ -15,5 +15,4 @@ void setup() {
 
   getIt.registerSingleton<AccidentRepo>(AccidentRepo(getIt.get<ApiService>()));
   getIt.registerSingleton<DoaaRepository>(DoaaRepository());
-
 }

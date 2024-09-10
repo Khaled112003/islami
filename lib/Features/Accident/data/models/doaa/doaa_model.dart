@@ -1,19 +1,16 @@
 class DoaaModel {
   final String id;
-  
+
   final String content;
 
   DoaaModel({
     required this.id,
-   
     required this.content,
   });
 
- 
   factory DoaaModel.fromFirestore(Map<String, dynamic> data) {
     return DoaaModel(
-      id: data['id'] ?? '',        
-     
+      id: data['id'] ?? '',
       content: data['doaa'] ?? '',
     );
   }

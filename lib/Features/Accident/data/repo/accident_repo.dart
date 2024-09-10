@@ -8,7 +8,8 @@ class AccidentRepo {
   final ApiService apiService;
 
   AccidentRepo(this.apiService);
-  Future<Either<Failure, List<AccidentModel>>> fetchHadithByIndex( int index) async {
+  Future<Either<Failure, List<AccidentModel>>> fetchHadithByIndex(
+      int index) async {
     try {
       var data = await apiService.get(
           url:

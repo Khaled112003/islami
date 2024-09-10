@@ -6,10 +6,10 @@ class libraryItem extends StatelessWidget {
     super.key,
     required this.text,
     required this.image,
-    this.textColor = Mycolors.red, 
+    this.textColor = Mycolors.red,
   });
   final String text, image;
-  final Color textColor; 
+  final Color textColor;
 
   @override
   Widget build(BuildContext context) {
@@ -34,9 +34,7 @@ class libraryItem extends StatelessWidget {
           Text(
             text,
             style: TextStyle(
-                fontWeight: FontWeight.w600,
-                fontSize: 24,
-                color: textColor), 
+                fontWeight: FontWeight.w600, fontSize: 24, color: textColor),
           ),
           Image.asset(
             image,

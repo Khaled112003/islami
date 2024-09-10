@@ -30,24 +30,20 @@ Future<void> _initializeFirebase() async {
   }
 }
 
-
-
 class IslamiApp extends StatelessWidget {
   const IslamiApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router( 
-
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       routerConfig: router,
-      theme: ThemeData.light().copyWith(  
-
+      theme: ThemeData.light().copyWith(
         scaffoldBackgroundColor: Mycolors.myWhite,
         textTheme: ThemeData.light().textTheme.apply(
-          bodyColor: Colors.black,
-          displayColor: Colors.black,
-        ),
+              bodyColor: Colors.black,
+              displayColor: Colors.black,
+            ),
       ),
     );
   }

@@ -10,13 +10,12 @@ class SearchItem extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(13),
-        color: Mycolors.prayertime, 
-        
-       
+        color: Mycolors.prayertime,
       ),
       width: MediaQuery.of(context).size.width * 0.90,
-      height: MediaQuery.of(context).size.height * 0.1, 
-      child: const Column( mainAxisAlignment: MainAxisAlignment.center,
+      height: MediaQuery.of(context).size.height * 0.1,
+      child: const Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SerchTextFiled(),
         ],
@@ -24,5 +23,3 @@ class SearchItem extends StatelessWidget {
     );
   }
 }
-
-

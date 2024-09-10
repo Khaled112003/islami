@@ -7,11 +7,11 @@ part 'accident_state.dart';
 
 class AccidentCubit extends Cubit<AccidentState> {
   AccidentCubit(this.accidentRepo) : super(AccidentInitial()) {
-    currentHadithIndex = 1; 
+    currentHadithIndex = 1;
   }
 
   final AccidentRepo accidentRepo;
-  int currentHadithIndex = 1; 
+  int currentHadithIndex = 1;
 
   Future<void> fetchHadithData() async {
     emit(AccidentLoading());

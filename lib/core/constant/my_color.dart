@@ -8,6 +8,6 @@ class Mycolors {
   // Color(0xFF74080C);
 
   static const Color green = Color.fromARGB(255, 59, 111, 104);
-   static const Color deepwhite = Color(0xFFF9FAFD);
-    static const Color red = Color(0xFF74080C);
+  static const Color deepwhite = Color(0xFFF9FAFD);
+  static const Color red = Color(0xFF74080C);
 }

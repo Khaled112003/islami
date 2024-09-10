@@ -17,15 +17,21 @@ class QuranPage extends StatelessWidget {
             SliverToBoxAdapter(
               child: Column(
                 children: [
-                  AppbarItem(text: '', pagename:'/LibararyPage' ,),
-                  SizedBox(height: 20,),
+                  AppbarItem(
+                    text: '',
+                    pagename: '/LibararyPage',
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
                   SearchItem(),
-                  SizedBox(height: 40,),
+                  SizedBox(
+                    height: 40,
+                  ),
                   SurahList(),
                 ],
               ),
             ),
-            
           ],
         ),
       ),

@@ -5,7 +5,6 @@ import 'package:islami/Features/Accident/presentation/manger/doaa/doaa_state.dar
 import 'package:islami/Features/Accident/presentation/views/widgets/wid_navigation.dart';
 
 class DoaaNavigitionbar extends StatelessWidget {
-  
   const DoaaNavigitionbar({super.key});
 
   @override
@@ -15,7 +14,8 @@ class DoaaNavigitionbar extends StatelessWidget {
         final doaaCubit = context.read<DoaaCubit>();
         String lastItemNumber = '0';
         if (state is DoaaSuccess && state.doaaList.isNotEmpty) {
-          lastItemNumber = state.doaaList.length.toString(); // Update to show last item number
+          lastItemNumber = state.doaaList.length
+              .toString(); // Update to show last item number
         }
 
         return WidgetNanigationBar(

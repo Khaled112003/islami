@@ -18,7 +18,7 @@ class DoaaRepository {
       return Right(doaaList);
     } catch (e) {
       print('Error fetching doaa collection: $e');
-      return Left(ServerFailure( 'Failed to fetch doaa collection'));
+      return Left(ServerFailure('Failed to fetch doaa collection'));
     }
   }
 }

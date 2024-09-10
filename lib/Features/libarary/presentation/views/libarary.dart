@@ -8,26 +8,31 @@ class LibararyPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  SafeArea(
+    return SafeArea(
       child: Scaffold(
         body: Column(
           children: [
-           const SizedBox(height: 60,),
-            GestureDetector(onTap: () {
-              GoRouter.of(context).go('/QuranPage');
-            },
-              child:const libraryItem(
+            const SizedBox(
+              height: 60,
+            ),
+            GestureDetector(
+              onTap: () {
+                GoRouter.of(context).go('/QuranPage');
+              },
+              child: const libraryItem(
                 image: 'assets/images/cropped_book_icon.png',
                 text: "Al- Qur'an",
               ),
             ),
-          const  SizedBox(height: 60,),
-          const  libraryItem(
+            const SizedBox(
+              height: 60,
+            ),
+            const libraryItem(
               text: "Al- Tafsir",
               image: 'assets/images/book 1.png',
-              textColor:  Color.fromARGB(255, 24, 16, 16), 
+              textColor: Color.fromARGB(255, 24, 16, 16),
             ),
-          const  LibraryImages()
+            const LibraryImages()
           ],
         ),
       ),

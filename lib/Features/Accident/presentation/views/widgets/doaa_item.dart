@@ -14,43 +14,44 @@ class DoaaItem extends StatelessWidget {
     return BlocBuilder<DoaaCubit, DoaaState>(
       builder: (context, state) {
         if (state is DoaaSuccess) {
-  if (state.doaaList.isNotEmpty &&
-      state.currentHadithIndex > 0 &&
-      state.currentHadithIndex <= state.doaaList.length) {
-    final currentDoaa = state.doaaList[state.currentHadithIndex - 1];
-    
-    
-    print('Current Doaa Content: ${currentDoaa.content}');
-    
-    return Container(
-      width: 380,
-      height: MediaQuery.of(context).size.height * 0.65,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: Mycolors.prayertime,
-      ),
-      child: Padding(
-        padding: const EdgeInsets.only(left: 8, top: 30, right: 8, bottom: 25),
-        child: Column(
-          children: [
-            Expanded(
-              child: SingleChildScrollView(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  currentDoaa.content , 
-                  textDirection: TextDirection.rtl,
-                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          if (state.doaaList.isNotEmpty &&
+              state.currentHadithIndex > 0 &&
+              state.currentHadithIndex <= state.doaaList.length) {
+            final currentDoaa = state.doaaList[state.currentHadithIndex - 1];
+
+            print('Current Doaa Content: ${currentDoaa.content}');
+
+            return Container(
+              width: 380,
+              height: MediaQuery.of(context).size.height * 0.65,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Mycolors.prayertime,
+              ),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 8, top: 30, right: 8, bottom: 25),
+                child: Column(
+                  children: [
+                    Expanded(
+                      child: SingleChildScrollView(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          currentDoaa.content,
+                          textDirection: TextDirection.rtl,
+                          style: const TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ),
-          ],
-        ),
-      ),
-    );
-  } else {
-    return const Center(child: Text('لا توجد بيانات لعرضها.'));
-  }
-}else if (state is DoaaFailure) {
+            );
+          } else {
+            return const Center(child: Text('لا توجد بيانات لعرضها.'));
+          }
+        } else if (state is DoaaFailure) {
           print(state.errorMessage);
           return FailureErrorMessage(errormassage: state.errorMessage);
         } else {

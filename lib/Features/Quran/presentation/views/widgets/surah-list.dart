@@ -12,12 +12,12 @@ class SurahList extends StatelessWidget {
     return ListView.builder(
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
-      itemCount: 10, 
+      itemCount: 10,
       itemBuilder: (context, index) => Padding(
-        padding: const EdgeInsets.symmetric( vertical: 13),
+        padding: const EdgeInsets.symmetric(vertical: 13),
         child: GestureDetector(
           onTap: () {
-             GoRouter.of(context).go('/SurahContent');
+            GoRouter.of(context).go('/SurahContent');
           },
           child: Container(
             decoration: BoxDecoration(
@@ -32,13 +32,12 @@ class SurahList extends StatelessWidget {
                 ),
               ],
             ),
-            
             width: MediaQuery.of(context).size.width * 0.90,
             height: MediaQuery.of(context).size.height * 0.15,
-            child:const Row(
+            child: const Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children:  [
-                NumberOfSurah( ),
+              children: [
+                NumberOfSurah(),
                 SurahName(),
                 Text(
                   'الفاتحة',

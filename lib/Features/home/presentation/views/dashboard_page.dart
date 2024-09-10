@@ -15,14 +15,19 @@ class DashoardPage extends StatelessWidget {
       child: BlocBuilder<DashboardCubit, DashboardState>(
         builder: (context, state) {
           return Scaffold(
-            appBar: AppBar( backgroundColor: Colors.transparent,
-          elevation: 0,),
+            appBar: AppBar(
+              backgroundColor: Colors.transparent,
+              elevation: 0,
+            ),
             body: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: PageView(
                 controller: state.pageController,
                 onPageChanged: context.read<DashboardCubit>().changepage,
-                children: const [DashboardBody(), LibararyPage(),],
+                children: const [
+                  DashboardBody(),
+                  LibararyPage(),
+                ],
               ),
             ),
             bottomNavigationBar: BottomNavigationBar(

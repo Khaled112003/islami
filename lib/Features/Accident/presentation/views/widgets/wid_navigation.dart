@@ -7,7 +7,7 @@ class WidgetNanigationBar extends StatelessWidget {
     required this.nextFun,
     required this.previousFun,
     required this.currentNum,
-     this.lastItemNumber,
+    this.lastItemNumber,
   });
 
   final void Function() nextFun;
@@ -19,15 +19,15 @@ class WidgetNanigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [IconButton(
+      children: [
+        IconButton(
           onPressed: nextFun,
           icon: const Icon(
             Icons.arrow_circle_right_rounded,
-             color:Mycolors.green,
+            color: Mycolors.green,
             size: 50,
           ),
         ),
-        
         Flexible(
           child: Row(
             mainAxisSize: MainAxisSize.min,
@@ -46,7 +46,7 @@ class WidgetNanigationBar extends StatelessWidget {
                     ),
                   ),
                   child: Text(
-                    lastItemNumber??'50', // Show the last item number
+                    lastItemNumber ?? '50', // Show the last item number
                     style: TextStyle(color: Colors.grey),
                   ),
                 ),
@@ -66,7 +66,9 @@ class WidgetNanigationBar extends StatelessWidget {
                   ),
                   child: Text(
                     currentNum,
-                    style: TextStyle( color:Mycolors.green,),
+                    style: TextStyle(
+                      color: Mycolors.green,
+                    ),
                   ),
                 ),
               ),
@@ -77,7 +79,7 @@ class WidgetNanigationBar extends StatelessWidget {
           onPressed: previousFun,
           icon: const Icon(
             Icons.arrow_circle_left_rounded,
-            color:Mycolors.green,
+            color: Mycolors.green,
             size: 50,
           ),
         ),

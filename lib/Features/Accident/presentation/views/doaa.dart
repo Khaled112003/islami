@@ -18,13 +18,17 @@ class _DoaaState extends State<Doaa> {
     BlocProvider.of<DoaaCubit>(context).fetchDoaaData();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return const SafeArea(
       child: Scaffold(
         body: Column(
           children: [
-            AppbarItem(text: 'Doaa', pagename: '/',),
+            AppbarItem(
+              text: 'Doaa',
+              pagename: '/',
+            ),
             SizedBox(height: 40),
             DoaaItem(),
             SizedBox(height: 30),

@@ -8,7 +8,7 @@ class DoaaLoading extends DoaaState {}
 
 class DoaaSuccess extends DoaaState {
   final List<DoaaModel> doaaList;
- final int currentHadithIndex;
+  final int currentHadithIndex;
   DoaaSuccess(this.doaaList, this.currentHadithIndex);
 }
 

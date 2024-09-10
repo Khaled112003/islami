@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 class ItemImageForLibrary extends StatelessWidget {
   const ItemImageForLibrary({
-    super.key, required this.image,
+    super.key,
+    required this.image,
   });
   final String image;
 

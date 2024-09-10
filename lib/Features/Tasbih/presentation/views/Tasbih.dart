@@ -21,7 +21,8 @@ class Tasbih extends StatelessWidget {
             child: Column(
               children: [
                 AppbarItem(
-                  text: 'Tasbih',pagename: '/',
+                  text: 'Tasbih',
+                  pagename: '/',
                 ),
                 SizedBox(height: 40),
                 ZakrAndNumber(),
