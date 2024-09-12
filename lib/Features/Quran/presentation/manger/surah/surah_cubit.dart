@@ -10,11 +10,18 @@ class SurahCubit extends Cubit<SurahState> {
   SurahCubit(this.surahRepo) : super(SurahInitial());
   final SurahRepo surahRepo;
   Future<void> fetchSurahData() async {
-    emit(SurahLoading());
-    var result = await surahRepo.fetchSurah();
-    result.fold((failure) {
+   if (!isClosed) {
+  emit(SurahLoading());
+  var result = await surahRepo.fetchSurah();
+  result.fold((failure) {
+    if (!isClosed) {
       emit(SurahFailure(failure.errorMassage));
-    }, (surah) {
+    }
+  }, (surah) {
+    if (!isClosed) {
       emit(SurahSuccsess(surah));
-    });
+    }
+  });
+}
+
 }}
