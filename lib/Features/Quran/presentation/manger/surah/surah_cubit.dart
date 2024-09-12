@@ -9,12 +9,12 @@ part 'surah_state.dart';
 class SurahCubit extends Cubit<SurahState> {
   SurahCubit(this.surahRepo) : super(SurahInitial());
   final SurahRepo surahRepo;
-  Future<void> fetchBestSellerData() async {
+  Future<void> fetchSurahData() async {
     emit(SurahLoading());
     var result = await surahRepo.fetchSurah();
     result.fold((failure) {
       emit(SurahFailure(failure.errorMassage));
-    }, (books) {
-      emit(SurahSuccsess(books));
+    }, (surah) {
+      emit(SurahSuccsess(surah));
     });
 }}

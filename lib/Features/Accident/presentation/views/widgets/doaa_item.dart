@@ -55,7 +55,25 @@ class DoaaItem extends StatelessWidget {
           print(state.errorMessage);
           return FailureErrorMessage(errormassage: state.errorMessage);
         } else {
-          return const ShimmerLoading();
+          return  ShimmerLoading(width: 380,
+              height: MediaQuery.of(context).size.height * 0.65,
+            widget: Padding(
+          padding: const EdgeInsets.only(left: 8, top: 30, right: 8, bottom: 25),
+          child: Column(
+            children: [
+              Expanded(
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    width: double.infinity,
+                    height: 200,  // يمكن ضبط الارتفاع ليتناسب مع المحتوى المتوقع
+                    color: Colors.grey[400], // لون رمادي يمثل مكان النص
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),itemCount: 1,);
         }
       },
     );

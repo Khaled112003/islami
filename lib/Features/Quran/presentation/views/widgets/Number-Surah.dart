@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class NumberOfSurah extends StatelessWidget {
   const NumberOfSurah({
-    super.key,
+    super.key, required this.number,
   });
+  final int number;
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +17,8 @@ class NumberOfSurah extends StatelessWidget {
         ),
         Center(
           child: Text(
-            '1',
-            style: TextStyle(
+            number.toString() ,
+            style:const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 18,
             ),

@@ -52,7 +52,9 @@ class AccidentItem extends StatelessWidget {
         } else if (state is AccidentFailure) {
           return FailureErrorMessage(errormassage: state.errorMassage);
         } else {
-          return const ShimmerLoading();
+          return  ShimmerLoading(width: 380,
+              height: MediaQuery.of(context).size.height * 0.65,
+            widget: Text('data'),itemCount: 1,);
         }
       },
     );

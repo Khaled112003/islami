@@ -10,22 +10,19 @@ class PrayerTimeCubit extends Cubit<PrayerTimeState> {
 
   final PrayerTimeRepo prayerTimeRepo;
 
-  Future<void> fetchPrayerData() async {
-    try {
-      emit(PrayerTimeloading());
-      var result = await prayerTimeRepo.fetchPrayerTime();
-      result.fold(
-        (fail) => emit(PrayerTimefailure(fail.errorMassage)),
-        (adhan) => emit(PrayerTimesuccsess(adhan)),
-      );
-    } catch (e) {
-      
-      emit(PrayerTimefailure('حدث خطأ غير متوقع.'));
-    }
+ Future<void> fetchPrayerData() async {
+  if (isClosed) return;  
+  try {
+    emit(PrayerTimeloading());
+    var result = await prayerTimeRepo.fetchPrayerTime();
+    if (isClosed) return;  
+    result.fold(
+      (fail) => emit(PrayerTimefailure(fail.errorMassage)),
+      (adhan) => emit(PrayerTimesuccsess(adhan)),
+    );
+  } catch (e) {
+    if (isClosed) return;  
+    emit(const PrayerTimefailure('حدث خطأ غير متوقع.'));
   }
-
-  @override
-  Future<void> close() {
-    return super.close();
-  }
+}
 }

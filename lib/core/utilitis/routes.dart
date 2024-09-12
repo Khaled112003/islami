@@ -6,6 +6,11 @@ import 'package:islami/Features/Accident/presentation/manger/accident/accident_c
 import 'package:islami/Features/Accident/presentation/manger/doaa/doaa_cubit.dart';
 import 'package:islami/Features/Accident/presentation/views/accident.dart';
 import 'package:islami/Features/Accident/presentation/views/doaa.dart';
+import 'package:islami/Features/Quran/data/model/surah_model/surah_model.dart';
+import 'package:islami/Features/Quran/data/repo/surah_repo.dart';
+
+import 'package:islami/Features/Quran/presentation/manger/cubit/ayat_cubit.dart';
+import 'package:islami/Features/Quran/presentation/manger/surah/surah_cubit.dart';
 import 'package:islami/Features/Quran/presentation/views/quran-page.dart';
 import 'package:islami/Features/Quran/presentation/views/surah-content.dart';
 
@@ -46,7 +51,10 @@ final router = GoRouter(routes: [
   ),
   GoRoute(
     path: '/QuranPage',
-    builder: (context, state) => const QuranPage(),
+    builder: (context, state) => BlocProvider(
+      create: (context) => SurahCubit(getIt.get<SurahRepo>()),
+      child: const QuranPage(),
+    ),
   ),
   GoRoute(
     path: '/LibararyPage',
@@ -54,6 +62,9 @@ final router = GoRouter(routes: [
   ),
   GoRoute(
     path: '/SurahContent',
-    builder: (context, state) => const SurahContent(),
+    builder: (context, state) => BlocProvider(
+      create: (context) => AyatCubit(getIt.get<SurahRepo>()),
+      child:  SurahContent(surahModel: state.extra as SurahModel,),
+    ),
   ),
 ]);
