@@ -18,7 +18,7 @@ class QuranPage extends StatefulWidget {
 class _QuranPageState extends State<QuranPage> {
   @override
   void initState() {
-    BlocProvider.of<SurahCubit>(context).fetchSurahData();
+    BlocProvider.of<SurahCubit>(context).fetchSurahs();
     super.initState();
   }
   @override

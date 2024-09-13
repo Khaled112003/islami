@@ -2,10 +2,12 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:islami/core/constant/my_color.dart';
 import 'package:islami/core/utilitis/routes.dart';
+import 'package:islami/core/utilitis/shared_Preferences.dart';
 import 'package:islami/core/utilitis/singleton_pattern.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await SharedPrefsHelper.init();
   await _initializeFirebase(); // استدعاء تهيئة Firebase بطريقة آمنة
   setup();
   runApp(const IslamiApp());
