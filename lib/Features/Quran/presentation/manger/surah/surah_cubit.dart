@@ -1,8 +1,11 @@
+import 'dart:convert';
+
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
 import 'package:islami/Features/Quran/data/model/surah_model/surah_model.dart';
 import 'package:islami/Features/Quran/data/repo/surah_repo.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 part 'surah_state.dart';
 
@@ -10,11 +13,16 @@ class SurahCubit extends Cubit<SurahState> {
   SurahCubit(this.surahRepo) : super(SurahInitial());
 
   final SurahRepo surahRepo;
-  List<SurahModel>? cachedSurah;
 
   Future<void> fetchSurahData() async {
-    if (cachedSurah != null) {
-      emit(SurahSuccsess(cachedSurah!));
+    final prefs = await SharedPreferences.getInstance();
+    final surahJson = prefs.getString('surahs');
+
+    if (surahJson != null) {
+      final List<dynamic> jsonData = jsonDecode(surahJson);
+      final List<SurahModel> cachedSurah =
+          jsonData.map((data) => SurahModel.fromJson(data)).toList();
+      emit(SurahSuccsess(cachedSurah));
       return;
     }
 
@@ -27,7 +35,10 @@ class SurahCubit extends Cubit<SurahState> {
         }
       }, (surah) {
         if (!isClosed) {
-          cachedSurah = surah;
+          final List<Map<String, dynamic>> jsonData =
+              surah.map((e) => e.toJson()).toList();
+          prefs.setString(
+              'surahs', jsonEncode(jsonData)); // تخزين البيانات كـ JSON
           emit(SurahSuccsess(surah));
         }
       });
