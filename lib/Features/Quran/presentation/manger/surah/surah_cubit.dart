@@ -8,20 +8,29 @@ part 'surah_state.dart';
 
 class SurahCubit extends Cubit<SurahState> {
   SurahCubit(this.surahRepo) : super(SurahInitial());
-  final SurahRepo surahRepo;
-  Future<void> fetchSurahData() async {
-   if (!isClosed) {
-  emit(SurahLoading());
-  var result = await surahRepo.fetchSurah();
-  result.fold((failure) {
-    if (!isClosed) {
-      emit(SurahFailure(failure.errorMassage));
-    }
-  }, (surah) {
-    if (!isClosed) {
-      emit(SurahSuccsess(surah));
-    }
-  });
-}
 
-}}
+  final SurahRepo surahRepo;
+  List<SurahModel>? cachedSurah;
+
+  Future<void> fetchSurahData() async {
+    if (cachedSurah != null) {
+      emit(SurahSuccsess(cachedSurah!));
+      return;
+    }
+
+    if (!isClosed) {
+      emit(SurahLoading());
+      var result = await surahRepo.fetchSurah();
+      result.fold((failure) {
+        if (!isClosed) {
+          emit(SurahFailure(failure.errorMassage));
+        }
+      }, (surah) {
+        if (!isClosed) {
+          cachedSurah = surah;
+          emit(SurahSuccsess(surah));
+        }
+      });
+    }
+  }
+}
