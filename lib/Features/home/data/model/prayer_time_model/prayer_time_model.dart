@@ -1,3 +1,5 @@
+
+
 class PrayerTimeModel {
   final String fajr;
   final String shurooq;
@@ -15,6 +17,7 @@ class PrayerTimeModel {
     required this.isha,
   });
 
+  // تحويل JSON إلى نموذج
   factory PrayerTimeModel.fromJson(Map<String, dynamic> json) {
     return PrayerTimeModel(
       fajr: json['fajr'] ?? 'غير متوفر',
@@ -24,5 +27,17 @@ class PrayerTimeModel {
       maghrib: json['maghrib'] ?? 'غير متوفر',
       isha: json['isha'] ?? 'غير متوفر',
     );
+  }
+
+  // تحويل النموذج إلى JSON
+  Map<String, dynamic> toJson() {
+    return {
+      'fajr': fajr,
+      'shurooq': shurooq,
+      'dhuhr': dhuhr,
+      'asr': asr,
+      'maghrib': maghrib,
+      'isha': isha,
+    };
   }
 }
