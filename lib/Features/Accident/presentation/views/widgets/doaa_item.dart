@@ -61,15 +61,10 @@ class DoaaItem extends StatelessWidget {
           padding: const EdgeInsets.only(left: 8, top: 30, right: 8, bottom: 25),
           child: Column(
             children: [
-              Expanded(
-                child: SingleChildScrollView(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    width: double.infinity,
-                    height: 200,  // يمكن ضبط الارتفاع ليتناسب مع المحتوى المتوقع
-                    color: Colors.grey[400], // لون رمادي يمثل مكان النص
-                  ),
-                ),
+              Container(
+                width: double.infinity,
+                height: 200,  // يمكن ضبط الارتفاع ليتناسب مع المحتوى المتوقع
+                color: Colors.grey[400], // لون رمادي يمثل مكان النص
               ),
             ],
           ),

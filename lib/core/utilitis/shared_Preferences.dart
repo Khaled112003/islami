@@ -8,8 +8,8 @@ class SharedPrefsHelper {
     _preferences = await SharedPreferences.getInstance();
   }
 
-  static Future<void> saveData(String key, List<Map<String, dynamic>> ayahs) async {
-    final String ayahJsonString = jsonEncode(ayahs);
+  static Future<void> saveData(String key, List<Map<String, dynamic>> value) async {
+    final String ayahJsonString = jsonEncode(value);
     await _preferences?.setString(key, ayahJsonString);
   }
 
