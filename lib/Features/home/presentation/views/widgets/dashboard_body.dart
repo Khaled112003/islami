@@ -23,10 +23,10 @@ class _DashboardBodyState extends State<DashboardBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const  Column(
       children: [
-        const CustomAppbar(),
-        const SizedBox(
+         CustomAppbar(),
+         SizedBox(
           height: 30,
         ),
         PrayerTime(),

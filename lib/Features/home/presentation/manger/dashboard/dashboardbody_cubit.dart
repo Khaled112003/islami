@@ -7,7 +7,19 @@ part 'dashboardbody_state.dart';
 class DashboardCubit extends Cubit<DashboardState> {
   DashboardCubit()
       : super(DashboardInitial(
-            pageController: PageController(), currentIndex: 0));
+            pageController: PageController(), currentIndex: 0)) { // الصفحة الثانية كبداية
+
+    // ضبط مستمع لتغيير الصفحة
+    state.pageController.addListener(_onPageChanged);
+  }
+
+  void _onPageChanged() {
+    final pageIndex = state.pageController.page?.round() ?? 0;
+    if (pageIndex != state.currentIndex) {
+      emit(DashboardInitial(
+          pageController: state.pageController, currentIndex: pageIndex));
+    }
+  }
 
   void changepage(int index) {
     final currentState = state;

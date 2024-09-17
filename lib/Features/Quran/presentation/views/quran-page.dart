@@ -5,7 +5,7 @@ import 'package:islami/Features/Quran/presentation/views/widgets/surah-list.dart
 
 import 'package:islami/Features/Quran/presentation/views/widgets/search-item.dart';
 
-import 'package:islami/core/widgets/appbar_item.dart';
+
 
 class QuranPage extends StatefulWidget {
   const QuranPage({Key? key});
@@ -24,18 +24,15 @@ class _QuranPageState extends State<QuranPage> {
   @override
   Widget build(BuildContext context) {
     return const SafeArea(
-      child: Scaffold(
-        body: CustomScrollView(
+      child: 
+         CustomScrollView(
           slivers: [
             SliverToBoxAdapter(
               child: Column(
                 children: [
-                  AppbarItem(
-                    text: '',
-                    pagename: '/LibararyPage',
-                  ),
+                 
                   SizedBox(
-                    height: 20,
+                    height: 21,
                   ),
                   SearchItem(),
                   SizedBox(
@@ -47,7 +44,7 @@ class _QuranPageState extends State<QuranPage> {
             ),
           ],
         ),
-      ),
-    );
+      );
+   
   }
 }

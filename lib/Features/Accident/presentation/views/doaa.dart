@@ -27,7 +27,7 @@ class _DoaaState extends State<Doaa> {
           children: [
             AppbarItem(
               text: 'Doaa',
-              pagename: '/',
+              
             ),
             SizedBox(height: 40),
             DoaaItem(),

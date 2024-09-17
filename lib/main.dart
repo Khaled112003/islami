@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+
 import 'package:islami/core/constant/my_color.dart';
 import 'package:islami/core/utilitis/routes.dart';
 import 'package:islami/core/utilitis/shared_Preferences.dart';
@@ -8,14 +9,14 @@ import 'package:islami/core/utilitis/singleton_pattern.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SharedPrefsHelper.init();
-  await _initializeFirebase(); // استدعاء تهيئة Firebase بطريقة آمنة
+  await _initializeFirebase();
   setup();
   runApp(const IslamiApp());
 }
 
 Future<void> _initializeFirebase() async {
   try {
-    // تحقق إذا كان هناك تطبيق Firebase موجود مسبقًا
+  
     if (Firebase.apps.isEmpty) {
       await Firebase.initializeApp(
         options: const FirebaseOptions(
@@ -38,15 +39,16 @@ class IslamiApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      routerConfig: router,
-      theme: ThemeData.light().copyWith(
-        scaffoldBackgroundColor: Mycolors.myWhite,
-        textTheme: ThemeData.light().textTheme.apply(
-              bodyColor: Colors.black,
-              displayColor: Colors.black,
-            ),
-      ),
-    );
+        debugShowCheckedModeBanner: false,
+        routerConfig: router,
+        theme: ThemeData.light().copyWith(
+          scaffoldBackgroundColor: Mycolors.myWhite,
+          textTheme: ThemeData.light().textTheme.apply(
+                bodyColor: Colors.black,
+                displayColor: Colors.black,
+              ),
+        ),
+      );
+   
   }
 }

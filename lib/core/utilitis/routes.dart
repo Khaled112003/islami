@@ -16,6 +16,7 @@ import 'package:islami/Features/Quran/presentation/views/surah-content.dart';
 
 import 'package:islami/Features/Tasbih/presentation/views/Tasbih.dart';
 import 'package:islami/Features/home/data/repo/implement_repo.dart';
+import 'package:islami/Features/home/presentation/manger/dashboard/dashboardbody_cubit.dart';
 import 'package:islami/Features/home/presentation/manger/prayertime/prayer_time_cubit.dart';
 import 'package:islami/Features/home/presentation/views/dashboard_page.dart';
 import 'package:islami/Features/libarary/presentation/views/libarary.dart';
@@ -24,13 +25,25 @@ import 'package:islami/core/utilitis/singleton_pattern.dart';
 
 final router = GoRouter(routes: [
   GoRoute(
-    path: '/',
-    builder: (context, state) => BlocProvider(
-      create: (context) =>
-          PrayerTimeCubit(getIt.get<ImplementionPrayerTimeRepo>()),
-      child: const DashoardPage(),
-    ),
+  path: '/',
+  builder: (context, state) => MultiBlocProvider(
+    providers: [
+      BlocProvider<PrayerTimeCubit>(
+        create: (context) =>
+            PrayerTimeCubit(getIt.get<ImplementionPrayerTimeRepo>()),
+      ),
+      BlocProvider<DashboardCubit>(
+        create: (context) => DashboardCubit(),
+      ),
+      
+        BlocProvider<SurahCubit>(
+          create: (context) => SurahCubit(getIt.get<SurahRepo>()),
+        ),
+     
+    ],
+    child: const DashoardPage(),
   ),
+),
   GoRoute(
     path: '/Tasbih',
     builder: (context, state) => const Tasbih(),
@@ -50,12 +63,12 @@ final router = GoRouter(routes: [
     ),
   ),
   GoRoute(
-    path: '/QuranPage',
-    builder: (context, state) => BlocProvider(
-      create: (context) => SurahCubit(getIt.get<SurahRepo>()),
-      child: const QuranPage(),
-    ),
+  path: '/QuranPage',
+  builder: (context, state) => BlocProvider(
+    create: (context) => SurahCubit(getIt.get<SurahRepo>()),
+    child: const QuranPage(),
   ),
+),
   GoRoute(
     path: '/LibararyPage',
     builder: (context, state) => const LibararyPage(),

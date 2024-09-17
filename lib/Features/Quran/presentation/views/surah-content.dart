@@ -37,7 +37,8 @@ void initState() {
                 children: [
                   AppbarItem(
                     text: widget.surahModel.name!,
-                    pagename: '/QuranPage',
+                   
+                    
                   ),
                 const  SizedBox(
                     height: 15,

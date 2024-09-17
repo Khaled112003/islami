@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:islami/Features/Tasbih/presentation/manger/Tasbih_cubit/tasbih_cubit.dart';
@@ -22,7 +22,7 @@ class Tasbih extends StatelessWidget {
               children: [
                 AppbarItem(
                   text: 'Tasbih',
-                  pagename: '/',
+                  
                 ),
                 SizedBox(height: 40),
                 ZakrAndNumber(),

@@ -4,9 +4,8 @@ import 'package:go_router/go_router.dart';
 import 'package:islami/core/constant/my_color.dart';
 
 class AppbarItem extends StatelessWidget {
-  const AppbarItem({super.key, required this.text, required this.pagename});
+  const AppbarItem({super.key, required this.text});
   final String text;
-  final String pagename;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +16,12 @@ class AppbarItem extends StatelessWidget {
           alignment: Alignment.topLeft,
           child: IconButton(
             onPressed: () {
-              GoRouter.of(context).go(pagename);
+              if (Navigator.canPop(context)) {
+                Navigator.pop(context);
+              } else {
+                // في حالة عدم وجود صفحات يمكن الرجوع إليها
+                context.go('/'); // أو الصفحة التي تريد الرجوع إليها
+              }
             },
             icon: const Icon(
               Icons.arrow_circle_left_outlined,
@@ -29,7 +33,7 @@ class AppbarItem extends StatelessWidget {
         Align(
           alignment: Alignment.topCenter,
           child: Padding(
-            padding: EdgeInsets.only(top: 0),
+            padding: const EdgeInsets.only(top: 0),
             child: Text(
               text,
               style: const TextStyle(

@@ -47,7 +47,7 @@ Future<Either<Failure, List<Ayah>>> fetchSurahAyahs(SurahModel surah) async {
         print(data['data']['ayahs']);
 
         for (var element in data['data']['ayahs']) {
-          ayahs.add(Ayah.fromJson(element)); // Parse each Ayah using AyahModel
+          ayahs.add(Ayah.fromJson(element)); 
         }
 
         return right(ayahs);

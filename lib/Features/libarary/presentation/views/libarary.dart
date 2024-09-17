@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:islami/Features/Quran/presentation/views/quran-page.dart';
 import 'package:islami/Features/libarary/presentation/views/widgets/library-item.dart';
 import 'package:islami/Features/libarary/presentation/views/widgets/library_images.dart';
 
@@ -11,8 +12,7 @@ class LibararyPage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Column(
-          children: [
-            const SizedBox(
+          children: [ const SizedBox(
               height: 60,
             ),
             GestureDetector(
@@ -33,6 +33,7 @@ class LibararyPage extends StatelessWidget {
               textColor: Color.fromARGB(255, 24, 16, 16),
             ),
             const LibraryImages()
+          
           ],
         ),
       ),

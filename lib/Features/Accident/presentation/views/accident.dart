@@ -28,7 +28,7 @@ class _AccidentState extends State<Accident> {
           children: [
             AppbarItem(
               text: 'Accident',
-              pagename: '/',
+              
             ),
             SizedBox(height: 40),
             AccidentItem(),

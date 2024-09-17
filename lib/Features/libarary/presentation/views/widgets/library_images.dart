@@ -11,7 +11,7 @@ class LibraryImages extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           ItemImageForLibrary(
-            image: 'assets/images/cropped_book_icon.png',
+            image: 'assets/images/Frame 1000005874.png',
           ),
           ItemImageForLibrary(
             image: 'assets/images/Frame 1000005866.png',
