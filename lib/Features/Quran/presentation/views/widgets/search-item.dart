@@ -3,7 +3,8 @@ import 'package:islami/core/constant/my_color.dart';
 import 'package:islami/core/widgets/textfiled-item.dart';
 
 class SearchItem extends StatelessWidget {
-  const SearchItem({super.key});
+  const SearchItem({super.key, required this.searchController});
+  final TextEditingController searchController;
 
   @override
   Widget build(BuildContext context) {
@@ -14,10 +15,10 @@ class SearchItem extends StatelessWidget {
       ),
       width: MediaQuery.of(context).size.width * 0.90,
       height: MediaQuery.of(context).size.height * 0.1,
-      child: const Column(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SerchTextFiled(),
+          SerchTextFiled(searchController: searchController),
         ],
       ),
     );

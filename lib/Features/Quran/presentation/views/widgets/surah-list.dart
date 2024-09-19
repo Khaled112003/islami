@@ -15,13 +15,13 @@ class SurahList extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<SurahCubit, SurahState>(
       builder: (context, state) {
-        if (state is SurahSuccsess) {
+        if (state is SurahSuccess) {
           return ListView.builder(
             physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
-            itemCount: state.surah.length,
+            itemCount: state.filteredSurahs.length,
             itemBuilder: (context, index) {
-              final surah = state.surah[index];
+              final surah = state.filteredSurahs[index];
               final ayahs = surah.ayahs;
               final numberInSurah = ayahs != null && index < ayahs.length
                   ? ayahs[index].numberInSurah?.toInt() ?? 0
@@ -31,7 +31,7 @@ class SurahList extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 13),
                 child: GestureDetector(
                   onTap: () {
-                    GoRouter.of(context).go('/SurahContent' ,extra:surah );
+                    GoRouter.of(context).go('/SurahContent', extra: surah);
                   },
                   child: Container(
                     decoration: BoxDecoration(

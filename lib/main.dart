@@ -1,5 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:islami/Features/home/presentation/manger/dashboard/dashboardbody_cubit.dart';
 
 import 'package:islami/core/constant/my_color.dart';
 import 'package:islami/core/utilitis/routes.dart';
@@ -16,7 +18,6 @@ void main() async {
 
 Future<void> _initializeFirebase() async {
   try {
-  
     if (Firebase.apps.isEmpty) {
       await Firebase.initializeApp(
         options: const FirebaseOptions(
@@ -38,7 +39,9 @@ class IslamiApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
+    return BlocProvider(
+      create: (context) => DashboardCubit(),
+      child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         routerConfig: router,
         theme: ThemeData.light().copyWith(
@@ -48,7 +51,7 @@ class IslamiApp extends StatelessWidget {
                 displayColor: Colors.black,
               ),
         ),
-      );
-   
+      ),
+    );
   }
 }

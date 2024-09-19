@@ -14,6 +14,9 @@ class AyatCubit extends Cubit<AyatState> {
   final SurahRepo surahRepo;
 
   Future<void> fetchSurahData({required SurahModel surah}) async {
+    // Check if the cubit is closed before proceeding
+    if (isClosed) return;
+
     emit(AyatLoading());
 
     final prefs = await SharedPreferences.getInstance();
@@ -26,16 +29,18 @@ class AyatCubit extends Cubit<AyatState> {
           .toList();
       emit(AyatSuccsess(ayahs));
     } else {
-      
       var result = await surahRepo.fetchSurahAyahs(surah);
       result.fold(
-        (failure) => emit(AyatFailure(failure.errorMassage)),
+        (failure) {
+          if (!isClosed) emit(AyatFailure(failure.errorMassage));
+        },
         (ayahs) {
-         
-          final List<Map<String, dynamic>> ayahsJson =
-              ayahs.map((ayah) => ayah.toJson()).toList();
-          prefs.setString('ayahs_${surah.number}', jsonEncode(ayahsJson));
-          emit(AyatSuccsess(ayahs));
+          if (!isClosed) {
+            final List<Map<String, dynamic>> ayahsJson =
+                ayahs.map((ayah) => ayah.toJson()).toList();
+            prefs.setString('ayahs_${surah.number}', jsonEncode(ayahsJson));
+            emit(AyatSuccsess(ayahs));
+          }
         },
       );
     }
