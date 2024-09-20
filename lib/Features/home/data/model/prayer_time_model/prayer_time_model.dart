@@ -7,17 +7,19 @@ class PrayerTimeModel {
   final String asr;
   final String maghrib;
   final String isha;
+  final dynamic date;
 
-  PrayerTimeModel({
+  PrayerTimeModel( {
     required this.fajr,
     required this.shurooq,
     required this.dhuhr,
     required this.asr,
     required this.maghrib,
     required this.isha,
+   required this.date,
   });
 
-  // تحويل JSON إلى نموذج
+  
   factory PrayerTimeModel.fromJson(Map<String, dynamic> json) {
     return PrayerTimeModel(
       fajr: json['fajr'] ?? 'غير متوفر',
@@ -26,6 +28,7 @@ class PrayerTimeModel {
       asr: json['asr'] ?? 'غير متوفر',
       maghrib: json['maghrib'] ?? 'غير متوفر',
       isha: json['isha'] ?? 'غير متوفر',
+      date: json['date_for'] ?? 'غير متوفر',
     );
   }
 
@@ -38,6 +41,7 @@ class PrayerTimeModel {
       'asr': asr,
       'maghrib': maghrib,
       'isha': isha,
+      'date_for':date
     };
   }
 }

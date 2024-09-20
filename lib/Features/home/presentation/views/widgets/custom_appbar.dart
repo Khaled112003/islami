@@ -4,8 +4,8 @@ import 'package:go_router/go_router.dart';
 import 'package:islami/Features/home/presentation/views/widgets/item_image.dart';
 import 'package:islami/core/constant/my_color.dart';
 
-class CustomAppbar extends StatelessWidget {
-  const CustomAppbar({super.key});
+class IslamyActivites extends StatelessWidget {
+  const IslamyActivites({super.key});
 
   @override
   Widget build(BuildContext context) {

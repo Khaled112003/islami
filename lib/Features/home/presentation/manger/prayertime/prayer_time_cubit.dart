@@ -17,26 +17,31 @@ class PrayerTimeCubit extends Cubit<PrayerTimeState> {
     try {
       emit(PrayerTimeloading());
 
-      // تحقق من البيانات المخزنة مؤقتاً أولاً
+     
       List<Map<String, dynamic>>? cachedPrayerTimes = SharedPrefsHelper.getData("prayer_time_list");
+      int? lastUpdated = SharedPrefsHelper.getLastUpdatedTimestamp("prayer_time_list");
 
-      if (cachedPrayerTimes != null) {
-        // تحويل البيانات المخزنة إلى نماذج PrayerTimeModel
-        List<PrayerTimeModel> prayerTimes = cachedPrayerTimes.map((e) => PrayerTimeModel.fromJson(e)).toList();
-        emit(PrayerTimesuccsess(prayerTimes));
-      } else {
-        // جلب البيانات من API إذا لم يكن هناك بيانات مخزنة
-        var result = await prayerTimeRepo.fetchPrayerTime();
-        if (isClosed) return;  
-        result.fold(
-          (fail) => emit(PrayerTimefailure(fail.errorMassage)),
-          (adhan) {
-            // تخزين البيانات التي تم جلبها في SharedPreferences
-            SharedPrefsHelper.saveData("prayer_time_list", adhan.map((e) => e.toJson()).toList());
-            emit(PrayerTimesuccsess(adhan));
-          },
-        );
+      
+      if (cachedPrayerTimes != null && lastUpdated != null) {
+        final int currentTime = DateTime.now().millisecondsSinceEpoch;
+        final int oneDayInMillis = 24 * 60 * 60 * 1000;
+
+        if (currentTime - lastUpdated < oneDayInMillis) {
+          List<PrayerTimeModel> prayerTimes = cachedPrayerTimes.map((e) => PrayerTimeModel.fromJson(e)).toList();
+          emit(PrayerTimesuccsess(prayerTimes));
+          return;
+        }
       }
+
+      var result = await prayerTimeRepo.fetchPrayerTime();
+      if (isClosed) return;  
+      result.fold(
+        (fail) => emit(PrayerTimefailure(fail.errorMassage)),
+        (adhan) {
+          SharedPrefsHelper.saveData("prayer_time_list", adhan.map((e) => e.toJson()).toList());
+          emit(PrayerTimesuccsess(adhan));
+        },
+      );
     } catch (e) {
       if (isClosed) return;  
       emit(const PrayerTimefailure('حدث خطأ غير متوقع.'));

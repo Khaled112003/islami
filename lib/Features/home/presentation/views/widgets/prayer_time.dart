@@ -17,57 +17,73 @@ class PrayerTime extends StatelessWidget {
       builder: (context, state) {
         if (state is PrayerTimesuccsess) {
           var adhanTimes = state.Adhan[0];
-          return Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Mycolors.prayertime,
-              boxShadow: [
-                BoxShadow(
-                  color:
-                      const Color.fromARGB(255, 189, 186, 186).withOpacity(0.5),
-                  spreadRadius: 2,
-                  blurRadius: 7,
-                  offset: Offset(0, 3),
+          return Column(
+            children: [
+              Row(
+     
+      children: [
+      
+        Text('date : ',
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold ,color: Mycolors.green)),
+        Text(adhanTimes.date,
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold ,color: Mycolors.green,)),
+      ],
+    ),
+    SizedBox(height: 10,),
+              
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Mycolors.prayertime,
+                  boxShadow: [
+                    BoxShadow(
+                      color:
+                          const Color.fromARGB(255, 189, 186, 186).withOpacity(0.5),
+                      spreadRadius: 2,
+                      blurRadius: 7,
+                      offset: Offset(0, 3),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-            width: double.infinity,
-            height: MediaQuery.of(context).size.height * 0.60,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const PrayerTimeImage(),
-                AdhanTime(
-                  adhanname: 'الفجر',
-                  icon: CupertinoIcons.cloud_moon,
-                  adhandate: adhanTimes.fajr,
+                width: double.infinity,
+                height: MediaQuery.of(context).size.height * 0.60,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const PrayerTimeImage(),
+                    AdhanTime(
+                      adhanname: 'الفجر',
+                      icon: CupertinoIcons.cloud_moon,
+                      adhandate: adhanTimes.fajr,
+                    ),
+                    AdhanTime(
+                        adhanname: 'الشروق',
+                        icon: CupertinoIcons.cloud_sun,
+                        adhandate: adhanTimes.shurooq),
+                    AdhanTime(
+                      adhanname: 'الظهر',
+                      icon: CupertinoIcons.sun_max,
+                      adhandate: adhanTimes.dhuhr,
+                    ),
+                    AdhanTime(
+                      adhanname: 'العصر',
+                      icon: CupertinoIcons.sunset,
+                      adhandate: adhanTimes.asr,
+                    ),
+                    AdhanTime(
+                      adhanname: 'المغرب',
+                      icon: CupertinoIcons.sun_dust,
+                      adhandate: adhanTimes.maghrib,
+                    ),
+                    AdhanTime(
+                        adhanname: 'العشاء',
+                        icon: CupertinoIcons.moon,
+                        adhandate: adhanTimes.isha),
+                    const SizedBox(height: 0),
+                  ],
                 ),
-                AdhanTime(
-                    adhanname: 'الشروق',
-                    icon: CupertinoIcons.cloud_sun,
-                    adhandate: adhanTimes.shurooq),
-                AdhanTime(
-                  adhanname: 'الظهر',
-                  icon: CupertinoIcons.sun_max,
-                  adhandate: adhanTimes.dhuhr,
-                ),
-                AdhanTime(
-                  adhanname: 'العصر',
-                  icon: CupertinoIcons.sunset,
-                  adhandate: adhanTimes.asr,
-                ),
-                AdhanTime(
-                  adhanname: 'المغرب',
-                  icon: CupertinoIcons.sun_dust,
-                  adhandate: adhanTimes.maghrib,
-                ),
-                AdhanTime(
-                    adhanname: 'العشاء',
-                    icon: CupertinoIcons.moon,
-                    adhandate: adhanTimes.isha),
-                const SizedBox(height: 0),
-              ],
-            ),
+              ),
+            ],
           );
         } else if (state is PrayerTimefailure) {
           return FailureErrorMessage(errormassage: state.errorMassage);

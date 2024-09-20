@@ -10,16 +10,7 @@ class SerchTextFiled extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(13),
-        color: Mycolors.prayertime,
-      ),
-      width: MediaQuery.of(context).size.width * 0.90,
-      height: MediaQuery.of(context).size.height * 0.1,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
+    return 
           TextField(
             controller: searchController,
             decoration: InputDecoration(
@@ -42,12 +33,8 @@ class SerchTextFiled extends StatelessWidget {
               ),
             ),
             onChanged: (text) {
-              // Trigger search here
+             
               BlocProvider.of<SurahCubit>(context).filterSurahs(text);
             },
-          ),
-        ],
-      ),
-    );
-  }
+          );       }
 }

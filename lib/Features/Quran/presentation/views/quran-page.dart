@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:islami/Features/Quran/presentation/manger/surah/surah_cubit.dart';
 import 'package:islami/Features/Quran/presentation/views/widgets/surah-list.dart';
 import 'package:islami/Features/Quran/presentation/views/widgets/search-item.dart';
+import 'package:islami/core/constant/my_color.dart';
+import 'package:islami/core/widgets/textfiled-item.dart';
 
 class QuranPage extends StatefulWidget {
   const QuranPage({Key? key});
@@ -39,20 +41,48 @@ class _QuranPageState extends State<QuranPage> {
       },
       child: SafeArea(
         child: CustomScrollView(
-          slivers: [
+          slivers: [SliverAppBar(
+              expandedHeight: 80, 
+              floating: true,
+              pinned: true,shape: CircleBorder(side: BorderSide.none,),
+            
+              backgroundColor: Colors.transparent.withOpacity(0), 
+              flexibleSpace: FlexibleSpaceBar(
+                background: Container(
+                  color: Colors.white,
+                  child: Column(
+                    children: [
+                      SerchTextFiled(searchController: _searchController), Divider(
+                      endIndent: 5,
+                      color: Mycolors.green,
+                      thickness: 1,
+                    ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            
+            
             SliverToBoxAdapter(
               child: Column(
                 children: [
-              const    SizedBox(height: 21),
-                  SearchItem(searchController: _searchController),
-              const    SizedBox(height: 40),
-                 const SurahList(),
+                 
+                
+                 
+                  SizedBox(height:10),
+                  SurahList(),
                 ],
               ),
             ),
-          ],
+          ], 
         ),
       ),
     );
   }
 }
+
+
+
+
+

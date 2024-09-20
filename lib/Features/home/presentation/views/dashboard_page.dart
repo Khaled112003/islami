@@ -15,11 +15,13 @@ class DashoardPage extends StatelessWidget {
     return BlocBuilder<DashboardCubit, DashboardState>(
       builder: (context, state) {
         return Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.transparent,
-            elevation: 0,
-           
-          ),
+         appBar: PreferredSize(
+    preferredSize: Size.fromHeight(0.0), // ارتفاع 0
+    child: AppBar(
+      backgroundColor: Colors.transparent, // إذا أردت جعله شفافًا
+      elevation: 0,
+    ),
+  ),
           body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: PageView(
@@ -28,14 +30,14 @@ class DashoardPage extends StatelessWidget {
               children: const [
                 DashboardBody(),
                 QuranPage(),
-                LibararyPage(),
+               
               ],
             ),
           ),
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: state.currentIndex,
             onTap: (index) => context.read<DashboardCubit>().changepage(index),
-            selectedItemColor: Colors.green,
+            selectedItemColor: Mycolors.green,
             backgroundColor: Mycolors.myWhite,
             items: const [
               BottomNavigationBarItem(

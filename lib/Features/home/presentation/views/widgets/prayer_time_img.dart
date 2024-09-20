@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:islami/core/constant/my_color.dart';
 
 class PrayerTimeImage extends StatelessWidget {
   const PrayerTimeImage({super.key});
@@ -16,7 +17,7 @@ class PrayerTimeImage extends StatelessWidget {
       const Text(
         'Prayer Time',
         style: TextStyle(
-            color: Color(0xff74080C),
+            color: Mycolors.green,
             fontSize: 24,
             fontWeight: FontWeight.w500),
       )
