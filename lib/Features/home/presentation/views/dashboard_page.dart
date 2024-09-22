@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:islami/Features/Quran/presentation/views/quran-page.dart';
 import 'package:islami/Features/home/presentation/manger/dashboard/dashboardbody_cubit.dart';
 import 'package:islami/Features/home/presentation/views/widgets/dashboard_body.dart';
+import 'package:islami/Features/libarary/presentation/views/libarary.dart';
 import 'package:islami/core/constant/my_color.dart';
 
 class DashoardPage extends StatelessWidget {
@@ -29,6 +30,7 @@ class DashoardPage extends StatelessWidget {
               children: const [
                 DashboardBody(),
                 QuranPage(),
+                LibararyPage()
                
               ],
             ),
@@ -37,15 +39,16 @@ class DashoardPage extends StatelessWidget {
             currentIndex: state.currentIndex,
             onTap: (index) => context.read<DashboardCubit>().changepage(index),
             selectedItemColor: Mycolors.green,
-            backgroundColor: Mycolors.myWhite,
+            backgroundColor: Mycolors.myWhite,  
             items: const [
               BottomNavigationBarItem(
                   icon: Icon(CupertinoIcons.home), label: 'home'),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.library_books_outlined), label: 'library'),
+                  icon: Icon(CupertinoIcons.book), label: "Qur'an"),
               BottomNavigationBarItem(
-                  icon: Icon(CupertinoIcons.profile_circled),
-                  label: 'profile'),
+                  icon: Icon(CupertinoIcons.square_grid_2x2),
+                  label: 'More'),
+                  
             ],
           ),
         );

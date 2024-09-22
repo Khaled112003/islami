@@ -7,7 +7,8 @@ class Mycolors {
   static const Color prayertime = Color(0xFFDDDFEA);
   // Color(0xFF74080C);
 
-  static const Color green = Color.fromARGB(255, 59, 111, 104);
+static const Color green = Color(0xFF004B40);
+
   static const Color deepwhite = Color(0xFFF9FAFD);
   static const Color red = Color(0xFF74080C);
 }
