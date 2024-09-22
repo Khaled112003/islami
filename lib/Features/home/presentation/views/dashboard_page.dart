@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:islami/Features/Quran/presentation/views/quran-page.dart';
 import 'package:islami/Features/home/presentation/manger/dashboard/dashboardbody_cubit.dart';
 import 'package:islami/Features/home/presentation/views/widgets/dashboard_body.dart';
-import 'package:islami/Features/libarary/presentation/views/libarary.dart';
 import 'package:islami/core/constant/my_color.dart';
 
 class DashoardPage extends StatelessWidget {
@@ -16,9 +15,9 @@ class DashoardPage extends StatelessWidget {
       builder: (context, state) {
         return Scaffold(
          appBar: PreferredSize(
-    preferredSize: Size.fromHeight(0.0), // ارتفاع 0
+    preferredSize: Size.fromHeight(0.0), 
     child: AppBar(
-      backgroundColor: Colors.transparent, // إذا أردت جعله شفافًا
+      backgroundColor: Colors.transparent, 
       elevation: 0,
     ),
   ),

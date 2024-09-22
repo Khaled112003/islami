@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:islami/Features/Quran/presentation/manger/surah/surah_cubit.dart';
 import 'package:islami/Features/Quran/presentation/views/widgets/surah-list.dart';
-import 'package:islami/Features/Quran/presentation/views/widgets/search-item.dart';
 import 'package:islami/core/constant/my_color.dart';
 import 'package:islami/core/widgets/textfiled-item.dart';
 
@@ -52,7 +51,7 @@ class _QuranPageState extends State<QuranPage> {
                   color: Colors.white,
                   child: Column(
                     children: [
-                      SerchTextFiled(searchController: _searchController), Divider(
+                      SerchTextFiled(searchController: _searchController),const Divider(
                       endIndent: 5,
                       color: Mycolors.green,
                       thickness: 1,
@@ -64,7 +63,7 @@ class _QuranPageState extends State<QuranPage> {
             ),
             
             
-            SliverToBoxAdapter(
+          const  SliverToBoxAdapter(
               child: Column(
                 children: [
                  

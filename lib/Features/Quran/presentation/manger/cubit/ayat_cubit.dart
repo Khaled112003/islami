@@ -14,7 +14,6 @@ class AyatCubit extends Cubit<AyatState> {
   final SurahRepo surahRepo;
 
   Future<void> fetchSurahData({required SurahModel surah}) async {
-    // Check if the cubit is closed before proceeding
     if (isClosed) return;
 
     emit(AyatLoading());
