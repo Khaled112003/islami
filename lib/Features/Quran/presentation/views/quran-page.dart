@@ -38,50 +38,59 @@ class _QuranPageState extends State<QuranPage> {
         BlocProvider.of<SurahCubit>(context).filterSurahs(_searchController.text);
         
       },
-      child: SafeArea(
-        child: CustomScrollView(
-          slivers: [SliverAppBar(
-              expandedHeight: 80, 
-              floating: true,
-              pinned: true,shape: CircleBorder(side: BorderSide.none,),
-            
-              backgroundColor: Colors.transparent.withOpacity(0), 
-              flexibleSpace: FlexibleSpaceBar(
-                background: Container(
-                  color: Colors.white,
-                  child: Column(
-                    children: [
-                      SerchTextFiled(searchController: _searchController),const Divider(
-                      endIndent: 5,
-                      color: Mycolors.green,
-                      thickness: 1,
+      child: 
+         SafeArea(
+          child: CustomScrollView(
+            slivers: [SliverAppBar(
+                expandedHeight: 80, 
+                floating: true,
+                pinned: true,shape: CircleBorder(side: BorderSide.none,),
+              
+                backgroundColor: Colors.transparent.withOpacity(0), 
+                flexibleSpace: FlexibleSpaceBar(
+                  background: Container(
+                    color: Colors.white,
+                    child: Column(
+                      children: [
+                        SerchTextFiled(searchController: _searchController),MyDivider()
+                      ],
                     ),
-                    ],
                   ),
                 ),
               ),
-            ),
-            
-            
-          const  SliverToBoxAdapter(
-              child: Column(
-                children: [
-                 
-                
-                 
-                  SizedBox(height:10),
-                  SurahList(),
-                ],
+              
+              
+            const  SliverToBoxAdapter(
+                child: Column(
+                  children: [
+                   
+                  
+                   
+                    SizedBox(height:10),
+                    SurahList(),
+                  ],
+                ),
               ),
-            ),
-          ], 
+            ], 
+          ),
         ),
-      ),
-    );
+      );
+    
   }
 }
 
 
 
+class MyDivider extends StatelessWidget {
+  const MyDivider({super.key});
 
+  @override
+  Widget build(BuildContext context) {
+    return const Divider(
+                      endIndent: 5,
+                      color: Mycolors.green,
+                      thickness: 1,
+                    );
+  }
+}
 

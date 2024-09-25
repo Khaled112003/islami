@@ -16,12 +16,11 @@ class AppbarItem extends StatelessWidget {
           alignment: Alignment.topLeft,
           child: IconButton(
             onPressed: () {
-              if (Navigator.canPop(context)) {
-                Navigator.pop(context);
-              } else {
-                // في حالة عدم وجود صفحات يمكن الرجوع إليها
-                context.go('/'); // أو الصفحة التي تريد الرجوع إليها
-              }
+             
+                context.push('/QuranPage');
+            
+               
+              
             },
             icon: const Icon(
               Icons.arrow_circle_left_outlined,

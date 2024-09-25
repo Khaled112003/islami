@@ -1,18 +1,19 @@
 part of 'dashboardbody_cubit.dart';
 
-sealed class DashboardState extends Equatable {
-  final PageController pageController;
+abstract class DashboardState extends Equatable {
   final int currentIndex;
 
-  const DashboardState(
-      {required this.pageController, required this.currentIndex});
+  const DashboardState({required this.currentIndex});
 
   @override
-  List<Object> get props => [pageController, currentIndex];
+  List<Object> get props => [currentIndex];
 }
 
-final class DashboardInitial extends DashboardState {
-  DashboardInitial(
-      {required PageController pageController, required int currentIndex})
-      : super(pageController: pageController, currentIndex: currentIndex);
+class DashboardInitial extends DashboardState {
+  DashboardInitial({required int currentIndex}) : super(currentIndex: currentIndex);
 }
+
+class DashboardPageChanged extends DashboardState {
+  DashboardPageChanged({required int currentIndex}) : super(currentIndex: currentIndex);
+}
+

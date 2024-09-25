@@ -1,64 +1,61 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:islami/Features/Quran/presentation/views/quran-page.dart';
+import 'package:islami/Features/home/presentation/manger/dashboard/dashboardbody_cubit.dart';
+import 'package:islami/Features/libarary/presentation/views/widgets/Libarary_Rectangel.dart';
+import 'package:islami/Features/libarary/presentation/views/widgets/libarary_activites.dart';
+
 
 class LibararyPage extends StatelessWidget {
   const LibararyPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: [
-        LibararyRectangel(),
-      ],
-    );
-  }
-}
+   
+    final List<String> images = [
+      'assets/images/sbhaa.png',
+      'assets/images/quran.png',
+      'assets/images/quran.png',
+      'assets/images/quran.png',
+      'assets/images/quran.png',
+      'assets/images/quran.png',
+    ];
 
-class LibararyRectangel extends StatelessWidget {
-  const LibararyRectangel({super.key});
+    final Map<int, void Function()> onTapActions = {
+      0: () => GoRouter.of(context).go('/Tasbih'),
+      1: () => context.read<DashboardCubit>().changePage(1),
+      2: () => context.read<DashboardCubit>().changePage(2),
+      3: () => GoRouter.of(context).go('/quran'),
+      4: () => GoRouter.of(context).go('/library'),
+      5: () => context.read<DashboardCubit>().changePage(3),
+    };
 
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
+    return Column(
       children: [
-        ClipRRect(
-          borderRadius:
-              BorderRadius.circular(16.0), 
-          child: Image.asset(
-            'assets/images/Rectangle.png', height: 200,
-            fit: BoxFit.cover,
+        const LibararyRectangel(),
+        const SizedBox(height: 20),
+        const MyDivider(),
+        const SizedBox(height: 20),
+        Expanded(
+          child: Wrap(
+            spacing: 15,
+            runSpacing: 20,
+            children: images.asMap().entries.map((entry) {
+              int index = entry.key;
+              String image = entry.value;
+          
+              return ActiviteItems(
+                imags: image,
+               
+                ontap: onTapActions[index] ?? () {}, 
+              );
+            }).toList(),
           ),
-        ),Positioned(right: -25,
-          child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-            Image.asset(
-              'assets/images/fawanes.png',
-              height: 180,
-            )
-          ]),
         ),
-        const Positioned(top: 30, left: 10,
-            child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Libarary',
-              style: TextStyle(
-                  fontSize: 28,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold),
-            ),
-            Text(
-              'This page includes everything \n you need in the application ',
-              style: TextStyle(
-                fontSize: 14,
-                color: Colors.white,
-              ),
-            ),
-          ],
-        )),
-        
       ],
     );
   }
 }
+
+

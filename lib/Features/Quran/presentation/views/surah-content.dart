@@ -19,6 +19,7 @@ class _SurahContentState extends State<SurahContent> {
   @override
 void initState() {
   super.initState();
+  
 
 
   final surahModel = widget.surahModel;

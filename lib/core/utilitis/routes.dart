@@ -41,7 +41,7 @@ final router = GoRouter(routes: [
         ),
      
     ],
-    child: const DashoardPage(),
+    child:  DashboardPage(),
   ),
 ),
   GoRoute(

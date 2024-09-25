@@ -5,42 +5,32 @@ import 'package:islami/Features/Quran/presentation/views/quran-page.dart';
 import 'package:islami/Features/home/presentation/manger/dashboard/dashboardbody_cubit.dart';
 import 'package:islami/Features/home/presentation/views/widgets/dashboard_body.dart';
 import 'package:islami/Features/libarary/presentation/views/libarary.dart';
-import 'package:islami/core/constant/my_color.dart';
 
-class DashoardPage extends StatelessWidget {
-  const DashoardPage({super.key});
+class DashboardPage extends StatelessWidget {
+  const DashboardPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<DashboardCubit, DashboardState>(
-      builder: (context, state) {
-        return Scaffold(
-         appBar: PreferredSize(
-    preferredSize: Size.fromHeight(0.0), 
-    child: AppBar(
-      backgroundColor: Colors.transparent, 
-      elevation: 0,
-    ),
-  ),
-          body: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: PageView(
-              controller: state.pageController,
-              onPageChanged: (index) => context.read<DashboardCubit>().changepage(index),
-              children: const [
-                DashboardBody(),
-                QuranPage(),
-                LibararyPage()
-               
-              ],
-            ),
-          ),
-          bottomNavigationBar: BottomNavigationBar(
-            currentIndex: state.currentIndex,
-            onTap: (index) => context.read<DashboardCubit>().changepage(index),
-            selectedItemColor: Mycolors.green,
-            backgroundColor: Mycolors.myWhite,  
-            items: const [
+    return BlocProvider(
+      create: (context) => DashboardCubit(),
+      child: BlocBuilder<DashboardCubit, DashboardState>(
+        builder: (context, state) {
+         
+          final List<Widget> pages = [
+            const DashboardBody(), 
+            const QuranPage(), 
+            LibararyPage()
+          
+          ];
+
+          return Scaffold(
+            body: pages[state.currentIndex], 
+            bottomNavigationBar: BottomNavigationBar(
+              currentIndex: state.currentIndex,
+              onTap: (index) {
+                context.read<DashboardCubit>().changePage(index);
+              },
+              items: const [
               BottomNavigationBarItem(
                   icon: Icon(CupertinoIcons.home), label: 'home'),
               BottomNavigationBarItem(
@@ -50,9 +40,10 @@ class DashoardPage extends StatelessWidget {
                   label: 'More'),
                   
             ],
-          ),
-        );
-      },
+            ),
+          );
+        },
+      ),
     );
   }
 }
