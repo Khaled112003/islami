@@ -1,5 +1,4 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:islami/Features/Accident/data/repo/doaaa_repo.dart';
 import 'package:islami/Features/Accident/presentation/manger/doaa/doaa_state.dart';
 
@@ -24,7 +23,6 @@ class DoaaCubit extends Cubit<DoaaState> {
 
   void getNextDoaa() {
     if (state is DoaaSuccess) {
-      // ignore: unused_local_variable
       final currentState = state as DoaaSuccess;
       if (currentDoaaIndex < totalDoaaCount) {
         currentDoaaIndex++;

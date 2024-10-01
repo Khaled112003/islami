@@ -20,6 +20,7 @@ import 'package:islami/Features/home/presentation/manger/dashboard/dashboardbody
 import 'package:islami/Features/home/presentation/manger/prayertime/prayer_time_cubit.dart';
 import 'package:islami/Features/home/presentation/views/dashboard_page.dart';
 import 'package:islami/Features/libarary/presentation/views/libarary.dart';
+import 'package:islami/Features/video/presentation/views/video_page.dart';
 
 import 'package:islami/core/utilitis/singleton_pattern.dart';
 
@@ -79,5 +80,9 @@ final router = GoRouter(routes: [
       create: (context) => AyatCubit(getIt.get<SurahRepo>()),
       child:  SurahContent(surahModel: state.extra as SurahModel,),
     ),
+  ),
+  GoRoute(
+    path: '/VideoPage',
+    builder: (context, state) => const VideoPage(),
   ),
 ]);
