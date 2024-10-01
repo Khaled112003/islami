@@ -7,7 +7,6 @@ part 'dashboardbody_state.dart';
 class DashboardCubit extends Cubit<DashboardState> {
   DashboardCubit() : super(DashboardInitial(currentIndex: 0));
 
-  // تغيير الصفحة بناءً على الفهرس
   void changePage(int index) {
     
     emit(DashboardPageChanged(currentIndex: index));

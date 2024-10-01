@@ -18,8 +18,8 @@ class LibararyPage extends StatelessWidget {
       'assets/images/quran.png',
       'assets/images/doaa.png',
       'assets/images/ahades.png',
-      'assets/images/quran.png',
-      'assets/images/quran.png',
+      'assets/images/video.png',
+      'assets/images/sound.png',
     ];
 
     final Map<int, void Function()> onTapActions = {
@@ -46,10 +46,14 @@ class LibararyPage extends StatelessWidget {
                 int index = entry.key;
                 String image = entry.value;
             
-                return ActiviteItems(
-                  imags: image,
-                 
-                  ontap: onTapActions[index] ?? () {}, 
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ActiviteItems(
+                  
+                    imags: image,
+                   
+                    ontap: onTapActions[index] ?? () {}, 
+                  ),
                 );
               }).toList(),
             ),
