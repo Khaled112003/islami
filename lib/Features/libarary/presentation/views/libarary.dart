@@ -16,8 +16,8 @@ class LibararyPage extends StatelessWidget {
     final List<String> images = [
       'assets/images/sbhaa.png',
       'assets/images/quran.png',
-      'assets/images/quran.png',
-      'assets/images/quran.png',
+      'assets/images/doaa.png',
+      'assets/images/ahades.png',
       'assets/images/quran.png',
       'assets/images/quran.png',
     ];
@@ -25,35 +25,37 @@ class LibararyPage extends StatelessWidget {
     final Map<int, void Function()> onTapActions = {
       0: () => GoRouter.of(context).go('/Tasbih'),
       1: () => context.read<DashboardCubit>().changePage(1),
-      2: () => context.read<DashboardCubit>().changePage(2),
-      3: () => GoRouter.of(context).go('/quran'),
+      2: () => GoRouter.of(context).go('/Doaa'),
+      3: () => GoRouter.of(context).go('/Accident'),
       4: () => GoRouter.of(context).go('/library'),
-      5: () => context.read<DashboardCubit>().changePage(3),
+      5: () =>GoRouter.of(context).go('/Doaa'),
     };
 
-    return Column(
-      children: [
-        const LibararyRectangel(),
-        const SizedBox(height: 20),
-        const MyDivider(),
-        const SizedBox(height: 20),
-        Expanded(
-          child: Wrap(
-            spacing: 15,
-            runSpacing: 20,
-            children: images.asMap().entries.map((entry) {
-              int index = entry.key;
-              String image = entry.value;
-          
-              return ActiviteItems(
-                imags: image,
-               
-                ontap: onTapActions[index] ?? () {}, 
-              );
-            }).toList(),
+    return SafeArea(
+      child: Column(
+        children: [
+          const LibararyRectangel(),
+          const SizedBox(height: 20),
+          const MyDivider(),
+          const SizedBox(height: 20),
+          Expanded(
+            child: Wrap(
+              spacing: 15,
+              runSpacing: 20,
+              children: images.asMap().entries.map((entry) {
+                int index = entry.key;
+                String image = entry.value;
+            
+                return ActiviteItems(
+                  imags: image,
+                 
+                  ontap: onTapActions[index] ?? () {}, 
+                );
+              }).toList(),
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:islami/Features/Tasbih/presentation/manger/Tasbih_cubit/tasbih_cubit.dart';
 import 'package:islami/Features/Tasbih/presentation/views/widgets/adding_number.dart';
 
@@ -14,7 +15,7 @@ class Tasbih extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => TasbihCubit(),
-      child: const Scaffold(
+      child:  Scaffold(
         body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -22,12 +23,15 @@ class Tasbih extends StatelessWidget {
               children: [
                 AppbarItem(
                   text: 'Tasbih',
+                   onPressed: () {
+                context.go('/');
+              },
                   
                 ),
-                SizedBox(height: 40),
-                ZakrAndNumber(),
-                SizedBox(height: 20),
-                AddingNumbers(),
+             const  SizedBox(height: 40),
+              const  ZakrAndNumber(),
+               const SizedBox(height: 20),
+              const  AddingNumbers(),
               ],
             ),
           ),

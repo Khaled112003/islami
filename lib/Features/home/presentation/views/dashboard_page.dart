@@ -5,6 +5,7 @@ import 'package:islami/Features/Quran/presentation/views/quran-page.dart';
 import 'package:islami/Features/home/presentation/manger/dashboard/dashboardbody_cubit.dart';
 import 'package:islami/Features/home/presentation/views/widgets/dashboard_body.dart';
 import 'package:islami/Features/libarary/presentation/views/libarary.dart';
+import 'package:islami/core/constant/my_color.dart';
 
 class DashboardPage extends StatelessWidget {
   const DashboardPage({super.key});
@@ -24,8 +25,12 @@ class DashboardPage extends StatelessWidget {
           ];
 
           return Scaffold(
-            body: pages[state.currentIndex], 
+            body: Padding(
+              padding: const EdgeInsets.symmetric(horizontal:10 , vertical: 8),
+              child: pages[state.currentIndex],
+            ), 
             bottomNavigationBar: BottomNavigationBar(
+              selectedItemColor: Mycolors.green,
               currentIndex: state.currentIndex,
               onTap: (index) {
                 context.read<DashboardCubit>().changePage(index);

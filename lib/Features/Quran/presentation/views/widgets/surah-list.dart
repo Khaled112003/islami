@@ -31,7 +31,7 @@ class SurahList extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 13),
                 child: GestureDetector(
                   onTap: () {
-                    GoRouter.of(context).go('/SurahContent', extra: surah);
+                    GoRouter.of(context).push('/SurahContent', extra: surah);
                   },
                   child: Container(
                     decoration: BoxDecoration(

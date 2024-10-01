@@ -4,8 +4,9 @@ import 'package:go_router/go_router.dart';
 import 'package:islami/core/constant/my_color.dart';
 
 class AppbarItem extends StatelessWidget {
-  const AppbarItem({super.key, required this.text});
+  const AppbarItem({super.key, required this.text, required this.onPressed});
   final String text;
+  final void Function() onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -15,13 +16,10 @@ class AppbarItem extends StatelessWidget {
         Align(
           alignment: Alignment.topLeft,
           child: IconButton(
-            onPressed: () {
-             
-                context.push('/QuranPage');
-            
+            onPressed:onPressed
                
               
-            },
+            ,
             icon: const Icon(
               Icons.arrow_circle_left_outlined,
               size: 50,

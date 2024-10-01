@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:islami/Features/Accident/presentation/manger/doaa/doaa_cubit.dart';
 import 'package:islami/Features/Accident/presentation/views/widgets/doaa_item.dart';
 import 'package:islami/Features/Accident/presentation/views/widgets/doaa_navigation.dart';
@@ -21,18 +22,21 @@ class _DoaaState extends State<Doaa> {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return  SafeArea(
       child: Scaffold(
         body: Column(
           children: [
             AppbarItem(
               text: 'Doaa',
+               onPressed: () {
+                context.go('/');
+              },
               
             ),
-            SizedBox(height: 40),
-            DoaaItem(),
-            SizedBox(height: 30),
-            DoaaNavigitionbar()
+          const  SizedBox(height: 40),
+          const  DoaaItem(),
+         const   SizedBox(height: 30),
+          const  DoaaNavigitionbar()
           ],
         ),
       ),
