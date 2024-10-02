@@ -8,7 +8,7 @@ class SurahName extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Column(
+    return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Align(
@@ -18,7 +18,7 @@ class SurahName extends StatelessWidget {
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
           ),
         ),
-      const  SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Row(
@@ -26,7 +26,7 @@ class SurahName extends StatelessWidget {
             SurahDetails(
               text: surahModel.revelationType!,
             ),
-           const SizedBox(
+            const SizedBox(
               width: 10,
             ),
             SurahDetails(

@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 
 class NumberOfAya extends StatelessWidget {
   const NumberOfAya({
-    super.key, required this.number,
+    super.key,
+    required this.number,
   });
-   final int number;
+  final int number;
 
   @override
   Widget build(BuildContext context) {
@@ -16,13 +17,12 @@ class NumberOfAya extends StatelessWidget {
       children: [
         Image.asset(
           'assets/images/Star.png',
-          
           width: imageWidth,
         ),
         Center(
           child: Text(
             number.toString(),
-            style:const TextStyle(
+            style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 18,
             ),

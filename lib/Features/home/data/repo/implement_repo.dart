@@ -24,7 +24,6 @@ class ImplementionPrayerTimeRepo extends PrayerTimeRepo {
           adhan.add(PrayerTimeModel.fromJson(element));
         }
 
-       
         return right(adhan);
       } else {
         return left(ServerFailure("No prayer times available"));

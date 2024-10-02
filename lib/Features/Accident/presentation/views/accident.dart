@@ -24,7 +24,7 @@ class _AccidentState extends State<Accident> {
 
   @override
   Widget build(BuildContext context) {
-    return  SafeArea(
+    return SafeArea(
       child: Scaffold(
         body: Column(
           children: [
@@ -33,13 +33,11 @@ class _AccidentState extends State<Accident> {
               onPressed: () {
                 context.go('/');
               },
-              
-              
             ),
-           const SizedBox(height: 40),
-          const  AccidentItem(),
-         const   SizedBox(height: 30),
-          const  AccidentNavigitionbar()
+            const SizedBox(height: 40),
+            const AccidentItem(),
+            const SizedBox(height: 30),
+            const AccidentNavigitionbar()
           ],
         ),
       ),

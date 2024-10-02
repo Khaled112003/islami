@@ -23,7 +23,8 @@ class AccidentCubit extends Cubit<AccidentState> {
   Future<void> _loadCachedHadith() async {
     final cachedHadith = SharedPrefsHelper.getData("cached_hadith");
     if (cachedHadith != null && cachedHadith.isNotEmpty) {
-      if (isClosed) return; // تأكد من عدم محاولة إرسال حالة جديدة بعد إغلاق الـ Cubit
+      if (isClosed)
+        return; // تأكد من عدم محاولة إرسال حالة جديدة بعد إغلاق الـ Cubit
       emit(AccidentSuccess(
         cachedHadith.map((json) => AccidentModel.fromJson(json)).toList(),
         currentHadithIndex,
@@ -34,11 +35,13 @@ class AccidentCubit extends Cubit<AccidentState> {
   }
 
   Future<void> fetchHadithData() async {
-    if (isClosed) return; // تأكد من عدم محاولة إرسال حالة جديدة بعد إغلاق الـ Cubit
+    if (isClosed)
+      return; // تأكد من عدم محاولة إرسال حالة جديدة بعد إغلاق الـ Cubit
     emit(AccidentLoading());
 
     try {
-      var result = await accidentRepo.fetchHadithByIndex(currentHadithIndex - 1);
+      var result =
+          await accidentRepo.fetchHadithByIndex(currentHadithIndex - 1);
       result.fold(
         (fail) {
           if (!isClosed) {

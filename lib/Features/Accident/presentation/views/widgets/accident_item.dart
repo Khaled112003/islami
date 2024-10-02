@@ -52,21 +52,24 @@ class AccidentItem extends StatelessWidget {
         } else if (state is AccidentFailure) {
           return FailureErrorMessage(errormassage: state.errorMassage);
         } else {
-          return  
-            ShimmerLoading(width: 380,
-              height: MediaQuery.of(context).size.height * 0.65,
+          return ShimmerLoading(
+            width: 380,
+            height: MediaQuery.of(context).size.height * 0.65,
             widget: Padding(
-          padding: const EdgeInsets.only(left: 8, top: 30, right: 8, bottom: 25),
-          child: Column(
-            children: [
-              Container(
-                width: double.infinity,
-                height: 200,  
-                color: Colors.grey[400], 
+              padding:
+                  const EdgeInsets.only(left: 8, top: 30, right: 8, bottom: 25),
+              child: Column(
+                children: [
+                  Container(
+                    width: double.infinity,
+                    height: 200,
+                    color: Colors.grey[400],
+                  ),
+                ],
               ),
-            ],
-          ),
-        ),itemCount: 1,);
+            ),
+            itemCount: 1,
+          );
         }
       },
     );

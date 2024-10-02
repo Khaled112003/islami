@@ -22,21 +22,20 @@ class _DoaaState extends State<Doaa> {
 
   @override
   Widget build(BuildContext context) {
-    return  SafeArea(
+    return SafeArea(
       child: Scaffold(
         body: Column(
           children: [
             AppbarItem(
               text: 'Doaa',
-               onPressed: () {
+              onPressed: () {
                 context.go('/');
               },
-              
             ),
-          const  SizedBox(height: 40),
-          const  DoaaItem(),
-         const   SizedBox(height: 30),
-          const  DoaaNavigitionbar()
+            const SizedBox(height: 40),
+            const DoaaItem(),
+            const SizedBox(height: 30),
+            const DoaaNavigitionbar()
           ],
         ),
       ),

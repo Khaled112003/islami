@@ -21,6 +21,7 @@ class SurahModel {
     this.ayahs,
   });
 
-  factory SurahModel.fromJson(Map<String, dynamic> json) => _$SurahModelFromJson(json);
+  factory SurahModel.fromJson(Map<String, dynamic> json) =>
+      _$SurahModelFromJson(json);
   Map<String, dynamic> toJson() => _$SurahModelToJson(this);
 }

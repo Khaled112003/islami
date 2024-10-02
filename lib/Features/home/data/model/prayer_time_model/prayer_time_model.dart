@@ -1,5 +1,3 @@
-
-
 class PrayerTimeModel {
   final String fajr;
   final String shurooq;
@@ -9,17 +7,16 @@ class PrayerTimeModel {
   final String isha;
   final dynamic date;
 
-  PrayerTimeModel( {
+  PrayerTimeModel({
     required this.fajr,
     required this.shurooq,
     required this.dhuhr,
     required this.asr,
     required this.maghrib,
     required this.isha,
-   required this.date,
+    required this.date,
   });
 
-  
   factory PrayerTimeModel.fromJson(Map<String, dynamic> json) {
     return PrayerTimeModel(
       fajr: json['fajr'] ?? 'غير متوفر',
@@ -41,7 +38,7 @@ class PrayerTimeModel {
       'asr': asr,
       'maghrib': maghrib,
       'isha': isha,
-      'date_for':date
+      'date_for': date
     };
   }
 }

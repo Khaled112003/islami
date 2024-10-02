@@ -15,7 +15,7 @@ class SurahDetails extends StatelessWidget {
       child: Center(
           child: Text(
         text,
-        style:const TextStyle(fontWeight: FontWeight.w400),
+        style: const TextStyle(fontWeight: FontWeight.w400),
       )),
     );
   }

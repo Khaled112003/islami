@@ -10,11 +10,11 @@ class VideosListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.builder(
-        itemCount: 10, 
+        itemCount: 10,
         itemBuilder: (context, index) {
           return VideoItem(
-            key: UniqueKey(), 
-            initialVideoId: '2Iw2H2pVJVA', 
+            key: UniqueKey(),
+            initialVideoId: '2Iw2H2pVJVA',
           );
         },
       ),

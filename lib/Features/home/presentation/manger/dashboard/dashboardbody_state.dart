@@ -10,10 +10,11 @@ abstract class DashboardState extends Equatable {
 }
 
 class DashboardInitial extends DashboardState {
-  DashboardInitial({required int currentIndex}) : super(currentIndex: currentIndex);
+  DashboardInitial({required int currentIndex})
+      : super(currentIndex: currentIndex);
 }
 
 class DashboardPageChanged extends DashboardState {
-  DashboardPageChanged({required int currentIndex}) : super(currentIndex: currentIndex);
+  DashboardPageChanged({required int currentIndex})
+      : super(currentIndex: currentIndex);
 }
-

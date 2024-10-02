@@ -9,11 +9,13 @@ class SharedPrefsHelper {
     _preferences = await SharedPreferences.getInstance();
   }
 
-  static Future<void> saveData(String key, List<Map<String, dynamic>> value) async {
+  static Future<void> saveData(
+      String key, List<Map<String, dynamic>> value) async {
     final String jsonString = jsonEncode(value);
     await _preferences?.setString(key, jsonString);
 
-    await _preferences?.setInt('${key}_timestamp', DateTime.now().millisecondsSinceEpoch);
+    await _preferences?.setInt(
+        '${key}_timestamp', DateTime.now().millisecondsSinceEpoch);
   }
 
   static List<Map<String, dynamic>>? getData(String key) {

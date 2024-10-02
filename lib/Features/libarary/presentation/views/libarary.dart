@@ -6,13 +6,11 @@ import 'package:islami/Features/home/presentation/manger/dashboard/dashboardbody
 import 'package:islami/Features/libarary/presentation/views/widgets/Libarary_Rectangel.dart';
 import 'package:islami/Features/libarary/presentation/views/widgets/libarary_activites.dart';
 
-
 class LibararyPage extends StatelessWidget {
   const LibararyPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-   
     final List<String> images = [
       'assets/images/sbhaa.png',
       'assets/images/quran.png',
@@ -28,7 +26,7 @@ class LibararyPage extends StatelessWidget {
       2: () => GoRouter.of(context).go('/Doaa'),
       3: () => GoRouter.of(context).go('/Accident'),
       4: () => GoRouter.of(context).push('/VideoPage'),
-      5: () =>GoRouter.of(context).go('/Doaa'),
+      5: () => GoRouter.of(context).go('/Doaa'),
     };
 
     return SafeArea(
@@ -45,14 +43,12 @@ class LibararyPage extends StatelessWidget {
               children: images.asMap().entries.map((entry) {
                 int index = entry.key;
                 String image = entry.value;
-            
+
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ActiviteItems(
-                  
                     imags: image,
-                   
-                    ontap: onTapActions[index] ?? () {}, 
+                    ontap: onTapActions[index] ?? () {},
                   ),
                 );
               }).toList(),
@@ -63,5 +59,3 @@ class LibararyPage extends StatelessWidget {
     );
   }
 }
-
-

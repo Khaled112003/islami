@@ -10,7 +10,8 @@ class AppbarItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(  color: const Color.fromARGB(255, 253, 250, 250),
+    return Container(
+      color: const Color.fromARGB(255, 253, 250, 250),
       child: Padding(
         padding: const EdgeInsets.only(bottom: 10.0, top: 10),
         child: Stack(
@@ -19,10 +20,7 @@ class AppbarItem extends StatelessWidget {
             Align(
               alignment: Alignment.topLeft,
               child: IconButton(
-                onPressed:onPressed
-                   
-                  
-                ,
+                onPressed: onPressed,
                 icon: const Icon(
                   Icons.arrow_circle_left_outlined,
                   size: 50,

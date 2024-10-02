@@ -35,7 +35,7 @@ class _VideoItemState extends State<VideoItem> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 20, left: 20,right: 20),
+      padding: const EdgeInsets.only(bottom: 20, left: 20, right: 20),
       child: Container(
         decoration: BoxDecoration(
           color: Mycolors.prayertime,

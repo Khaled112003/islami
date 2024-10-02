@@ -29,7 +29,7 @@ class ShimmerLoading extends StatelessWidget {
           child: SizedBox(
             width: width,
             height: height,
-            child: widget, 
+            child: widget,
           ),
         ),
       ),

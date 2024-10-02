@@ -16,19 +16,17 @@ class DashboardPage extends StatelessWidget {
       create: (context) => DashboardCubit(),
       child: BlocBuilder<DashboardCubit, DashboardState>(
         builder: (context, state) {
-         
           final List<Widget> pages = [
-            const DashboardBody(), 
-            const QuranPage(), 
+            const DashboardBody(),
+            const QuranPage(),
             LibararyPage()
-          
           ];
 
           return Scaffold(
             body: Padding(
-              padding: const EdgeInsets.symmetric(horizontal:10 , vertical: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
               child: pages[state.currentIndex],
-            ), 
+            ),
             bottomNavigationBar: BottomNavigationBar(
               selectedItemColor: Mycolors.green,
               currentIndex: state.currentIndex,
@@ -36,15 +34,13 @@ class DashboardPage extends StatelessWidget {
                 context.read<DashboardCubit>().changePage(index);
               },
               items: const [
-              BottomNavigationBarItem(
-                  icon: Icon(CupertinoIcons.home), label: 'home'),
-              BottomNavigationBarItem(
-                  icon: Icon(CupertinoIcons.book), label: "Qur'an"),
-              BottomNavigationBarItem(
-                  icon: Icon(CupertinoIcons.square_grid_2x2),
-                  label: 'More'),
-                  
-            ],
+                BottomNavigationBarItem(
+                    icon: Icon(CupertinoIcons.home), label: 'home'),
+                BottomNavigationBarItem(
+                    icon: Icon(CupertinoIcons.book), label: "Qur'an"),
+                BottomNavigationBarItem(
+                    icon: Icon(CupertinoIcons.square_grid_2x2), label: 'More'),
+              ],
             ),
           );
         },

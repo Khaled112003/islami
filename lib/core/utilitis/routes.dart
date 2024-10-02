@@ -26,25 +26,23 @@ import 'package:islami/core/utilitis/singleton_pattern.dart';
 
 final router = GoRouter(routes: [
   GoRoute(
-  path: '/',
-  builder: (context, state) => MultiBlocProvider(
-    providers: [
-      BlocProvider<PrayerTimeCubit>(
-        create: (context) =>
-            PrayerTimeCubit(getIt.get<ImplementionPrayerTimeRepo>()),
-      ),
-      BlocProvider<DashboardCubit>(
-        create: (context) => DashboardCubit(),
-      ),
-      
+    path: '/',
+    builder: (context, state) => MultiBlocProvider(
+      providers: [
+        BlocProvider<PrayerTimeCubit>(
+          create: (context) =>
+              PrayerTimeCubit(getIt.get<ImplementionPrayerTimeRepo>()),
+        ),
+        BlocProvider<DashboardCubit>(
+          create: (context) => DashboardCubit(),
+        ),
         BlocProvider<SurahCubit>(
           create: (context) => SurahCubit(getIt.get<SurahRepo>()),
         ),
-     
-    ],
-    child:  DashboardPage(),
+      ],
+      child: DashboardPage(),
+    ),
   ),
-),
   GoRoute(
     path: '/Tasbih',
     builder: (context, state) => const Tasbih(),
@@ -64,12 +62,12 @@ final router = GoRouter(routes: [
     ),
   ),
   GoRoute(
-  path: '/QuranPage',
-  builder: (context, state) => BlocProvider(
-    create: (context) => SurahCubit(getIt.get<SurahRepo>()),
-    child: const QuranPage(),
+    path: '/QuranPage',
+    builder: (context, state) => BlocProvider(
+      create: (context) => SurahCubit(getIt.get<SurahRepo>()),
+      child: const QuranPage(),
+    ),
   ),
-),
   GoRoute(
     path: '/LibararyPage',
     builder: (context, state) => const LibararyPage(),
@@ -78,7 +76,9 @@ final router = GoRouter(routes: [
     path: '/SurahContent',
     builder: (context, state) => BlocProvider(
       create: (context) => AyatCubit(getIt.get<SurahRepo>()),
-      child:  SurahContent(surahModel: state.extra as SurahModel,),
+      child: SurahContent(
+        surahModel: state.extra as SurahModel,
+      ),
     ),
   ),
   GoRoute(

@@ -10,8 +10,7 @@ import 'package:islami/core/widgets/appbar_item.dart';
 
 class SurahContent extends StatefulWidget {
   const SurahContent({super.key, required this.surahModel});
-    final SurahModel surahModel
-;
+  final SurahModel surahModel;
 
   @override
   State<SurahContent> createState() => _SurahContentState();
@@ -19,18 +18,17 @@ class SurahContent extends StatefulWidget {
 
 class _SurahContentState extends State<SurahContent> {
   @override
-void initState() {
-  super.initState();
-  
+  void initState() {
+    super.initState();
 
+    final surahModel = widget.surahModel;
 
-  final surahModel = widget.surahModel;
+    BlocProvider.of<AyatCubit>(context).fetchSurahData(surah: surahModel);
+  }
 
-  BlocProvider.of<AyatCubit>(context).fetchSurahData(surah: surahModel);
-}
   @override
   Widget build(BuildContext context) {
-    return  SafeArea(
+    return SafeArea(
       child: Scaffold(
         backgroundColor: Color.fromARGB(255, 230, 222, 222),
         body: CustomScrollView(
@@ -40,17 +38,14 @@ void initState() {
                 children: [
                   AppbarItem(
                     text: widget.surahModel.name!,
-                       onPressed: () {
-                context.pop();
-              },
-                    
-                   
-                    
+                    onPressed: () {
+                      context.pop();
+                    },
                   ),
-                const  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
-                 const AyaList()
+                  const AyaList()
                 ],
               ),
             )

@@ -17,9 +17,7 @@ class PrayerTimeImage extends StatelessWidget {
       const Text(
         'Prayer Time',
         style: TextStyle(
-            color: Mycolors.green,
-            fontSize: 24,
-            fontWeight: FontWeight.w500),
+            color: Mycolors.green, fontSize: 24, fontWeight: FontWeight.w500),
       )
     ]);
   }

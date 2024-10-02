@@ -34,9 +34,7 @@ class SurahRepo {
     }
   }
 
-
-
-Future<Either<Failure, List<Ayah>>> fetchSurahAyahs(SurahModel surah) async {
+  Future<Either<Failure, List<Ayah>>> fetchSurahAyahs(SurahModel surah) async {
     try {
       var data = await apiService.get(
         url: 'http://api.alquran.cloud/v1/surah/${surah.number}/ar.uthmani',
@@ -47,7 +45,7 @@ Future<Either<Failure, List<Ayah>>> fetchSurahAyahs(SurahModel surah) async {
         print(data['data']['ayahs']);
 
         for (var element in data['data']['ayahs']) {
-          ayahs.add(Ayah.fromJson(element)); 
+          ayahs.add(Ayah.fromJson(element));
         }
 
         return right(ayahs);
