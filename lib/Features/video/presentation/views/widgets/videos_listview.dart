@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:islami/Features/video/presentation/manger/video/video_cubit.dart';
 import 'package:islami/Features/video/presentation/views/widgets/video_item.dart';
 import 'package:islami/core/widgets/failure_error_massege.dart';
-import 'package:islami/core/widgets/loading_video.dart'; // تأكد من استيراد الـ ShimmerVideoWithText widget
+import 'package:islami/core/widgets/loading_video.dart'; 
 
 class VideosListView extends StatelessWidget {
   const VideosListView({super.key});
@@ -40,12 +40,12 @@ class VideosListView extends StatelessWidget {
           return FailureErrorMessage(errormassage: state.errorMassage);
         } 
         else {
-          // في حالة الانتظار، نعرض شيمر لعدد من العناصر
+        
           return Expanded(
             child: ListView.builder(
-              itemCount: 5, // عدد العناصر الوهمية أثناء التحميل
+              itemCount: 5,
               itemBuilder: (context, index) {
-                return const ShimmerVideoWithText(); // عرض عنصر تحميل شيمر
+                return const ShimmerVideoWithText(); 
               },
             ),
           );
