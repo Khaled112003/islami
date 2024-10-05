@@ -15,6 +15,7 @@ import 'package:islami/Features/Quran/presentation/views/quran-page.dart';
 import 'package:islami/Features/Quran/presentation/views/surah-content.dart';
 
 import 'package:islami/Features/Tasbih/presentation/views/Tasbih.dart';
+import 'package:islami/Features/audios/presentation/views/audio.dart';
 import 'package:islami/Features/home/data/repo/implement_repo.dart';
 import 'package:islami/Features/home/presentation/manger/dashboard/dashboardbody_cubit.dart';
 import 'package:islami/Features/home/presentation/manger/prayertime/prayer_time_cubit.dart';
@@ -89,5 +90,8 @@ final router = GoRouter(routes: [
       create: (context) => VideoCubit(getIt.get<VideoRepo>()),
       child: const VideoPage(),
     ),
+  ),GoRoute(
+    path: '/AudioPage',
+    builder: (context, state) => const AudioPage(),
   ),
 ]);

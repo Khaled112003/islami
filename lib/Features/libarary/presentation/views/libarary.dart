@@ -26,7 +26,7 @@ class LibararyPage extends StatelessWidget {
       2: () => GoRouter.of(context).go('/Doaa'),
       3: () => GoRouter.of(context).go('/Accident'),
       4: () => GoRouter.of(context).push('/VideoPage'),
-      5: () => GoRouter.of(context).go('/Doaa'),
+      5: () => GoRouter.of(context).push('/AudioPage'),
     };
 
     return SafeArea(
