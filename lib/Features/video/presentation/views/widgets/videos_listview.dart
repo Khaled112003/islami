@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:islami/Features/video/presentation/manger/video/video_cubit.dart';
 import 'package:islami/Features/video/presentation/views/widgets/video_item.dart';
 import 'package:islami/core/widgets/failure_error_massege.dart';
-import 'package:islami/core/widgets/loading_video.dart';
+import 'package:islami/core/widgets/loading_item.dart';
 
 class VideosListView extends StatelessWidget {
   const VideosListView({super.key});
@@ -43,7 +43,31 @@ class VideosListView extends StatelessWidget {
             child: ListView.builder(
               itemCount: 5,
               itemBuilder: (context, index) {
-                return const ShimmerVideoWithText();
+                return  LoadingItem(widget:  Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            width: double.infinity,
+            height: 200, 
+            decoration: BoxDecoration(
+              color: Colors.grey[300],
+              borderRadius: BorderRadius.circular(12),
+            ),
+          ),
+          const SizedBox(height: 10),
+          Container(
+            width: 150, 
+            height: 20,
+            color: Colors.grey[300],
+          ),
+          const SizedBox(height: 5),
+          Container(
+            width: 100,
+            height: 20,
+            color: Colors.grey[300],
+          ),
+        ],
+      ),);
               },
             ),
           );

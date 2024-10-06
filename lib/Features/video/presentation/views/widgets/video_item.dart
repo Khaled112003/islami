@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart'; // مكتبة الكاش
-import 'package:islami/core/widgets/loading_video.dart';
+import 'package:islami/core/widgets/loading_item.dart';
 import 'package:video_player/video_player.dart';
 import 'package:chewie/chewie.dart';
 import 'package:islami/core/constant/my_color.dart';
@@ -104,7 +104,31 @@ class _VideoItemState extends State<VideoItem> {
                   ),
                 )
               else if (_isLoading)
-                const ShimmerVideoWithText()
+                 LoadingItem(widget:  Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            width: double.infinity,
+            height: 200,
+            decoration: BoxDecoration(
+              color: Colors.grey[300],
+              borderRadius: BorderRadius.circular(12),
+            ),
+          ),
+          const SizedBox(height: 10),
+          Container(
+            width: 150, 
+            height: 20,
+            color: Colors.grey[300],
+          ),
+          const SizedBox(height: 5),
+          Container(
+            width: 100,
+            height: 20,
+            color: Colors.grey[300],
+          ),
+        ],
+      ),)
               else
                 const Text('Failed to load video'),
               const SizedBox(height: 10),

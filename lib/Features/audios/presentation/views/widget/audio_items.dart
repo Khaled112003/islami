@@ -4,7 +4,8 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:islami/core/constant/my_color.dart';
 
 class AudioItem extends StatefulWidget {
-  const AudioItem({Key? key}) : super(key: key);
+  const AudioItem({Key? key, required this.text, required this.audioUrl}) : super(key: key);
+  final String text,audioUrl;
 
   @override
   _AudioItemState createState() => _AudioItemState();
@@ -16,9 +17,7 @@ class _AudioItemState extends State<AudioItem> {
   late StreamSubscription _playerStateSubscription;
 
   // رابط صوت ثابت للتجربة
-  final String _audioUrl =
-      "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
-
+ 
   // حالة للتحكم بكتم الصوت
   bool _isMuted = false;
 
@@ -56,7 +55,7 @@ class _AudioItemState extends State<AudioItem> {
       _audioPlayer.pause();
     } else {
       // استخدم UrlSource لتحديد مصدر الصوت
-      _audioPlayer.play(UrlSource(_audioUrl));
+      _audioPlayer.play(UrlSource(widget.audioUrl));
     }
   }
 
@@ -79,7 +78,7 @@ class _AudioItemState extends State<AudioItem> {
       child: Column(
         children: [
           Text(
-            "ابراهيم خليل الحصري",
+            widget.text,
             style: const TextStyle(
               fontSize: 25,
               fontWeight: FontWeight.w900,
@@ -101,7 +100,7 @@ class _AudioItemState extends State<AudioItem> {
               IconButton(
                 icon: Icon(
                   _isMuted ? Icons.volume_off : Icons.volume_up,
-                  color: Mycolors.green, // التبديل بين كتم الصوت وإلغاء الكتم
+                  color: Mycolors.green, 
                   size: 40,
                 ),
                 onPressed: _toggleMute,

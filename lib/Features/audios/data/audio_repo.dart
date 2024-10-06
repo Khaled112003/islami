@@ -12,8 +12,9 @@ class AudioRepo {
     try {
       var data = await apiService.get(
           url: 'https://mp3quran.net/api/v3/radios?language=ar');
-
+ print(data);
       if (data['radios'] != null) {
+        print(data['radios']);
         List<AudioModel> audio = [];
 
         for (var element in data['radios']) {

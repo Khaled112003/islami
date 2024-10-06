@@ -8,3 +8,15 @@ sealed class AudioState extends Equatable {
 }
 
 final class AudioInitial extends AudioState {}
+
+final class AudioLoading extends AudioState {}
+
+final class AudioFailure extends AudioState {
+  final String errorMassage;
+  const AudioFailure(this.errorMassage);
+}
+
+final class AudioSuccsess extends AudioState {
+  List<AudioModel> audio;
+  AudioSuccsess(this.audio);
+}
