@@ -16,7 +16,8 @@ class _AudioItemState extends State<AudioItem> {
   late StreamSubscription _playerStateSubscription;
 
   // رابط صوت ثابت للتجربة
-  final String _audioUrl = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
+  final String _audioUrl =
+      "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
 
   // حالة للتحكم بكتم الصوت
   bool _isMuted = false;
@@ -25,7 +26,8 @@ class _AudioItemState extends State<AudioItem> {
   void initState() {
     super.initState();
     _audioPlayer = AudioPlayer();
-    _playerStateSubscription = _audioPlayer.onPlayerStateChanged.listen((PlayerState state) {
+    _playerStateSubscription =
+        _audioPlayer.onPlayerStateChanged.listen((PlayerState state) {
       if (mounted) {
         setState(() {
           _playerState = state;
@@ -46,7 +48,7 @@ class _AudioItemState extends State<AudioItem> {
     setState(() {
       _isMuted = !_isMuted;
     });
-    _audioPlayer.setVolume(_isMuted ? 0 : 1);  
+    _audioPlayer.setVolume(_isMuted ? 0 : 1);
   }
 
   void _playPauseAudio() {
@@ -62,15 +64,15 @@ class _AudioItemState extends State<AudioItem> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),boxShadow: [
-                    BoxShadow(
-                      color: const Color.fromARGB(255, 189, 186, 186)
-                          .withOpacity(0.5),
-                      spreadRadius: 2,
-                      blurRadius: 7,
-                      offset: const Offset(0, 3),
-                    ),
-                  ],
+        borderRadius: BorderRadius.circular(12),
+        boxShadow: [
+          BoxShadow(
+            color: const Color.fromARGB(255, 189, 186, 186).withOpacity(0.5),
+            spreadRadius: 2,
+            blurRadius: 7,
+            offset: const Offset(0, 3),
+          ),
+        ],
         color: const Color.fromARGB(255, 234, 238, 244).withOpacity(0.8),
       ),
       width: MediaQuery.of(context).size.width * 0.90,
@@ -78,21 +80,28 @@ class _AudioItemState extends State<AudioItem> {
         children: [
           Text(
             "ابراهيم خليل الحصري",
-            style: const TextStyle(fontSize: 25, fontWeight: FontWeight.w900,),
+            style: const TextStyle(
+              fontSize: 25,
+              fontWeight: FontWeight.w900,
+            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               IconButton(
                 icon: Icon(
-                  _playerState == PlayerState.playing ? Icons.pause : Icons.play_arrow_rounded ,color: Mycolors.green,
+                  _playerState == PlayerState.playing
+                      ? Icons.pause
+                      : Icons.play_arrow_rounded,
+                  color: Mycolors.green,
                   size: 50,
                 ),
                 onPressed: _playPauseAudio,
               ),
               IconButton(
                 icon: Icon(
-                  _isMuted ? Icons.volume_off : Icons.volume_up,color: Mycolors.green, // التبديل بين كتم الصوت وإلغاء الكتم
+                  _isMuted ? Icons.volume_off : Icons.volume_up,
+                  color: Mycolors.green, // التبديل بين كتم الصوت وإلغاء الكتم
                   size: 40,
                 ),
                 onPressed: _toggleMute,

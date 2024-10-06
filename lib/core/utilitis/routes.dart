@@ -90,7 +90,8 @@ final router = GoRouter(routes: [
       create: (context) => VideoCubit(getIt.get<VideoRepo>()),
       child: const VideoPage(),
     ),
-  ),GoRoute(
+  ),
+  GoRoute(
     path: '/AudioPage',
     builder: (context, state) => const AudioPage(),
   ),

@@ -17,22 +17,22 @@ class VideoPage extends StatefulWidget {
 
 class _VideoPageState extends State<VideoPage> {
   @override
- @override
-void initState() {
-  super.initState();
-  
-  // تحقق من حالة الاتصال قبل جلب البيانات
-  Connectivity().checkConnectivity().then((connectivityResult) {
-    if (connectivityResult != ConnectivityResult.none) {
-      BlocProvider.of<VideoCubit>(context).fetchVideoData();
-    } else {
-      // عرض رسالة خطأ أو نص مناسب
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("لا يوجد اتصال بالإنترنت")),
-      );
-    }
-  });
-}
+  @override
+  void initState() {
+    super.initState();
+
+    // تحقق من حالة الاتصال قبل جلب البيانات
+    Connectivity().checkConnectivity().then((connectivityResult) {
+      if (connectivityResult != ConnectivityResult.none) {
+        BlocProvider.of<VideoCubit>(context).fetchVideoData();
+      } else {
+        // عرض رسالة خطأ أو نص مناسب
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text("لا يوجد اتصال بالإنترنت")),
+        );
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,7 @@ void initState() {
               onPressed: () {
                 context.pop();
               }),
-        const  VideosListView()
+          const VideosListView()
         ],
       ),
     );

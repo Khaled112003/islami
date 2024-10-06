@@ -8,13 +8,15 @@ sealed class VideoState extends Equatable {
 }
 
 final class VideoInitial extends VideoState {}
+
 final class VideoLoading extends VideoState {}
+
 final class VideoFailure extends VideoState {
   final String errorMassage;
   const VideoFailure(this.errorMassage);
 }
+
 final class VideoSuccsess extends VideoState {
-  
   List<VideosModel> video;
   VideoSuccsess(this.video);
 }

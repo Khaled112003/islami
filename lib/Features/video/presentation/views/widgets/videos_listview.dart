@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:islami/Features/video/presentation/manger/video/video_cubit.dart';
 import 'package:islami/Features/video/presentation/views/widgets/video_item.dart';
 import 'package:islami/core/widgets/failure_error_massege.dart';
-import 'package:islami/core/widgets/loading_video.dart'; 
+import 'package:islami/core/widgets/loading_video.dart';
 
 class VideosListView extends StatelessWidget {
   const VideosListView({super.key});
@@ -18,7 +18,8 @@ class VideosListView extends StatelessWidget {
               itemCount: state.video.length,
               itemBuilder: (context, index) {
                 final video = state.video[index];
-                if (video.attachments != null && video.attachments!.isNotEmpty) {
+                if (video.attachments != null &&
+                    video.attachments!.isNotEmpty) {
                   final videoUrl = video.attachments![0].url;
 
                   if (videoUrl != null && videoUrl.endsWith(".mp4")) {
@@ -35,17 +36,14 @@ class VideosListView extends StatelessWidget {
               },
             ),
           );
-        } 
-        else if (state is VideoFailure) {
+        } else if (state is VideoFailure) {
           return FailureErrorMessage(errormassage: state.errorMassage);
-        } 
-        else {
-        
+        } else {
           return Expanded(
             child: ListView.builder(
               itemCount: 5,
               itemBuilder: (context, index) {
-                return const ShimmerVideoWithText(); 
+                return const ShimmerVideoWithText();
               },
             ),
           );

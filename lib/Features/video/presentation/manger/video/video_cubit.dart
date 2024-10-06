@@ -10,7 +10,7 @@ class VideoCubit extends Cubit<VideoState> {
   final VideoRepo videoRepo;
 
   Future<void> fetchVideoData() async {
-    if (isClosed) return; 
+    if (isClosed) return;
     if (state is! VideoSuccsess) {
       emit(VideoLoading());
       var result = await videoRepo.fetchvideo();

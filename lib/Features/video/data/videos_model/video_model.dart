@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'attachment.dart';
+
 class VideosModel extends Equatable {
   final num? id;
   final num? sourceId;
@@ -10,7 +11,6 @@ class VideosModel extends Equatable {
     this.id,
     this.sourceId,
     this.title,
-   
     this.attachments,
     this.locales,
   });
@@ -18,7 +18,6 @@ class VideosModel extends Equatable {
         id: num.tryParse(json['id'].toString()),
         sourceId: num.tryParse(json['source_id'].toString()),
         title: json['title']?.toString(),
-        
         attachments: (json['attachments'] as List<dynamic>?)
             ?.map((e) => Attachment.fromJson(Map<String, dynamic>.from(e)))
             .toList(),
@@ -28,7 +27,6 @@ class VideosModel extends Equatable {
         if (id != null) 'id': id,
         if (sourceId != null) 'source_id': sourceId,
         if (title != null) 'title': title,
-        
         if (attachments != null)
           'attachments': attachments?.map((e) => e.toJson()).toList(),
         if (locales != null) 'locales': locales,
@@ -39,7 +37,6 @@ class VideosModel extends Equatable {
       id,
       sourceId,
       title,
-        
       attachments,
       locales,
     ];

@@ -12,7 +12,8 @@ class VideoRepo {
   Future<Either<Failure, List<VideosModel>>> fetchvideo() async {
     try {
       var data = await apiService.get(
-          url: 'https://api3.islamhouse.com/v3/paV29H2gm56kvLPy/main/videos/ar/ar/1/25/json');
+          url:
+              'https://api3.islamhouse.com/v3/paV29H2gm56kvLPy/main/videos/ar/ar/1/25/json');
 
       if (data['data'] != null) {
         List<VideosModel> video = [];
@@ -31,5 +32,3 @@ class VideoRepo {
     }
   }
 }
-
-  

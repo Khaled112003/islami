@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+
 class Attachment extends Equatable {
   final num? order;
   final String? size;
