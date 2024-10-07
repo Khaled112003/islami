@@ -72,7 +72,7 @@ class _AudioItemState extends State<AudioItem> {
             offset: const Offset(0, 3),
           ),
         ],
-        color: const Color.fromARGB(255, 234, 238, 244).withOpacity(0.8),
+        color: Mycolors.myWhite
       ),
       width: MediaQuery.of(context).size.width * 0.90,
       child: Column(

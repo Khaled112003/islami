@@ -54,7 +54,7 @@ class _QuranPageState extends State<QuranPage> {
                   color: Colors.white,
                   child: Column(
                     children: [
-                      SerchTextFiled(searchController: _searchController),
+                      SerchTextFiled(searchController: _searchController ,onchange:(text) =>  BlocProvider.of<SurahCubit>(context).filterSurahs(text),),
                       MyDivider()
                     ],
                   ),
