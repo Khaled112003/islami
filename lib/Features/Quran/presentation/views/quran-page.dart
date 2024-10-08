@@ -33,44 +33,38 @@ class _QuranPageState extends State<QuranPage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<SurahCubit, SurahState>(
-      listener: (context, state) {
-        BlocProvider.of<SurahCubit>(context)
-            .filterSurahs(_searchController.text);
-      },
-      child: SafeArea(
-        child: CustomScrollView(
-          slivers: [
-            SliverAppBar(
-              expandedHeight: 80,
-              floating: true,
-              pinned: true,
-              shape: CircleBorder(
-                side: BorderSide.none,
-              ),
-              backgroundColor: Colors.transparent.withOpacity(0),
-              flexibleSpace: FlexibleSpaceBar(
-                background: Container(
-                  color: Colors.white,
-                  child: Column(
-                    children: [
-                      SerchTextFiled(searchController: _searchController ,onchange:(text) =>  BlocProvider.of<SurahCubit>(context).filterSurahs(text),),
-                      MyDivider()
-                    ],
-                  ),
+    return SafeArea(
+      child: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            expandedHeight: 80,
+            floating: true,
+            pinned: true,
+            shape: CircleBorder(
+              side: BorderSide.none,
+            ),
+            backgroundColor: Colors.transparent.withOpacity(0),
+            flexibleSpace: FlexibleSpaceBar(
+              background: Container(
+                color: Colors.white,
+                child: Column(
+                  children: [
+                    SerchTextFiled(searchController: _searchController ,onchange:(text) =>  BlocProvider.of<SurahCubit>(context).filterSurahs(text),),
+                    MyDivider()
+                  ],
                 ),
               ),
             ),
-            const SliverToBoxAdapter(
-              child: Column(
-                children: [
-                  SizedBox(height: 10),
-                  SurahList(),
-                ],
-              ),
+          ),
+          const SliverToBoxAdapter(
+            child: Column(
+              children: [
+                SizedBox(height: 10),
+                SurahList(),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

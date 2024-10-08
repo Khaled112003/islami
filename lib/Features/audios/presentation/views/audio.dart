@@ -14,80 +14,103 @@ class AudioPage extends StatefulWidget {
 }
 
 class _AudioPageState extends State<AudioPage> {
-  TextEditingController controller = TextEditingController();
-  bool isSearchVisible = false; // للتحكم في عرض حقل البحث
+  final TextEditingController _searchController = TextEditingController();
+  bool isSearchVisible = false;
 
   @override
   void initState() {
-    BlocProvider.of<AudioCubit>(context).fetchAudioData();
     super.initState();
+    BlocProvider.of<AudioCubit>(context).fetchAudioData();
+
+    // إضافة مستمع لحقل البحث
+    _searchController.addListener(() {
+      print(
+          'Current Search Query: ${_searchController.text}'); // هذا السطر للتحقق
+      BlocProvider.of<AudioCubit>(context).filterAudio(_searchController.text);
+    });
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(backgroundColor: Mycolors.myWhite,
-        automaticallyImplyLeading: false,
-        title: isSearchVisible 
-            ? SerchTextFiled(searchController:controller ,onchange: (value) => Text,)  // عرض الـ TextField عند الضغط على البحث
-            : const Center(
-                child: Text(
-                  'Listen',
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                    color: Mycolors.green,
-                  ),
-                ),
-              ),
-        leading: isSearchVisible 
-            ? IconButton(
-                onPressed: () {
-                  setState(() {
-                    isSearchVisible = false; // إغلاق البحث والعودة إلى الـ AppBar الأصلي
-                  });
-                },
-                icon: const Icon(
-                  Icons.arrow_back,
-                  size: 30,
-                  color: Mycolors.green,
-                ),
-              )
-            : IconButton(
-                onPressed: () {
-                  GoRouter.of(context).pop();
-                },
-                icon: const Icon(
-                  Icons.arrow_circle_left_outlined,
-                  size: 40,
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
+
+  @override
+Widget build(BuildContext context) {
+  return Scaffold(
+    appBar: AppBar(
+      backgroundColor: Mycolors.myWhite,
+      automaticallyImplyLeading: false,
+      title: isSearchVisible
+          ? SerchTextFiled(
+              searchController: _searchController,
+              onchange: (value) =>
+                  BlocProvider.of<AudioCubit>(context).filterAudio(value),
+            )
+          : const Center(
+              child: Text(
+                'Listen',
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
                   color: Mycolors.green,
                 ),
               ),
-        actions: [
-          if (!isSearchVisible) // عرض زر البحث فقط عند عدم عرض الـ TextField
-            IconButton(
+            ),
+      leading: isSearchVisible
+          ? IconButton(
               onPressed: () {
                 setState(() {
-                  isSearchVisible = true; // عرض الـ TextField عند الضغط
+                  isSearchVisible = false;
                 });
               },
               icon: const Icon(
-                Icons.search,
-                size: 35,
+                Icons.arrow_back,
+                size: 30,
                 color: Mycolors.green,
               ),
             )
-        ],
-      ),
-      body: Column(
-        children:  [
-           Container(
-            color: Colors.grey[300], // لون الخط
-            height: 1, // سمك الخط
-          ),
-        const  SizedBox(height: 20),
-         const AudioListview(),
-        ],
-      ),
-    );
-  }}
+          : IconButton(
+              onPressed: () {
+                GoRouter.of(context).pop();
+              },
+              icon: const Icon(
+                Icons.arrow_circle_left_outlined,
+                size: 40,
+                color: Mycolors.green,
+              ),
+            ),
+      actions: [
+        if (!isSearchVisible)
+          IconButton(
+            onPressed: () {
+              setState(() {
+                isSearchVisible = true;
+              });
+            },
+            icon: const Icon(
+              Icons.search,
+              size: 35,
+              color: Mycolors.green,
+            ),
+          )
+      ],
+    ),
+    body: Column(
+      children: [
+        Container(
+          color: Colors.grey[300],
+          height: 1,
+        ),
+        const SizedBox(height: 20),
+        Expanded( // استخدام Expanded هنا لتجنب الشريط الأصفر
+          child: const AudioListview(),
+        ),
+      ],
+    ),
+  );
+}
+
+
+}

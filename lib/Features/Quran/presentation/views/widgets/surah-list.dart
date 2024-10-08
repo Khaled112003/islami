@@ -20,7 +20,7 @@ class SurahList extends StatelessWidget {
             physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             itemCount: state.filteredSurahs.length,
-            itemBuilder: (context, index) {
+            itemBuilder: (context, index ) {
               final surah = state.filteredSurahs[index];
               final ayahs = surah.ayahs;
               final numberInSurah = ayahs != null && index < ayahs.length

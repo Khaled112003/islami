@@ -6,22 +6,23 @@ import 'package:islami/core/widgets/failure_error_massege.dart';
 import 'package:islami/core/widgets/loading_item.dart';
 
 class AudioListview extends StatelessWidget {
-  const AudioListview({Key? key});
+  const AudioListview({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AudioCubit, AudioState>(
       builder: (context, state) {
         if (state is AudioSuccsess) {
-          return Expanded(
+          return Expanded( // استخدام Expanded لحل مشكلة المساحة
             child: ListView.builder(
-              itemCount: state.audio.length,
+              itemCount: state.filteredAudioes.length,
               itemBuilder: (context, index) {
+                final audio = state.filteredAudioes[index];
                 return Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: AudioItem(
-                    audioUrl: state.audio[index].url!,
-                    text: state.audio[index].name!,
+                    audioUrl: audio.url!,
+                    text: audio.name!,
                   ),
                 );
               },
@@ -30,29 +31,27 @@ class AudioListview extends StatelessWidget {
         } else if (state is AudioFailure) {
           return FailureErrorMessage(errormassage: state.errorMassage);
         } else {
-          return Expanded(
-            child: ListView.builder(itemCount: 10,
-              itemBuilder:(context, index) =>  Padding(
+          return Expanded( // استخدام Expanded لحل مشكلة المساحة
+            child: ListView.builder(
+              itemCount: 10,
+              itemBuilder: (context, index) => Padding(
                 padding: const EdgeInsets.all(10),
-                child: LoadingItem(widget:  Container(width: MediaQuery.of(context).size.width*85,
-                height: 20,
-                
-               
-                  child:Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          // النص في الوسط
-          Container(
-            width: 200,
-            height: 20,
-            color: Colors.grey,
-          ),
-          
-          // الأيقونات في الوسط
-          
-        ],
-      ),
-                ),),
+                child: LoadingItem(
+                  widget: Container(
+                    width: MediaQuery.of(context).size.width * 0.85,
+                    height: 20,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: 200,
+                          height: 20,
+                          color: Colors.grey,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ),
             ),
           );

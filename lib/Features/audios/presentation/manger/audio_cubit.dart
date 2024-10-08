@@ -17,8 +17,33 @@ class AudioCubit extends Cubit<AudioState> {
       result.fold((failure) {
         if (!isClosed) emit(AudioFailure(failure.errorMassage));
       }, (audio) {
-        if (!isClosed) emit(AudioSuccsess(audio));
+        if (!isClosed) emit(AudioSuccsess(audio ,audio));
       });
     }
   }
+ void filterAudio(String query) {
+  if (state is AudioSuccsess) {
+    final currentState = state as AudioSuccsess;
+
+    if (query.isEmpty) {
+      emit(AudioSuccsess(currentState.audio, currentState.audio));
+    } else {
+      final queryLowered = query.toLowerCase().trim();
+
+      final filtereAudio = currentState.audio.where((audio) {
+        final audioNameArabic = audio.name?.toLowerCase().trim() ?? '';
+        print('Filtering audio for query: $queryLowered');  // هنا نتأكد من النص
+
+        return audioNameArabic.contains(queryLowered);
+      }).toList();
+
+      print('Filtered Audio Count: ${filtereAudio.length}');  // نتحقق من عدد النتائج
+
+      emit(AudioSuccsess(currentState.audio, filtereAudio));
+    }
+  }
+}
+
+
+
 }
