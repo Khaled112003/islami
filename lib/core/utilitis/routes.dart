@@ -18,6 +18,7 @@ import 'package:islami/Features/Tasbih/presentation/views/Tasbih.dart';
 import 'package:islami/Features/audios/data/audio_repo.dart';
 import 'package:islami/Features/audios/presentation/manger/audio_cubit.dart';
 import 'package:islami/Features/audios/presentation/views/audio.dart';
+import 'package:islami/Features/authentication/presntations/views/login.dart';
 import 'package:islami/Features/home/data/repo/implement_repo.dart';
 import 'package:islami/Features/home/presentation/manger/dashboard/dashboardbody_cubit.dart';
 import 'package:islami/Features/home/presentation/manger/prayertime/prayer_time_cubit.dart';
@@ -31,7 +32,7 @@ import 'package:islami/core/utilitis/singleton_pattern.dart';
 
 final router = GoRouter(routes: [
   GoRoute(
-    path: '/',
+    path: '/DashboardPage',
     builder: (context, state) => MultiBlocProvider(
       providers: [
         BlocProvider<PrayerTimeCubit>(
@@ -100,4 +101,10 @@ final router = GoRouter(routes: [
       child: const AudioPage(),
     ),
   ),
+  GoRoute(
+    path: '/',
+    builder: (context, state) => const Loginpage(),
+  ),
+
+
 ]);
