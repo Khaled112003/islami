@@ -11,4 +11,7 @@ class Mycolors {
 
   static const Color deepwhite = Color(0xFFF9FAFD);
   static const Color red = Color(0xFF74080C);
+   static const Color authColor = Color(0xFFDDE3FF);
+   static const Color welcomeColr = Color(0xFF4B5CDF);
+   static const Color purpleColor = Color(0xFF4B5CDF);
 }
