@@ -3,8 +3,9 @@ import 'package:islami/core/constant/my_color.dart';
 
 class WelcomeMessage extends StatelessWidget {
   const WelcomeMessage({
-    super.key,
+    super.key, required this.text1, required this.text2,
   });
+  final String text1,text2;
 
   @override
   Widget build(BuildContext context) {
@@ -14,23 +15,24 @@ class WelcomeMessage extends StatelessWidget {
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             color: Mycolors.welcomeColr.withOpacity(0.03)),
-        child:const Padding(
+        child: Padding(
           padding:  EdgeInsets.all(9.0),
           child:  Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [SizedBox(
+            children: [
+           const   SizedBox(
                 height: 70,
               ),
               Text(
-                'Welcome',
-                style: TextStyle(
+               text1,
+                style:const TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.w900,
                     color: Mycolors.purpleColor),
               ),
               Text(
-                ' We pray that what we offer benefits you and makes your use of the app easy and rewarding.',
-                style: TextStyle(
+               text2,
+                style:const TextStyle(
                     fontSize: 14,
                     
                     color: Color.fromARGB(255, 99, 97, 97)

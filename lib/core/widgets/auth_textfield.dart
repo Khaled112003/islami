@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:islami/core/constant/my_color.dart';
 
 class AuthTextfield extends StatelessWidget {
@@ -10,14 +9,12 @@ class AuthTextfield extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
-      child: TextFormField(obscureText: obscureText?? false,
+    return  TextFormField(obscureText: obscureText?? false,
         decoration: InputDecoration(
             fillColor: const Color.fromARGB(255, 255, 255, 255),
             filled: true,
             hintText: hintText,
-            hintStyle: const TextStyle(color: Mycolors.green, fontSize: 18),
+            hintStyle: const TextStyle(color: Mycolors.green, fontSize: 15, fontWeight: FontWeight.w300),
             prefixIcon:  icon,
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
@@ -29,7 +26,7 @@ class AuthTextfield extends StatelessWidget {
             ),
           ),
       
-      ),
-    );
+      )
+    ;
   }
 }

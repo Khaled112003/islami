@@ -3,8 +3,9 @@ import 'package:islami/core/constant/my_color.dart';
 
 class ButtonItem extends StatelessWidget {
   const ButtonItem({
-    super.key,
+    super.key, required this.text,
   });
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +16,9 @@ class ButtonItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(20)),
       child: MaterialButton(
         onPressed: () {},
-        child:const Text(
-          'Login',
-          style: TextStyle(
+        child: Text(
+          text,
+          style:const TextStyle(
               color: Colors.white,
               fontSize: 18,
               fontWeight: FontWeight.w900),

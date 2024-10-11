@@ -54,6 +54,7 @@ dependencies:
   audioplayers: ^6.1.0
   connectivity_plus: ^6.0.5
   webview_flutter: ^4.9.0
+  intl_phone_field: ^3.2.0
 dev_dependencies:
 
   flutter_test:

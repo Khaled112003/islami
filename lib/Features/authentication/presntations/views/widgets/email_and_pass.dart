@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:islami/core/constant/my_color.dart';
 import 'package:islami/core/widgets/auth_textfield.dart';
 

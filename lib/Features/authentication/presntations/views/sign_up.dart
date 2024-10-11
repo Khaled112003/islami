@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:islami/Features/authentication/presntations/views/widgets/email_and_pass.dart';
-import 'package:islami/Features/authentication/presntations/views/widgets/forget_pass_text.dart';
-import 'package:islami/Features/authentication/presntations/views/widgets/singnup_in_text.dart';
+import 'package:islami/Features/authentication/presntations/views/widgets/login_face_google.dart';
+import 'package:islami/Features/authentication/presntations/views/widgets/phone_textfild.dart';
+import 'package:islami/Features/authentication/presntations/views/widgets/welcome_message.dart';
 import 'package:islami/core/constant/my_color.dart';
 import 'package:islami/core/widgets/button_item.dart';
 
-import 'widgets/login_face_google.dart';
-import 'widgets/welcome_message.dart';
+import 'widgets/singnup_in_text.dart';
 
-class Loginpage extends StatelessWidget {
-  const Loginpage({super.key});
+class SignUpPage extends StatelessWidget {
+  const SignUpPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,23 +22,23 @@ class Loginpage extends StatelessWidget {
             child: const Column(
               children: [
                 WelcomeMessage(
-                  text1: 'Welcome',
+                  text1: 'Create Account',
                   text2:
-                      ' We pray that what we offer benefits you and makes your use of the app easy and rewarding.',
+                      "Sign up now and start exploring all that our app has to offer. We're excited to welcome you to our community!",
                 ),
                 EmailAndPass(),
-                ForgetPassText(),
+                PhoneTextField(),
                 SizedBox(
                   height: 40,
                 ),
                 ButtonItem(
-                  text: 'Login',
+                  text: "Create Account",
                 ),
                 LoginWithFaceOrGoogle(),
                 SignUpOrInText(
-                  namePage: '/SignUpPage',
-                  text1: "Don't have an account? ",
-                  text2: "Sign up",
+                  namePage: '/',
+                  text1: 'Already have an account yet? ',
+                  text2: 'Login',
                 )
               ],
             ),
