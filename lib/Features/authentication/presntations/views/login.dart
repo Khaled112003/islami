@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islami/Features/authentication/presntations/views/widgets/email_and_pass.dart';
 import 'package:islami/Features/authentication/presntations/views/widgets/forget_pass_text.dart';
+import 'package:islami/Features/authentication/presntations/views/widgets/singnup_text.dart';
 import 'package:islami/core/constant/my_color.dart';
 import 'package:islami/core/widgets/button_item.dart';
 
@@ -17,21 +18,17 @@ class Loginpage extends StatelessWidget {
       body: Center(
         child: SizedBox(
           width: MediaQuery.of(context).size.width * 0.9,
-          child:const Column(
+          child: const Column(
             children: [
-              
               WelcomeMessage(),
-              
               EmailAndPass(),
-              
               ForgetPassText(),
               SizedBox(
                 height: 40,
               ),
               ButtonItem(),
-             
-              LoginWithFaceOrGoogle()
-              
+              LoginWithFaceOrGoogle(),
+              SignUpText()
             ],
           ),
         ),
@@ -39,5 +36,4 @@ class Loginpage extends StatelessWidget {
     );
   }
 }
-
 
