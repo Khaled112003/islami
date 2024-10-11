@@ -15,21 +15,23 @@ class Loginpage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Mycolors.authColor,
-      body: Center(
-        child: SizedBox(
-          width: MediaQuery.of(context).size.width * 0.9,
-          child: const Column(
-            children: [
-              WelcomeMessage(),
-              EmailAndPass(),
-              ForgetPassText(),
-              SizedBox(
-                height: 40,
-              ),
-              ButtonItem(),
-              LoginWithFaceOrGoogle(),
-              SignUpText()
-            ],
+      body: SingleChildScrollView(
+        child: Center(
+          child: SizedBox(
+            width: MediaQuery.of(context).size.width * 0.9,
+            child: const Column(
+              children: [
+                WelcomeMessage(),
+                EmailAndPass(),
+                ForgetPassText(),
+                SizedBox(
+                  height: 40,
+                ),
+                ButtonItem(),
+                LoginWithFaceOrGoogle(),
+                SignUpText()
+              ],
+            ),
           ),
         ),
       ),
