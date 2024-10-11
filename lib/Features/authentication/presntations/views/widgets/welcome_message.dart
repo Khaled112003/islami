@@ -18,7 +18,9 @@ class WelcomeMessage extends StatelessWidget {
           padding:  EdgeInsets.all(9.0),
           child:  Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+            children: [SizedBox(
+                height: 70,
+              ),
               Text(
                 'Welcome',
                 style: TextStyle(

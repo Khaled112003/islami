@@ -8,25 +8,35 @@ class EmailAndPass extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(children: [ AuthTextfield(
-            hintText: 'Email',
-            icon: Icon(
-              Icons.email,
-              color: Mycolors.green,
-              size: 28,
-            ),
-          ),SizedBox(
-            height: 25,
+    return const Column(
+      children: [
+        SizedBox(
+          height: 50,
+        ),
+        AuthTextfield(
+          hintText: 'Email',
+          icon: Icon(
+            Icons.email,
+            color: Mycolors.green,
+            size: 28,
           ),
-          AuthTextfield(obscureText: true,
-            hintText: 'Password',
-            icon: Icon(
-              Icons.password,
-              color: Mycolors.green,
-              size: 28,
-            ),
-          )
-
-    ],);
+        ),
+        SizedBox(
+          height: 25,
+        ),
+        AuthTextfield(
+          obscureText: true,
+          hintText: 'Password',
+          icon: Icon(
+            Icons.password,
+            color: Mycolors.green,
+            size: 28,
+          ),
+        ),SizedBox(
+                height: 15,
+              ),
+              
+      ],
+    );
   }
 }

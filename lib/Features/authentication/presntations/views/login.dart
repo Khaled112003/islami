@@ -4,6 +4,7 @@ import 'package:islami/Features/authentication/presntations/views/widgets/forget
 import 'package:islami/core/constant/my_color.dart';
 import 'package:islami/core/widgets/button_item.dart';
 
+import 'widgets/login_face_google.dart';
 import 'widgets/welcome_message.dart';
 
 class Loginpage extends StatelessWidget {
@@ -18,22 +19,19 @@ class Loginpage extends StatelessWidget {
           width: MediaQuery.of(context).size.width * 0.9,
           child:const Column(
             children: [
-              SizedBox(
-                height: 70,
-              ),
+              
               WelcomeMessage(),
-              SizedBox(
-                height: 50,
-              ),
+              
               EmailAndPass(),
-              SizedBox(
-                height: 15,
-              ),
+              
               ForgetPassText(),
               SizedBox(
                 height: 40,
               ),
-              ButtonItem()
+              ButtonItem(),
+             
+              LoginWithFaceOrGoogle()
+              
             ],
           ),
         ),
