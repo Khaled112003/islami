@@ -2,14 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:islami/core/constant/my_color.dart';
 
 class AuthTextfield extends StatelessWidget {
-  const AuthTextfield({super.key, required this.hintText, required this.icon,  this.obscureText});
+  const AuthTextfield({super.key, required this.hintText, required this.icon,  this.obscureText, this.validator, required this.controller});
   final String hintText;
   final Icon icon;
   final bool? obscureText;
+  final String? Function(String?)? validator;
+ final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
     return  TextFormField(obscureText: obscureText?? false,
+    controller: controller,
+    validator: validator,
         decoration: InputDecoration(
             fillColor: const Color.fromARGB(255, 255, 255, 255),
             filled: true,
