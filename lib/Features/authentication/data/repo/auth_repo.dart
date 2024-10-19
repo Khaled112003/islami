@@ -39,5 +39,24 @@ class AuthRepo {
     final userCollection = _firebaseFirestore.collection('user');
     await userCollection.doc(user.uid).set(user.toMap());
   }
+
+  Future<Either<Failure, UserCredential>> loginWithEmailAndPassword(
+      String email, String password) async {
+    try {
+      final credential = await _firebaseAuth.createUserWithEmailAndPassword(
+          email: email, password: password);
+     return Right(credential);
+      
+     
+    } catch (error) {
+      if (error is FirebaseAuthException) {
+        return Left(FirebaseAuthFailure.fromFirebaseAuthException(error));
+      } else if (error is FirebaseException) {
+        return Left(CloudFirestoreFailure.fromFirebaseCoreException(error));
+      } else {
+        return Left(FirebaseAuthFailure(error.toString()));
+      }
+    }
+  }
 }
 

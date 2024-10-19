@@ -31,10 +31,10 @@ class _SignupTextfieldState extends State<SignupTextfield> {
             ),
           );
         } else if (state is SignUpSuccsess) {
-          Navigator.pop(context); // Remove the loading dialog
-          GoRouter.of(context).push('/VideoPage'); // Navigate to the next page
+          Navigator.pop(context); 
+          GoRouter.of(context).push('/VideoPage'); 
         } else if (state is SignUpFailure) {
-          Navigator.pop(context); // Remove the loading dialog
+          Navigator.pop(context); 
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text(state.errorMessage)),
           );

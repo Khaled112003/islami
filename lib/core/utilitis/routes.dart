@@ -105,11 +105,11 @@ final router = GoRouter(routes: [
     ),
   ),
   GoRoute(
-    path: '/etw',
+    path: '/',
     builder: (context, state) => const Loginpage(),
   ),
   GoRoute(
-    path: '/',
+    path: '/SignUpPage',
     builder: (context, state) => BlocProvider(
       create: (context) => SignUpCubit(getIt.get<AuthRepo>()),
       child: const SignUpPage(),
