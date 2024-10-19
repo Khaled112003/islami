@@ -4,6 +4,7 @@ import 'package:islami/Features/Accident/data/repo/accident_repo.dart';
 import 'package:islami/Features/Accident/data/repo/doaaa_repo.dart';
 import 'package:islami/Features/Quran/data/repo/surah_repo.dart';
 import 'package:islami/Features/audios/data/audio_repo.dart';
+import 'package:islami/Features/authentication/data/repo/auth_repo.dart';
 import 'package:islami/Features/video/data/repo/video_repo.dart';
 import 'package:islami/core/utilitis/api_server.dart';
 import '../../Features/home/data/repo/implement_repo.dart';
@@ -21,4 +22,5 @@ void setup() {
   getIt.registerSingleton<SurahRepo>(SurahRepo(getIt.get<ApiService>()));
   getIt.registerSingleton<VideoRepo>(VideoRepo(getIt.get<ApiService>()));
   getIt.registerSingleton<AudioRepo>(AudioRepo(getIt.get<ApiService>()));
+  getIt.registerSingleton<AuthRepo>(AuthRepo());
 }

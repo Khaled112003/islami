@@ -23,7 +23,12 @@ class FirebaseAuthFailure extends Failure {
       case 'too-many-requests':
         return FirebaseAuthFailure('Too many login attempts. Please try again later.');
       default:
-        return FirebaseAuthFailure('login was canceled');
+        print('Unhandled FirebaseAuthException: ${exception.code} - ${exception.message}');
+        return FirebaseAuthFailure(
+            'An unknown error occurred: ${exception.message}');
     }
   }
 }
+
+
+

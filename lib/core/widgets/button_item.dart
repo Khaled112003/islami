@@ -3,9 +3,10 @@ import 'package:islami/core/constant/my_color.dart';
 
 class ButtonItem extends StatelessWidget {
   const ButtonItem({
-    super.key, required this.text,
+    super.key, required this.text, required this.onPressed,
   });
   final String text;
+  final void Function() onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class ButtonItem extends StatelessWidget {
           color: Mycolors.green,
           borderRadius: BorderRadius.circular(20)),
       child: MaterialButton(
-        onPressed: () {},
+        onPressed: onPressed,
         child: Text(
           text,
           style:const TextStyle(
