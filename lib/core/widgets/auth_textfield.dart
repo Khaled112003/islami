@@ -7,22 +7,22 @@ class AuthTextfield extends StatelessWidget {
     required this.hintText,
     required this.icon,
     this.obscureText,
-    this.controller, // إضافة `controller`
-    this.validator,  // إضافة `validator` للتحقق
+    this.controller, 
+    this.validator,  
   });
 
   final String hintText;
   final Icon icon;
   final bool? obscureText;
-  final TextEditingController? controller; // معامل الـ controller
-  final String? Function(String?)? validator; // معامل الـ validator
+  final TextEditingController? controller; 
+  final String? Function(String?)? validator; 
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      controller: controller, // ربط الـ controller بالحقل
+      controller: controller, 
       obscureText: obscureText ?? false,
-      validator: validator, // ربط الـ validator
+      validator: validator,
       decoration: InputDecoration(
         fillColor: const Color.fromARGB(255, 255, 255, 255),
         filled: true,

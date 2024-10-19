@@ -25,13 +25,11 @@ class SignUpPage extends StatelessWidget {
                       "Sign up now and start exploring all that our app has to offer. We're excited to welcome you to our community!",
                 ),
                 
-                SizedBox(
-                  height: 40,
-                ),
+               
                 SignupTextfield(),
                 
                 SizedBox(
-                  height: 40,
+                  height: 20,
                 ),
                 
                 LoginWithFaceOrGoogle(),

@@ -4,6 +4,7 @@ import 'package:islami/Features/authentication/presntations/views/widgets/singnu
 import 'package:islami/core/constant/my_color.dart';
 
 import 'widgets/login_face_google.dart';
+import 'widgets/textfiels_login.dart';
 import 'widgets/welcome_message.dart';
 
 class Loginpage extends StatelessWidget {
@@ -25,15 +26,9 @@ class Loginpage extends StatelessWidget {
                       ' We pray that what we offer benefits you and makes your use of the app easy and rewarding.',
                 ),
                 
-                ForgetPassText(),
-                SizedBox(
-                  height: 40,
-                ),
-                // ButtonItem(onPressed: () {
-                  
-                // },
-                //   text: 'Login',
-                // ),
+                
+                
+                TextFieldlsLogin(),
                 LoginWithFaceOrGoogle(),
                 SignUpOrInText(
                   namePage: '/SignUpPage',

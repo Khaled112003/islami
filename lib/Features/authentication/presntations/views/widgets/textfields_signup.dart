@@ -66,7 +66,7 @@ class _SignupTextfieldState extends State<SignupTextfield> {
               ),
             ),
             const SizedBox(
-              height: 25,
+              height: 15,
             ),
             AuthTextfield(
               controller: _passwordController,
