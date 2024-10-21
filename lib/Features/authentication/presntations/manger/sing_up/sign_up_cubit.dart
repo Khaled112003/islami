@@ -10,15 +10,12 @@ class SignUpCubit extends Cubit<SignUpState> {
   final AuthRepo authRepo;
   Future<void> fetchData(String email, String pass, String userName) async {
   emit(SignUpLoading());
-  print('SignUp started with email: $email, username: $userName');
   
   final result = await authRepo.signUpWithEmailAndPass(email, userName, pass);
   
   result.fold((failure) {
-    print('SignUp failed: ${failure.errorMassage}');
     emit(SignUpFailure(failure.errorMassage));
   }, (user) {
-    print('SignUp successful: ${user.email}');
     emit(SignUpSuccsess(user));
   });
 }

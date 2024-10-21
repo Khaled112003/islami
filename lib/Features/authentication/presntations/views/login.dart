@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:islami/Features/authentication/presntations/views/widgets/forget_pass_text.dart';
 import 'package:islami/Features/authentication/presntations/views/widgets/singnup_in_text.dart';
 import 'package:islami/core/constant/my_color.dart';
 
@@ -25,9 +24,7 @@ class Loginpage extends StatelessWidget {
                   text2:
                       ' We pray that what we offer benefits you and makes your use of the app easy and rewarding.',
                 ),
-                
-                
-                
+               
                 TextFieldlsLogin(),
                 LoginWithFaceOrGoogle(),
                 SignUpOrInText(

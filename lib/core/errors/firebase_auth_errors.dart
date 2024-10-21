@@ -25,7 +25,7 @@ class FirebaseAuthFailure extends Failure {
       default:
         print('Unhandled FirebaseAuthException: ${exception.code} - ${exception.message}');
         return FirebaseAuthFailure(
-            'An unknown error occurred: ${exception.message}');
+            'An unknown error occurred please try again');
     }
   }
 }

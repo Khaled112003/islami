@@ -16,13 +16,13 @@ class AuthRepo {
       final credential = await _firebaseAuth.createUserWithEmailAndPassword(
           email: email, password: password);
       final user = credential.user;
-      
+
       if (user != null) {
         final newUser = UserModel(uid: user.uid, username: userName, email: email);
-        await saveData(newUser);
+        await saveData(newUser); 
         return Right(newUser);  
       } else {
-        return Left(FirebaseAuthFailure('User is null'));
+        return Left(FirebaseAuthFailure('User is null')); 
       }
     } catch (error) {
       if (error is FirebaseAuthException) {
@@ -43,12 +43,20 @@ class AuthRepo {
   Future<Either<Failure, UserCredential>> loginWithEmailAndPassword(
       String email, String password) async {
     try {
-      final credential = await _firebaseAuth.createUserWithEmailAndPassword(
+      final credential = await _firebaseAuth.signInWithEmailAndPassword(
           email: email, password: password);
-     return Right(credential);
       
-     
+      final user = credential.user;
+      if (user != null) {
+        print('Login successful: ${user.email}');  
+        return Right(credential);  
+      } else {
+        print('Login failed: user is null');  
+        return Left(FirebaseAuthFailure('User is null after login'));
+      }
+      
     } catch (error) {
+      print('Login error: ${error.toString()}');  
       if (error is FirebaseAuthException) {
         return Left(FirebaseAuthFailure.fromFirebaseAuthException(error));
       } else if (error is FirebaseException) {
@@ -59,4 +67,3 @@ class AuthRepo {
     }
   }
 }
-

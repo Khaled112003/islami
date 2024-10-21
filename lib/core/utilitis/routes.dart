@@ -19,6 +19,7 @@ import 'package:islami/Features/audios/data/audio_repo.dart';
 import 'package:islami/Features/audios/presentation/manger/audio_cubit.dart';
 import 'package:islami/Features/audios/presentation/views/audio.dart';
 import 'package:islami/Features/authentication/data/repo/auth_repo.dart';
+import 'package:islami/Features/authentication/presntations/manger/login/login_cubit.dart';
 import 'package:islami/Features/authentication/presntations/manger/sing_up/sign_up_cubit.dart';
 import 'package:islami/Features/authentication/presntations/views/login.dart';
 import 'package:islami/Features/authentication/presntations/views/sign_up.dart';
@@ -106,7 +107,10 @@ final router = GoRouter(routes: [
   ),
   GoRoute(
     path: '/',
-    builder: (context, state) => const Loginpage(),
+    builder: (context, state) => BlocProvider(
+      create: (context) => LoginCubit(getIt.get<AuthRepo>()),
+      child: const Loginpage(),
+    ),
   ),
   GoRoute(
     path: '/SignUpPage',
