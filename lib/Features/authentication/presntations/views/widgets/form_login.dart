@@ -9,6 +9,7 @@ import '../../../../../core/widgets/button_item.dart';
 import '../../manger/login/login_cubit.dart';
 import 'forget_pass_text.dart';
 
+// ignore: must_be_immutable
 class FormLogin extends StatefulWidget {
   FormLogin(
       {super.key,
@@ -63,7 +64,8 @@ class _FormLoginState extends State<FormLogin> {
                   });
                 },
                 icon: Icon(
-                  _obscureText ? CupertinoIcons.eye : CupertinoIcons.eye_slash,
+                  _obscureText ? CupertinoIcons.eye : CupertinoIcons.eye_slash,size: 25,
+                  color: Mycolors.green,
                 )),
             controller: widget.passwordController,
             validator: (value) {

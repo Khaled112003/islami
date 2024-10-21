@@ -26,7 +26,7 @@ class FormSignUp extends StatefulWidget {
 }
 
 class _FormSignUpState extends State<FormSignUp> {
-  bool _obscureText = true; 
+  bool _obscureText = true;
 
   @override
   Widget build(BuildContext context) {
@@ -72,14 +72,16 @@ class _FormSignUpState extends State<FormSignUp> {
             suffixIcon: IconButton(
               icon: Icon(
                 _obscureText ? CupertinoIcons.eye : CupertinoIcons.eye_slash,
+                size: 25,
+                color: Mycolors.green,
               ),
               onPressed: () {
                 setState(() {
-                  _obscureText = !_obscureText; // تغيير حالة الإخفاء
+                  _obscureText = !_obscureText; 
                 });
               },
             ),
-            obscureText: _obscureText, // التحكم في إخفاء النص
+            obscureText: _obscureText, 
             hintText: 'Password',
             icon: const Icon(
               Icons.password,
@@ -125,4 +127,3 @@ class _FormSignUpState extends State<FormSignUp> {
     );
   }
 }
-
