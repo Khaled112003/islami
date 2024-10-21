@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:islami/core/constant/my_color.dart';
 
@@ -8,7 +9,7 @@ class AuthTextfield extends StatelessWidget {
     required this.icon,
     this.obscureText,
     this.controller, 
-    this.validator,  
+    this.validator,this.suffixIcon,  
   });
 
   final String hintText;
@@ -16,6 +17,7 @@ class AuthTextfield extends StatelessWidget {
   final bool? obscureText;
   final TextEditingController? controller; 
   final String? Function(String?)? validator; 
+  final Widget? suffixIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +25,11 @@ class AuthTextfield extends StatelessWidget {
       controller: controller, 
       obscureText: obscureText ?? false,
       validator: validator,
+
       decoration: InputDecoration(
         fillColor: const Color.fromARGB(255, 255, 255, 255),
         filled: true,
+        suffixIcon:suffixIcon,
         hintText: hintText,
         hintStyle: const TextStyle(
           color: Mycolors.green,
