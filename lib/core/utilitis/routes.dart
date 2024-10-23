@@ -23,6 +23,7 @@ import 'package:islami/Features/authentication/presntations/manger/login/login_c
 import 'package:islami/Features/authentication/presntations/manger/sing_up/sign_up_cubit.dart';
 import 'package:islami/Features/authentication/presntations/views/login.dart';
 import 'package:islami/Features/authentication/presntations/views/sign_up.dart';
+import 'package:islami/Features/forget_pass/presentation/views/forger_password.dart';
 import 'package:islami/Features/home/data/repo/implement_repo.dart';
 import 'package:islami/Features/home/presentation/manger/dashboard/dashboardbody_cubit.dart';
 import 'package:islami/Features/home/presentation/manger/prayertime/prayer_time_cubit.dart';
@@ -118,5 +119,9 @@ final router = GoRouter(routes: [
       create: (context) => SignUpCubit(getIt.get<AuthRepo>()),
       child: const SignUpPage(),
     ),
+  ),
+   GoRoute(
+    path: '/ForgerPasswordPage',
+    builder: (context, state) =>const  ForgerPasswordPage(),
   ),
 ]);

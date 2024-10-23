@@ -19,6 +19,9 @@ class Loginpage extends StatelessWidget {
             width: MediaQuery.of(context).size.width * 0.9,
             child: const Column(
               children: [
+                SizedBox(
+                height: 30,
+              ),
                 WelcomeMessage(
                   text1: 'Welcome',
                   text2:

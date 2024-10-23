@@ -38,6 +38,23 @@ class _FormSignUpState extends State<FormSignUp> {
             height: 50,
           ),
           AuthTextfield(
+            controller: widget.userNameController,
+            validator: (data) {
+              if (data!.isEmpty) {
+                return "Field is required";
+              }
+              return null;
+            },
+            hintText: 'User Name',
+            icon: const Icon(
+              Icons.person,
+              color: Mycolors.green,
+              size: 28,
+            ),
+          ),const SizedBox(
+            height: 15,
+          ),
+          AuthTextfield(
             controller: widget.emailController,
             validator: (data) {
               if (data!.isEmpty) {
@@ -89,24 +106,7 @@ class _FormSignUpState extends State<FormSignUp> {
               size: 28,
             ),
           ),
-          const SizedBox(
-            height: 15,
-          ),
-          AuthTextfield(
-            controller: widget.userNameController,
-            validator: (data) {
-              if (data!.isEmpty) {
-                return "Field is required";
-              }
-              return null;
-            },
-            hintText: 'User Name',
-            icon: const Icon(
-              Icons.person,
-              color: Mycolors.green,
-              size: 28,
-            ),
-          ),
+          
           const SizedBox(
             height: 40,
           ),
