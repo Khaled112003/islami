@@ -23,7 +23,8 @@ import 'package:islami/Features/authentication/presntations/manger/login/login_c
 import 'package:islami/Features/authentication/presntations/manger/sing_up/sign_up_cubit.dart';
 import 'package:islami/Features/authentication/presntations/views/login.dart';
 import 'package:islami/Features/authentication/presntations/views/sign_up.dart';
-import 'package:islami/Features/forget_pass/presentation/views/forger_password.dart';
+import 'package:islami/Features/forget_pass/presentation/manger/email_verfiy/email_verification_cubit.dart';
+import 'package:islami/Features/forget_pass/presentation/views/forger_password_page.dart';
 import 'package:islami/Features/home/data/repo/implement_repo.dart';
 import 'package:islami/Features/home/presentation/manger/dashboard/dashboardbody_cubit.dart';
 import 'package:islami/Features/home/presentation/manger/prayertime/prayer_time_cubit.dart';
@@ -35,9 +36,11 @@ import 'package:islami/Features/video/presentation/views/video_page.dart';
 
 import 'package:islami/core/utilitis/singleton_pattern.dart';
 
+import '../../Features/forget_pass/data/repo/forget_pass_repo.dart';
+
 final router = GoRouter(routes: [
   GoRoute(
-    path: '/DashboardPage',
+    path: '/',
     builder: (context, state) => MultiBlocProvider(
       providers: [
         BlocProvider<PrayerTimeCubit>(
@@ -51,7 +54,7 @@ final router = GoRouter(routes: [
           create: (context) => SurahCubit(getIt.get<SurahRepo>()),
         ),
       ],
-      child: DashboardPage(),
+      child:const DashboardPage(),
     ),
   ),
   GoRoute(
@@ -107,7 +110,7 @@ final router = GoRouter(routes: [
     ),
   ),
   GoRoute(
-    path: '/',
+    path: '/Loginpage',
     builder: (context, state) => BlocProvider(
       create: (context) => LoginCubit(getIt.get<AuthRepo>()),
       child: const Loginpage(),
@@ -120,8 +123,11 @@ final router = GoRouter(routes: [
       child: const SignUpPage(),
     ),
   ),
-   GoRoute(
+  GoRoute(
     path: '/ForgerPasswordPage',
-    builder: (context, state) =>const  ForgerPasswordPage(),
+    builder: (context, state) =>  BlocProvider(
+      create: (context) => EmailVerificationCubit(getIt.get<ForgetPassRepo>()),
+      child: const ForgerPasswordPage(),
+    ),
   ),
 ]);
