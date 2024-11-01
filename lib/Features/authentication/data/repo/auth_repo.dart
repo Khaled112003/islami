@@ -18,11 +18,17 @@ class AuthRepo {
       final user = credential.user;
 
       if (user != null) {
-        final newUser = UserModel(uid: user.uid, username: userName, email: email);
-        await saveData(newUser); 
-        return Right(newUser);  
+        
+        final newUser = UserModel(
+          uid: user.uid,
+          username: userName,
+          email: email,
+          profileImage: null, 
+        );
+        await saveData(newUser);
+        return Right(newUser);
       } else {
-        return Left(FirebaseAuthFailure('User is null')); 
+        return Left(FirebaseAuthFailure('User is null'));
       }
     } catch (error) {
       if (error is FirebaseAuthException) {
@@ -35,6 +41,7 @@ class AuthRepo {
     }
   }
 
+ 
   Future<void> saveData(UserModel user) async {
     final userCollection = _firebaseFirestore.collection('user');
     await userCollection.doc(user.uid).set(user.toMap());
@@ -45,18 +52,16 @@ class AuthRepo {
     try {
       final credential = await _firebaseAuth.signInWithEmailAndPassword(
           email: email, password: password);
-      
       final user = credential.user;
       if (user != null) {
-        print('Login successful: ${user.email}');  
-        return Right(credential);  
+        print('Login successful: ${user.email}');
+        return Right(credential);
       } else {
-        print('Login failed: user is null');  
+        print('Login failed: user is null');
         return Left(FirebaseAuthFailure('User is null after login'));
       }
-      
     } catch (error) {
-      print('Login error: ${error.toString()}');  
+      print('Login error: ${error.toString()}');
       if (error is FirebaseAuthException) {
         return Left(FirebaseAuthFailure.fromFirebaseAuthException(error));
       } else if (error is FirebaseException) {
