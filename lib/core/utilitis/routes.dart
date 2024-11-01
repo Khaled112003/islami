@@ -30,6 +30,7 @@ import 'package:islami/Features/home/presentation/manger/dashboard/dashboardbody
 import 'package:islami/Features/home/presentation/manger/prayertime/prayer_time_cubit.dart';
 import 'package:islami/Features/home/presentation/views/dashboard_page.dart';
 import 'package:islami/Features/libarary/presentation/views/libarary.dart';
+import 'package:islami/Features/profile/prsentation/views/profile.dart';
 import 'package:islami/Features/video/data/repo/video_repo.dart';
 import 'package:islami/Features/video/presentation/manger/video/video_cubit.dart';
 import 'package:islami/Features/video/presentation/views/video_page.dart';
@@ -129,5 +130,9 @@ final router = GoRouter(routes: [
       create: (context) => EmailVerificationCubit(getIt.get<ForgetPassRepo>()),
       child: const ForgerPasswordPage(),
     ),
+  ),
+  GoRoute(
+    path: '/ProfilePage',
+    builder: (context, state) => const ProfilePage(),
   ),
 ]);
