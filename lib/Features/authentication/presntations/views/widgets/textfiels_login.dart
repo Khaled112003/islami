@@ -30,7 +30,7 @@ class _TextFieldlsLoginState extends State<TextFieldlsLogin> {
             );
           } else if (state is LoginSuccess) {
             Navigator.pop(context);
-            GoRouter.of(context).push('/VideoPage');
+            GoRouter.of(context).push('/DashboardPage');
           } else if (state is LoginFailure) {
             Navigator.pop(context);
             ScaffoldMessenger.of(context).showSnackBar(

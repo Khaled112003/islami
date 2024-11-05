@@ -7,19 +7,29 @@ class ProfileRepo {
   final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
   final FirebaseStorage _firebaseStorage = FirebaseStorage.instance;
 
-  // دالة لرفع صورة الملف الشخصي
-  Future<String?> uploadProfileImage(File imageFile, String uid) async {
+  Future<UserModel?> uploadProfileImage(File imageFile, String uid) async {
     try {
+      // رفع الصورة إلى Firebase Storage
       final storageRef = _firebaseStorage.ref().child('profile_images/$uid.jpg');
       await storageRef.putFile(imageFile);
-      return await storageRef.getDownloadURL();
+
+      // الحصول على رابط الصورة
+      final photoUrl = await storageRef.getDownloadURL();
+
+      // تحديث رابط الصورة في Firestore
+      await _firebaseFirestore.collection('user').doc(uid).update({
+        'photoUrl': photoUrl,
+      });
+
+      // استرجاع بيانات المستخدم المحدثة من Firestore
+      final updatedUserDoc = await _firebaseFirestore.collection('user').doc(uid).get();
+      return UserModel.fromMap(updatedUserDoc.data()!);
     } catch (e) {
-      print("Error uploading image: $e");
+      print("Error uploading image or updating Firestore: $e");
       return null;
     }
   }
 
-  // دالة لاسترجاع بيانات المستخدم من Firestore
   Future<UserModel> getUserData(String uid) async {
     final docSnapshot = await _firebaseFirestore.collection('user').doc(uid).get();
     if (docSnapshot.exists) {

@@ -36,12 +36,14 @@ import 'package:islami/Features/video/presentation/manger/video/video_cubit.dart
 import 'package:islami/Features/video/presentation/views/video_page.dart';
 
 import 'package:islami/core/utilitis/singleton_pattern.dart';
+import 'package:islami/onboarding/presentation/views/onbordingpage.dart';
+import 'package:islami/onboarding/presentation/views/widgets/body/onbording_body.dart';
 
 import '../../Features/forget_pass/data/repo/forget_pass_repo.dart';
 
 final router = GoRouter(routes: [
   GoRoute(
-    path: '/',
+    path: '/DashboardPage',
     builder: (context, state) => MultiBlocProvider(
       providers: [
         BlocProvider<PrayerTimeCubit>(
@@ -55,7 +57,7 @@ final router = GoRouter(routes: [
           create: (context) => SurahCubit(getIt.get<SurahRepo>()),
         ),
       ],
-      child:const DashboardPage(),
+      child: const DashboardPage(),
     ),
   ),
   GoRoute(
@@ -126,13 +128,16 @@ final router = GoRouter(routes: [
   ),
   GoRoute(
     path: '/ForgerPasswordPage',
-    builder: (context, state) =>  BlocProvider(
+    builder: (context, state) => BlocProvider(
       create: (context) => EmailVerificationCubit(getIt.get<ForgetPassRepo>()),
       child: const ForgerPasswordPage(),
     ),
   ),
-  GoRoute(
+ GoRoute(
     path: '/ProfilePage',
     builder: (context, state) => const ProfilePage(),
+  ),GoRoute(
+    path: '/',
+    builder: (context, state) =>  OnbordingPage(),
   ),
 ]);

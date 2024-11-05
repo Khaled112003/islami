@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class InformationItem extends StatelessWidget {
-  const InformationItem({
+class UserInformation extends StatelessWidget {
+  const UserInformation({
     super.key,
     required this.name,
   });
