@@ -16,8 +16,8 @@ final class AudioFailure extends AudioState {
   const AudioFailure(this.errorMassage);
 }
 
-final class AudioSuccsess extends AudioState {
+ class AudioSuccsess extends AudioState {
   final List<AudioModel> filteredAudioes;
-  List<AudioModel> audio;
-  AudioSuccsess(this.audio, this.filteredAudioes);
+ final List<AudioModel> audio;
+ const AudioSuccsess(this.audio, this.filteredAudioes);
 }

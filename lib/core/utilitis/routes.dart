@@ -37,7 +37,6 @@ import 'package:islami/Features/video/presentation/views/video_page.dart';
 
 import 'package:islami/core/utilitis/singleton_pattern.dart';
 import 'package:islami/onboarding/presentation/views/onbordingpage.dart';
-import 'package:islami/onboarding/presentation/views/widgets/body/onbording_body.dart';
 
 import '../../Features/forget_pass/data/repo/forget_pass_repo.dart';
 

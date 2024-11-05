@@ -23,7 +23,6 @@ class DoaaCubit extends Cubit<DoaaState> {
 
   void getNextDoaa() {
     if (state is DoaaSuccess) {
-      final currentState = state as DoaaSuccess;
       if (currentDoaaIndex < totalDoaaCount) {
         currentDoaaIndex++;
         fetchDoaaData();

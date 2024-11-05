@@ -16,7 +16,7 @@ final class VideoFailure extends VideoState {
   const VideoFailure(this.errorMassage);
 }
 
-final class VideoSuccsess extends VideoState {
-  List<VideosModel> video;
-  VideoSuccsess(this.video);
+ class VideoSuccsess extends VideoState {
+ final List<VideosModel> video;
+ const VideoSuccsess(this.video);
 }
