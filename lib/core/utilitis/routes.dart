@@ -36,6 +36,7 @@ import 'package:islami/Features/video/presentation/manger/video/video_cubit.dart
 import 'package:islami/Features/video/presentation/views/video_page.dart';
 
 import 'package:islami/core/utilitis/singleton_pattern.dart';
+import 'package:islami/onboarding/presentation/manger/OnbordingCubit.dart';
 import 'package:islami/onboarding/presentation/views/onbordingpage.dart';
 
 import '../../Features/forget_pass/data/repo/forget_pass_repo.dart';
@@ -132,11 +133,15 @@ final router = GoRouter(routes: [
       child: const ForgerPasswordPage(),
     ),
   ),
- GoRoute(
+  GoRoute(
     path: '/ProfilePage',
     builder: (context, state) => const ProfilePage(),
-  ),GoRoute(
+  ),
+  GoRoute(
     path: '/',
-    builder: (context, state) =>  OnbordingPage(),
+    builder: (context, state) =>  BlocProvider(
+      create: (context) => OnbordingCubit(),
+      child:const OnbordingPage(),
+    ),
   ),
 ]);

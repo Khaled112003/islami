@@ -2,22 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../manger/onbordingcontrolstate.dart';
-import '../../../manger/onbordingcubit.dart';
+import '../../../manger/OnbordingCubit.dart';
 
 class OnbordingButton extends StatelessWidget {
   const OnbordingButton({
     required this.controler,
     super.key,
   });
-  final Onbordingcubit controler;
+  final OnbordingCubit controler;
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<Onbordingcubit>.value(
+    return BlocProvider<OnbordingCubit>.value(
       value: controler,
-      child: BlocBuilder<Onbordingcubit, OnbordingState>(
+      child: BlocBuilder<OnbordingCubit, OnbordingState>(
           builder: (context, state) {
-        Onbordingcubit controler = context.read<Onbordingcubit>();
+        OnbordingCubit controler = context.read<OnbordingCubit>();
 
         return SizedBox(
             height: 120,

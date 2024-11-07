@@ -9,8 +9,8 @@ import 'package:islami/onboarding/data/model/bordingmodel.dart';
 import 'package:islami/onboarding/presentation/manger/onbordingcontrolstate.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class Onbordingcubit extends Cubit<OnbordingState> {
-  Onbordingcubit() : super(Onbordinginitialstate());
+class OnbordingCubit extends Cubit<OnbordingState> {
+  OnbordingCubit() : super(Onbordinginitialstate());
 PageController pageController =PageController();
 
 
@@ -33,8 +33,8 @@ void skip(BuildContext context)async{
 
   List data =[
      
-    onbordinmodel(txt: 'Welcome\n to', txt2: " ElSOOK", image:"assets/images/quran.png" ),
-    onbordinmodel(txt: 'SALE 30%\n on all products', txt2: " ", image:"assets/images/doaa.png"),
+    onbordinmodel(txt: '', txt2: "", image:"assets/images/onboard.png"),
+    onbordinmodel(txt: '', txt2: " ", image:"assets/images/doaa.png"),
     onbordinmodel(txt: "Highest\n quality\n and\n cheapest\n price", txt2: " ", image:'assets/images/doaa.png' )
   ];
 }

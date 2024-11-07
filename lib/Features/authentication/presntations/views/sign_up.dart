@@ -34,7 +34,7 @@ class SignUpPage extends StatelessWidget {
                 
                 LoginWithFaceOrGoogle(),
                 SignUpOrInText(
-                  namePage: '/',
+                  namePage: '/Loginpage',
                   text1: 'Already have an account yet? ',
                   text2: 'Login',
                 )
