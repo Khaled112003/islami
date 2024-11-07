@@ -1,7 +1,10 @@
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dartz/dartz.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:islami/Features/authentication/data/model/user_model.dart';
+import 'package:islami/core/errors/failure.dart';
+import 'package:islami/core/errors/firestor.dart';
 
 class ProfileRepo {
   final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
@@ -30,12 +33,21 @@ class ProfileRepo {
     }
   }
 
-  Future<UserModel> getUserData(String uid) async {
+  Future<Either<Failure, UserModel>> getUserData(String uid) async {
     final docSnapshot = await _firebaseFirestore.collection('user').doc(uid).get();
-    if (docSnapshot.exists) {
-      return UserModel.fromMap(docSnapshot.data()!);
-    } else {
-      throw Exception("User not found");
-    }
+    try {
+  if (docSnapshot.exists) {
+    return right(UserModel.fromMap(docSnapshot.data()!)); 
+    
+  } else {
+    throw Exception("User not found");
+  }
+}   catch (error) {
+ if (error is FirebaseException) {
+        return left(CloudFirestoreFailure.fromFirebaseCoreException(error));
+      } else {
+        return left(Failure (error.toString()));
+      }
+}
   }
 }

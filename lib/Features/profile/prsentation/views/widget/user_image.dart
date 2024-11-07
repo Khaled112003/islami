@@ -1,13 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:islami/Features/profile/prsentation/views/widget/message.dart';
-import 'package:islami/Features/profile/prsentation/views/widget/userd_details.dart';
 import 'package:islami/core/widgets/appbar_item.dart';
-import 'package:islami/core/widgets/button_item.dart';
-import 'inforamtion_item.dart';
 
 class UserImage extends StatelessWidget {
-  const UserImage({Key? key}) :super(key: key);
+  const UserImage({super.key});
 
   @override
   Widget build(BuildContext context) {
