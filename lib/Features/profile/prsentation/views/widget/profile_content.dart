@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:islami/Features/profile/prsentation/views/widget/message.dart';
+import 'package:islami/Features/profile/prsentation/views/widget/userd_details.dart';
 import 'package:islami/core/widgets/appbar_item.dart';
 import 'package:islami/core/widgets/button_item.dart';
 import 'inforamtion_item.dart';
 
-class ProfileContent extends StatelessWidget {
-  const ProfileContent({Key? key}) :super(key: key);
+class UserImage extends StatelessWidget {
+  const UserImage({Key? key}) :super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -49,19 +50,9 @@ class ProfileContent extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 20),
-        const Text(
-          "Username",
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        ),
-        const SizedBox(height: 30),
-        const UserInformation(name: "Username Placeholder"),
-        const UserInformation(name: "Email Placeholder"),
-        const AlertMessage(),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
-          child: ButtonItem(text: 'Save', onPressed: () {}),
-        ),
+       
       ],
     );
   }
 }
+
