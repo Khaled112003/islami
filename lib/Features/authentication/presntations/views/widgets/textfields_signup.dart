@@ -30,7 +30,7 @@ class _SignupTextfieldState extends State<SignupTextfield> {
             );
           } else if (state is SignUpSuccsess) {
             Navigator.pop(context);
-            GoRouter.of(context).push('/VideoPage');
+            GoRouter.of(context).push('/DashboardPage');
           } else if (state is SignUpFailure) {
             Navigator.pop(context);
             ScaffoldMessenger.of(context).showSnackBar(

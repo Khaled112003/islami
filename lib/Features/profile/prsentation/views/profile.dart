@@ -4,20 +4,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:islami/Features/profile/data/repo/profile_repo.dart';
 import 'package:islami/Features/profile/prsentation/views/widget/user_image.dart';
 import 'package:islami/Features/profile/prsentation/views/widget/userd_details.dart';
-import 'package:islami/core/utilitis/singleton_pattern.dart';
 import 'package:islami/core/widgets/button_item.dart';
 
-import '../manger/user_image/profile_cubit.dart';
+import '../manger/user_info/info_cubit.dart';
 
-class ProfilePage extends StatefulWidget {
+class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
 
-  @override
-  State<ProfilePage> createState() => _ProfilePageState();
-}
-
-class _ProfilePageState extends State<ProfilePage> {
-  @override
+ 
   
   @override
   Widget build(BuildContext context) {

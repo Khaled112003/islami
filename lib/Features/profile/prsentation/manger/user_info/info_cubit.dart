@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:islami/Features/profile/data/repo/profile_repo.dart';
-import 'package:islami/Features/profile/prsentation/manger/user_image/profile_state.dart';
+import 'package:islami/Features/profile/prsentation/manger/user_info/info_state.dart';
 
 class InfoCubit extends Cubit<InfoState> {
   final ProfileRepo profileRepo;
