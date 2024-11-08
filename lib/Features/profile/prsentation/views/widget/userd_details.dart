@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:islami/Features/profile/prsentation/manger/user_info/info_cubit.dart';
-import 'package:islami/Features/profile/prsentation/manger/user_info/info_state.dart';
+import 'package:islami/Features/profile/prsentation/manger/user_info/profile_cubit.dart';
+import 'package:islami/Features/profile/prsentation/manger/user_info/profile_state.dart';
 import 'package:islami/Features/profile/prsentation/views/widget/inforamtion_item.dart';
 import 'package:islami/Features/profile/prsentation/views/widget/message.dart';
 import 'package:islami/core/widgets/failure_error_massege.dart';

@@ -6,7 +6,7 @@ import 'package:islami/Features/profile/prsentation/views/widget/user_image.dart
 import 'package:islami/Features/profile/prsentation/views/widget/userd_details.dart';
 import 'package:islami/core/widgets/button_item.dart';
 
-import '../manger/user_info/info_cubit.dart';
+import '../manger/user_info/profile_cubit.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
