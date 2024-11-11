@@ -1,41 +1,17 @@
- 
+import 'package:bloc/bloc.dart';
 
+class OnboardingCubit extends Cubit<int> {
+  OnboardingCubit() : super(0);
 
-import 'package:flutter/material.dart';
-
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
-import 'package:islami/Features/onboarding/data/model/bordingmodel.dart';
-import 'package:islami/Features/onboarding/presentation/manger/onbordingcontrolstate.dart';
-
-import 'package:shared_preferences/shared_preferences.dart';
-
-class OnbordingCubit extends Cubit<OnbordingState> {
-  OnbordingCubit() : super(Onbordinginitialstate());
-PageController pageController =PageController();
-
-
- void next(BuildContext context) async {
-    if (pageController.page == data.length - 1) {
-      final shared = await SharedPreferences.getInstance();
-      await shared.setBool('onbording', true);
-    GoRouter.of(context).go("/SignUpPage");
-    } else {
-      pageController.nextPage(duration: Duration(seconds: 1), curve: Curves.bounceIn);
-    }
+  void nextPage() {
+    if (state < 2) emit(state + 1);
   }
-void skip(BuildContext context)async{
-  final shared=await SharedPreferences.getInstance() ;
-   await shared.setBool('onbording', true);
-   
-  GoRouter.of(context).go("/SignUpPage");
-}
 
+  void previousPage() {
+    if (state > 0) emit(state - 1);
+  }
 
-  List data =[
-     
-    onbordinmodel(txt: '', txt2: "", image:"assets/images/onboard.png"),
-    onbordinmodel(txt: '', txt2: " ", image:"assets/images/doaa.png"),
-    onbordinmodel(txt: "Highest\n quality\n and\n cheapest\n price", txt2: " ", image:'assets/images/doaa.png' )
-  ];
+  void skipToEnd() {
+    emit(2);
+  }
 }

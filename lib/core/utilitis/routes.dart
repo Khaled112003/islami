@@ -141,8 +141,8 @@ final router = GoRouter(routes: [
   GoRoute(
     path: '/',
     builder: (context, state) =>  BlocProvider(
-      create: (context) => OnbordingCubit(),
-      child:const OnbordingPage(),
+      create: (context) => OnboardingCubit(),
+      child: OnboardingScreen(),
     ),
   ),
 ]);
