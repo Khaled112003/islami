@@ -37,19 +37,20 @@ if (error is FirebaseException) {
       }    }
   }
    Future<Either<Failure, File?>> pickImage() async {
-    File? image;
-    try {
-      final pickedFile =
-          await ImagePicker().pickImage(source: ImageSource.gallery);
-      if (pickedFile != null) {
-        image = File(pickedFile.path);
-        return right(image);
-      }
-      return left(Failure("Image picking failed"));
-    } catch (e) {
-      return left(Failure(e.toString()));
+  try {
+    final pickedFile =
+        await ImagePicker().pickImage(source: ImageSource.gallery);
+    if (pickedFile != null) {
+      final image = File(pickedFile.path);
+      return right(image);
+    } else {
+      return left(Failure("No image was selected."));
     }
+  } catch (e) {
+    return left(Failure(e.toString()));
   }
+}
+
 
   Future<Either<Failure, UserModel>> getUserData(String uid) async {
     final docSnapshot = await _firebaseFirestore.collection('user').doc(uid).get();
