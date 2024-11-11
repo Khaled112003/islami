@@ -17,7 +17,7 @@ class ButtonItem extends StatelessWidget {
           color: Mycolors.green,
           borderRadius: BorderRadius.circular(20)),
       child: MaterialButton(
-        onPressed:onPressed,
+        onPressed: onPressed,
         child: Text(
           text,
           style:const TextStyle(

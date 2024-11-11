@@ -14,6 +14,9 @@ class SignUpOrInText extends StatelessWidget {
     },
       child:  Row(mainAxisAlignment: MainAxisAlignment.center,
         children: [
+        
+          
+         
           const SizedBox(
         height:80,
       ),

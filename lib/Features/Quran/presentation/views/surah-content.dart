@@ -5,7 +5,6 @@ import 'package:islami/Features/Quran/data/model/surah_model/surah_model.dart';
 import 'package:islami/Features/Quran/presentation/manger/cubit/ayat_cubit.dart';
 
 import 'package:islami/Features/Quran/presentation/views/widgets/aya-list.dart';
-import 'package:islami/core/utilitis/routes.dart';
 import 'package:islami/core/widgets/appbar_item.dart';
 
 class SurahContent extends StatefulWidget {

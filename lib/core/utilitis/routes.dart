@@ -18,18 +18,28 @@ import 'package:islami/Features/Tasbih/presentation/views/Tasbih.dart';
 import 'package:islami/Features/audios/data/audio_repo.dart';
 import 'package:islami/Features/audios/presentation/manger/audio_cubit.dart';
 import 'package:islami/Features/audios/presentation/views/audio.dart';
+import 'package:islami/Features/authentication/data/repo/auth_repo.dart';
+import 'package:islami/Features/authentication/presntations/manger/login/login_cubit.dart';
+import 'package:islami/Features/authentication/presntations/manger/sing_up/sign_up_cubit.dart';
 import 'package:islami/Features/authentication/presntations/views/login.dart';
 import 'package:islami/Features/authentication/presntations/views/sign_up.dart';
+import 'package:islami/Features/forget_pass/presentation/manger/email_verfiy/email_verification_cubit.dart';
+import 'package:islami/Features/forget_pass/presentation/views/forger_password_page.dart';
 import 'package:islami/Features/home/data/repo/implement_repo.dart';
 import 'package:islami/Features/home/presentation/manger/dashboard/dashboardbody_cubit.dart';
 import 'package:islami/Features/home/presentation/manger/prayertime/prayer_time_cubit.dart';
 import 'package:islami/Features/home/presentation/views/dashboard_page.dart';
 import 'package:islami/Features/libarary/presentation/views/libarary.dart';
+import 'package:islami/Features/profile/prsentation/views/profile.dart';
 import 'package:islami/Features/video/data/repo/video_repo.dart';
 import 'package:islami/Features/video/presentation/manger/video/video_cubit.dart';
 import 'package:islami/Features/video/presentation/views/video_page.dart';
 
 import 'package:islami/core/utilitis/singleton_pattern.dart';
+import 'package:islami/onboarding/presentation/manger/OnbordingCubit.dart';
+import 'package:islami/onboarding/presentation/views/onbordingpage.dart';
+
+import '../../Features/forget_pass/data/repo/forget_pass_repo.dart';
 
 final router = GoRouter(routes: [
   GoRoute(
@@ -47,7 +57,7 @@ final router = GoRouter(routes: [
           create: (context) => SurahCubit(getIt.get<SurahRepo>()),
         ),
       ],
-      child: DashboardPage(),
+      child: const DashboardPage(),
     ),
   ),
   GoRoute(
@@ -103,13 +113,35 @@ final router = GoRouter(routes: [
     ),
   ),
   GoRoute(
-    path: '/',
-    builder: (context, state) => const Loginpage(),
+    path: '/Loginpage',
+    builder: (context, state) => BlocProvider(
+      create: (context) => LoginCubit(getIt.get<AuthRepo>()),
+      child: const Loginpage(),
+    ),
   ),
-   GoRoute(
+  GoRoute(
     path: '/SignUpPage',
-    builder: (context, state) => const SignUpPage(),
+    builder: (context, state) => BlocProvider(
+      create: (context) => SignUpCubit(getIt.get<AuthRepo>()),
+      child: const SignUpPage(),
+    ),
   ),
-
-
+  GoRoute(
+    path: '/ForgerPasswordPage',
+    builder: (context, state) => BlocProvider(
+      create: (context) => EmailVerificationCubit(getIt.get<ForgetPassRepo>()),
+      child: const ForgerPasswordPage(),
+    ),
+  ),
+  GoRoute(
+    path: '/ProfilePage',
+    builder: (context, state) => const ProfilePage(),
+  ),
+  GoRoute(
+    path: '/',
+    builder: (context, state) =>  BlocProvider(
+      create: (context) => OnbordingCubit(),
+      child:const OnbordingPage(),
+    ),
+  ),
 ]);

@@ -11,7 +11,7 @@ class WelcomeMessage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        width: MediaQuery.of(context).size.width * 0.8,
+        width: MediaQuery.of(context).size.width * 0.85,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             color: Mycolors.welcomeColr.withOpacity(0.03)),
@@ -21,7 +21,7 @@ class WelcomeMessage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
            const   SizedBox(
-                height: 70,
+                height: 20,
               ),
               Text(
                text1,
@@ -29,11 +29,13 @@ class WelcomeMessage extends StatelessWidget {
                     fontSize: 28,
                     fontWeight: FontWeight.w900,
                     color: Mycolors.purpleColor),
+              ),const   SizedBox(
+                height: 20,
               ),
               Text(
                text2,
                 style:const TextStyle(
-                    fontSize: 14,
+                    fontSize: 17,
                     
                     color: Color.fromARGB(255, 99, 97, 97)
                     ),

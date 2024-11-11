@@ -26,8 +26,9 @@ class _DashboardBodyState extends State<DashboardBody> {
     return const SafeArea(
       child: Column(
         children: [
+         
           SizedBox(
-            height: 30,
+            height:35,
           ),
           IslamyActivites(),
           SizedBox(
@@ -39,3 +40,4 @@ class _DashboardBodyState extends State<DashboardBody> {
     );
   }
 }
+

@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:islami/Features/Accident/presentation/manger/accident/accident_cubit.dart';
 import 'package:islami/Features/Accident/presentation/views/widgets/accident_item.dart';
-import 'package:islami/core/utilitis/routes.dart';
 import 'package:islami/core/widgets/appbar_item.dart';
 
 import 'widgets/accident_navigationbar.dart';

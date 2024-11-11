@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:islami/Features/authentication/presntations/views/widgets/textfield_signup.dart';
+import 'package:islami/Features/authentication/presntations/views/widgets/email_and_pass.dart';
 import 'package:islami/Features/authentication/presntations/views/widgets/login_face_google.dart';
+import 'package:islami/Features/authentication/presntations/views/widgets/phone_textfild.dart';
 import 'package:islami/Features/authentication/presntations/views/widgets/welcome_message.dart';
 import 'package:islami/core/constant/my_color.dart';
 
@@ -24,11 +25,17 @@ class SignUpPage extends StatelessWidget {
                   text2:
                       "Sign up now and start exploring all that our app has to offer. We're excited to welcome you to our community!",
                 ),
-               SignupTextfield(),
-                
+                EmailAndPass(),
+                PhoneTextField(),
+                SizedBox(
+                  height: 40,
+                ),
+                ButtonItem(
+                  text: "Create Account",
+                ),
                 LoginWithFaceOrGoogle(),
                 SignUpOrInText(
-                  namePage: '/',
+                  namePage: '/Loginpage',
                   text1: 'Already have an account yet? ',
                   text2: 'Login',
                 )
