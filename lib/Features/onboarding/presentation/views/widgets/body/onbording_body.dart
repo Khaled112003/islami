@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:islami/Features/onboarding/presentation/manger/onbordingcubit.dart';
 import 'package:islami/core/constant/my_color.dart';
 import 'package:islami/core/widgets/button_item.dart';
-import 'package:islami/onboarding/presentation/manger/OnbordingCubit.dart';
 
 import '../../../manger/onbordingcontrolstate.dart';
 

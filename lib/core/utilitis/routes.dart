@@ -30,14 +30,15 @@ import 'package:islami/Features/home/presentation/manger/dashboard/dashboardbody
 import 'package:islami/Features/home/presentation/manger/prayertime/prayer_time_cubit.dart';
 import 'package:islami/Features/home/presentation/views/dashboard_page.dart';
 import 'package:islami/Features/libarary/presentation/views/libarary.dart';
+import 'package:islami/Features/onboarding/presentation/manger/onbordingcubit.dart';
+import 'package:islami/Features/onboarding/presentation/views/onbordingpage.dart';
 import 'package:islami/Features/profile/prsentation/views/profile.dart';
 import 'package:islami/Features/video/data/repo/video_repo.dart';
 import 'package:islami/Features/video/presentation/manger/video/video_cubit.dart';
 import 'package:islami/Features/video/presentation/views/video_page.dart';
 
 import 'package:islami/core/utilitis/singleton_pattern.dart';
-import 'package:islami/onboarding/presentation/manger/OnbordingCubit.dart';
-import 'package:islami/onboarding/presentation/views/onbordingpage.dart';
+
 
 import '../../Features/forget_pass/data/repo/forget_pass_repo.dart';
 

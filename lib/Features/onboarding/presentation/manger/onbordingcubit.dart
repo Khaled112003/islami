@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:islami/onboarding/data/model/bordingmodel.dart';
-import 'package:islami/onboarding/presentation/manger/onbordingcontrolstate.dart';
+import 'package:islami/Features/onboarding/data/model/bordingmodel.dart';
+import 'package:islami/Features/onboarding/presentation/manger/onbordingcontrolstate.dart';
+
 import 'package:shared_preferences/shared_preferences.dart';
 
 class OnbordingCubit extends Cubit<OnbordingState> {
