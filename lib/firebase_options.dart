@@ -46,7 +46,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '255379998805',
     projectId: 'islami-31dfd',
     authDomain: 'islami-31dfd.firebaseapp.com',
-    storageBucket: 'islami-31dfd.appspot.com',
+    storageBucket: 'islami-31dfd.firebasestorage.app',
     measurementId: 'G-2THC9FG797',
   );
 
@@ -55,7 +55,7 @@ class DefaultFirebaseOptions {
     appId: '1:255379998805:android:a4b55d8b14e7af87242cdc',
     messagingSenderId: '255379998805',
     projectId: 'islami-31dfd',
-    storageBucket: 'islami-31dfd.appspot.com',
+    storageBucket: 'islami-31dfd.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
@@ -63,7 +63,7 @@ class DefaultFirebaseOptions {
     appId: '1:255379998805:ios:ce8b0d3031849921242cdc',
     messagingSenderId: '255379998805',
     projectId: 'islami-31dfd',
-    storageBucket: 'islami-31dfd.appspot.com',
+    storageBucket: 'islami-31dfd.firebasestorage.app',
     iosBundleId: 'com.example.islami',
   );
 
@@ -72,7 +72,7 @@ class DefaultFirebaseOptions {
     appId: '1:255379998805:ios:ce8b0d3031849921242cdc',
     messagingSenderId: '255379998805',
     projectId: 'islami-31dfd',
-    storageBucket: 'islami-31dfd.appspot.com',
+    storageBucket: 'islami-31dfd.firebasestorage.app',
     iosBundleId: 'com.example.islami',
   );
 
@@ -82,7 +82,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '255379998805',
     projectId: 'islami-31dfd',
     authDomain: 'islami-31dfd.firebaseapp.com',
-    storageBucket: 'islami-31dfd.appspot.com',
+    storageBucket: 'islami-31dfd.firebasestorage.app',
     measurementId: 'G-902MGZCHN2',
   );
+
 }

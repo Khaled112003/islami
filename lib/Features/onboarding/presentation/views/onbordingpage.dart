@@ -1,52 +1,40 @@
+
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
-import 'package:islami/Features/onboarding/presentation/manger/onbordingcubit.dart';
+import 'package:islami/Features/onboarding/presentation/views/widgets/widgets/button_start.dart';
+import 'package:islami/Features/onboarding/presentation/views/widgets/widgets/doctor_logo_text.dart';
+import 'package:islami/Features/onboarding/presentation/views/widgets/widgets/logo_text.dart';
+import 'package:islami/core/constant/manger_style.dart';
+class OnboardingPage extends StatelessWidget {
+  const OnboardingPage({super.key});
 
-import 'widgets/body/onbording_body.dart';
 
-class OnboardingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => OnboardingCubit(),
+    return SafeArea(
       child: Scaffold(
-        body: BlocBuilder<OnboardingCubit, int>(
-          builder: (context, state) {
-            return Column(
+        body: Padding(
+          padding: EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+          child:  SingleChildScrollView(
+            child: Column(
               children: [
-                Expanded(child: OnboardingContent(screenIndex: state)),
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Visibility(
-                        visible: state > 0,
-                        child: TextButton(
-                          onPressed: () => context.read<OnboardingCubit>().previousPage(),
-                          child: Text("رجوع", style: TextStyle(color: Colors.blue)),
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          if (state == 2) {
-                           GoRouter.of(context).go('/Loginpage');
-                          } else {
-                            context.read<OnboardingCubit>().nextPage();
-                          }
-                        },
-                        child: Text(state == 2 ? "ابدأ" : "التالي", style: TextStyle(color: Colors.blue)),
-                      ),
-                    ],
-                  ),
+              // const  LogoAndText(),
+               const DoctorAndlogAndText(),
+                Text(
+                  'Simplify your religious and organizational life with the Islami app. Easily manage and schedule all your Islamic appointments, from prayer times to religious lectures and Islamic events, for a unique experience.',
+                  textAlign: TextAlign.center,style: MangerStyle.font400wSize10,
                 ),
+                SizedBox(height: 20,),
+              const  ItemButtonStarted()
               ],
-            );
-          },
+            ),
+          ),
         ),
       ),
     );
   }
 }
+
+
+
+
 

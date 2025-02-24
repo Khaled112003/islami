@@ -47,16 +47,10 @@ final router = GoRouter(routes: [
     path: '/DashboardPage',
     builder: (context, state) => MultiBlocProvider(
       providers: [
-        BlocProvider<PrayerTimeCubit>(
-          create: (context) =>
-              PrayerTimeCubit(getIt.get<ImplementionPrayerTimeRepo>()),
-        ),
         BlocProvider<DashboardCubit>(
           create: (context) => DashboardCubit(),
         ),
-        BlocProvider<SurahCubit>(
-          create: (context) => SurahCubit(getIt.get<SurahRepo>()),
-        ),
+        
       ],
       child: const DashboardPage(),
     ),
@@ -142,7 +136,7 @@ final router = GoRouter(routes: [
     path: '/',
     builder: (context, state) =>  BlocProvider(
       create: (context) => OnboardingCubit(),
-      child: OnboardingScreen(),
+      child: OnboardingPage(),
     ),
   ),
 ]);
