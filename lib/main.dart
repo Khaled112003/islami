@@ -4,13 +4,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:islami/Features/home/presentation/manger/dashboard/dashboardbody_cubit.dart';
 
 import 'package:islami/core/constant/my_color.dart';
+import 'package:islami/core/utilitis/local_notification.dart';
 import 'package:islami/core/utilitis/routes.dart';
 import 'package:islami/core/utilitis/shared_Preferences.dart';
 import 'package:islami/core/utilitis/singleton_pattern.dart';
+import 'package:islami/core/utilitis/work_manger.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SharedPrefsHelper.init();
+   await LocalNotificationService.init();
+   await WorkManagerService().init(); 
   await _initializeFirebase();
   setup();
   runApp(const IslamiApp());

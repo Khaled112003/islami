@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami/Features/onboarding/presentation/views/widgets/widgets/button_start.dart';
 import 'package:islami/Features/onboarding/presentation/views/widgets/widgets/doctor_logo_text.dart';
-import 'package:islami/Features/onboarding/presentation/views/widgets/widgets/logo_text.dart';
 import 'package:islami/core/constant/manger_style.dart';
 class OnboardingPage extends StatelessWidget {
   const OnboardingPage({super.key});

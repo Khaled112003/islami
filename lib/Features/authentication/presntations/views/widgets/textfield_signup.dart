@@ -87,7 +87,7 @@ class _SignupTextfieldState extends State<SignupTextfield> {
           ButtonItem(
             onPressed: () {
               if (formKey.currentState!.validate()) {
-                context.pop();
+                context.push("/DashboardPage");
               }
             },
             text: "Create Account",

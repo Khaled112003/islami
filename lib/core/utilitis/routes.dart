@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:islami/Features/Accident/data/repo/accident_repo.dart';
@@ -23,6 +24,7 @@ import 'package:islami/Features/authentication/presntations/manger/login/login_c
 import 'package:islami/Features/authentication/presntations/manger/sing_up/sign_up_cubit.dart';
 import 'package:islami/Features/authentication/presntations/views/login.dart';
 import 'package:islami/Features/authentication/presntations/views/sign_up.dart';
+import 'package:islami/Features/azkar/ui/azkar_page.dart';
 import 'package:islami/Features/forget_pass/presentation/manger/email_verfiy/email_verification_cubit.dart';
 import 'package:islami/Features/forget_pass/presentation/views/forger_password_page.dart';
 import 'package:islami/Features/home/data/repo/implement_repo.dart';
@@ -41,16 +43,26 @@ import 'package:islami/core/utilitis/singleton_pattern.dart';
 
 
 import '../../Features/forget_pass/data/repo/forget_pass_repo.dart';
+final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
-final router = GoRouter(routes: [
-  GoRoute(
-    path: '/DashboardPage',
+final router = GoRouter(
+  navigatorKey: navigatorKey,
+  routes: [
+  
+ GoRoute(
+    path: '/',
     builder: (context, state) => MultiBlocProvider(
       providers: [
+        BlocProvider<PrayerTimeCubit>(
+          create: (context) =>
+              PrayerTimeCubit(getIt.get<ImplementionPrayerTimeRepo>()),
+        ),
         BlocProvider<DashboardCubit>(
           create: (context) => DashboardCubit(),
         ),
-        
+        BlocProvider<SurahCubit>(
+          create: (context) => SurahCubit(getIt.get<SurahRepo>()),
+        ),
       ],
       child: const DashboardPage(),
     ),
@@ -133,10 +145,16 @@ final router = GoRouter(routes: [
     builder: (context, state) => const ProfilePage(),
   ),
   GoRoute(
-    path: '/',
+    path: '/ljg',
     builder: (context, state) =>  BlocProvider(
       create: (context) => OnboardingCubit(),
       child: OnboardingPage(),
     ),
   ),
+  GoRoute(
+    path: '/azkar',
+    builder: (context, state) => const AzkarPage (),
+  ),
+  
+  
 ]);

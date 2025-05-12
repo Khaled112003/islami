@@ -45,6 +45,15 @@ class IslamyActivites extends StatelessWidget {
               text: 'Doaa',
             ),
           ),
+          GestureDetector(
+            onTap: () {
+              GoRouter.of(context).go('/azkar');
+            },
+            child: const ItemImage(
+              image: 'assets/images/fawanes.png',
+              text: 'azkar',
+            ),
+          ),
           const SizedBox(
             height: 40,
           )

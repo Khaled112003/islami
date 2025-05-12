@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:islami/Features/home/data/repo/prayer_time_repo.dart';
+import 'package:islami/core/utilitis/local_notification.dart';
 import 'package:islami/core/utilitis/shared_Preferences.dart';
 import '../../../data/model/prayer_time_model/prayer_time_model.dart';
 
@@ -41,6 +42,11 @@ class PrayerTimeCubit extends Cubit<PrayerTimeState> {
         (adhan) {
           SharedPrefsHelper.saveData(
               "prayer_time_list", adhan.map((e) => e.toJson()).toList());
+
+          // 🔔 جدولة الإشعارات بعد نجاح التحميل
+          scheduleAllAdhanNotifications(adhan[0]);
+          LocalNotificationService.scheduleDailyReminderAt11_55PM();
+
           emit(PrayerTimesuccsess(adhan));
         },
       );
